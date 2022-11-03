@@ -3,14 +3,96 @@
   justify-content: center;
 }
 .M2BannerNav {
-  width: 500px;
-  height: 300px;
+  width: 750px;
+  height: 135px;
   background-color: yellow;
+  background-image: url(/public/banner01.jpg);
+  background-size: 750px 135px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1.5px solid rgb(212, 212, 212);
 }
 .M2Banner {
   position: relative;
+}
+.M2Space {
+  width: 30px;
+}
+.M2LoginPosition {
+  width: 350px;
+  height: 135px;
+  background-color: rgb(252, 252, 252);
+  position: relative;
+  border: 1px solid rgb(236, 236, 236);
+}
+.M2LoginSubMenu {
+  display: flex;
+  font-size: 12px;
+  position: relative;
+  margin-top: 10px;
+  width: 300px;
+  height: 20px;
+}
+.M2Login {
+  position: relative;
+  margin: auto;
+  width: 300px;
+  height: 115px;
+}
+.M2Login > p {
+  font-size: 12px;
+}
+.M2LoginMainBt {
+  background-color: #19ce60;
+  width: 300px;
+  height: 50px;
+  border: 1px solid #15c654;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+.M2LoginLockImg {
+  display: inline-block;
+  background-image: url(/public/navericon.png);
+  background-size: 457px 434px;
+  width: 10px;
+  height: 14px;
+  background-position: -444px -98px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  /* background-color: red; */
+  margin: -1px 1px 1px;
+}
+
+.M2LoginSignUpImg {
+  background-image: url(/public/navericon.png);
+  background-size: 457px 434px;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background-position: -444px -129px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  content: "";
+  margin: 2px 5px 0 0;
+}
+.M2LoginPW {
+  width: 90px;
+  text-align: center;
+}
+.M2LoginID {
+  width: 50px;
+  text-align: center;
+}
+.M2LoginSignUP {
+  position: relative;
+  display: flex;
+  margin-left: 75px;
 }

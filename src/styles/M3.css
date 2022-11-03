@@ -1,0 +1,59 @@
+.M3Section {
+  display: flex;
+  justify-content: center;
+}
+.M3SubNews1 {
+  width: 750px;
+  height: 47px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid rgb(212, 212, 212);
+  background-color: rgb(252, 252, 252);
+  font-size: 14px;
+}
+.M3SubNewsIcon {
+  background-image: url(/public/navericon.png);
+  background-size: 457px 434px;
+  position: relative;
+  top: 0px;
+  left: 10px;
+  display: inline-block;
+  width: 6px;
+  height: 10px;
+  background-position: -444px -380px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  content: "";
+}
+.M3SubNewsHead {
+  font-weight: bold;
+}
+.M3Space {
+  width: 30px;
+}
+.M3SubNews2 {
+  width: 350px;
+  height: 47px;
+  background-color: rgb(252, 252, 252);
+  position: relative;
+  border: 1.5px solid rgb(236, 236, 236);
+}
+.M3SubNews1Point {
+  width: 3px;
+  height: 3px;
+  background-color: rgb(190, 190, 190);
+  margin: auto;
+  margin-left: 5px;
+}
+.M3SubNewsText1 {
+  font-weight: bold;
+  display: flex;
+  margin-right: 5px;
+  color: rgb(54, 104, 212);
+}
+.M3SubNewsText2 {
+  font-weight: bold;
+  margin-right: 5px;
+}

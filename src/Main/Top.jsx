@@ -3,7 +3,7 @@ import "../styles/Top.css";
 // import { Link } from "react-router-dom";
 
 const Top = () => {
-  const [searchVisible, setSearchVisible] = useState(false);
+  const [searchVisible, setSearchVisible] = useState(true);
   const [keyword, setKeyword] = useState("");
   const [keywords, setKeywords] = useState(
     JSON.parse(localStorage.getItem("keywords") || "[]")

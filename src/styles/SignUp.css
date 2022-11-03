@@ -1,0 +1,78 @@
+.SignUpBody {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f5f6f7;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.SignUpMainLogo {
+  display: block;
+  position: relative;
+  margin: auto;
+  top: 42px;
+  left: -8px;
+  width: 240px;
+  height: 44px;
+  background-image: url(/public/naver_logo.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 240px auto;
+  color: transparent;
+  font-size: 0;
+}
+.SignUpMainSection {
+  position: relative;
+  width: 500px;
+  height: 800px;
+  display: flex;
+  top: 100px;
+  /* justify-content: center;
+  align-items: center; */
+  font-size: 15.5px;
+  font-weight: bold;
+  flex-direction: column;
+}
+.SignUpCheckImg {
+  content: "";
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: #f5f6f7 url(/public/check.png) no-repeat 0 0;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  padding-right: 15px;
+  margin-top: 5px;
+}
+.SignUpCheckQAll {
+  display: flex;
+  align-items: center;
+}
+.SignUpQAll {
+  position: relative;
+  width: 415px;
+  height: 40px;
+  cursor: pointer;
+}
+.SignUpCheckQ1 {
+  display: flex;
+  margin-top: 50px;
+}
+.SignUpCheckText {
+  display: flex;
+  align-items: flex-end;
+  margin-top: -50px;
+  position: relative;
+}
+.SignUpCheckSubText1 {
+  color: rgb(0, 190, 0);
+  font-size: 13px;
+  font-weight: 100;
+}
+.SignUpCheckSubText2 {
+  color: rgb(126, 126, 126);
+  font-size: 13px;
+  font-weight: 100;
+}

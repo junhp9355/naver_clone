@@ -1,0 +1,68 @@
+.MySwiper1 {
+  width: 470px;
+  height: 21px;
+  margin-left: 20px;
+}
+.MySwiper2 {
+  margin-top: 6px;
+  margin-left: 15px;
+  width: 310px;
+  height: 35px;
+}
+.swiper2SubNews1 {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  height: 35px;
+}
+.swiper2SubNews1 > p {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.swiperSlash {
+  position: relative;
+  width: 1.5px;
+  height: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: grey;
+  opacity: 0.5;
+}
+.swiper2SubNewsHead {
+  font-weight: bold;
+  font-size: 14px;
+}
+.swiper2SubNews1 > p:last-child {
+  color: blue;
+}
+.swiper2SubNews1 > p:nth-child(4) {
+  font-weight: 600;
+}
+.swiper2SubNewsAmerica {
+  background-image: url(/public/navericon.png);
+  background-size: 457px 434px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-position: -420px -118px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  content: "";
+  margin-right: 7px;
+}
+.swiper2SubNews2 {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  height: 35px;
+}
+.swiper2SubNews2 > p {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.swiper2SubNews2 > p:nth-child(5) {
+  font-weight: 600;
+}
+.swiper2SubNews2 > p:last-child {
+  color: red;
+}
