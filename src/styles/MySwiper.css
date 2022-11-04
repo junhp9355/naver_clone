@@ -6,7 +6,7 @@
 .MySwiper2 {
   margin-top: 6px;
   margin-left: 15px;
-  width: 310px;
+  width: 273px;
   height: 35px;
 }
 .swiper2SubNews1 {
@@ -14,6 +14,7 @@
   align-items: center;
   font-size: 13px;
   height: 35px;
+  width: 270px;
 }
 .swiper2SubNews1 > p {
   margin-left: 3px;
@@ -55,6 +56,7 @@
   align-items: center;
   font-size: 13px;
   height: 35px;
+  width: 270px;
 }
 .swiper2SubNews2 > p {
   margin-left: 3px;
@@ -65,4 +67,105 @@
 }
 .swiper2SubNews2 > p:last-child {
   color: red;
+}
+.SwiperMainBanner1 {
+  width: 750px;
+  height: 135px;
+  background-image: url(/public/banner01.jpg);
+  background-size: 750px 135px;
+  cursor: pointer;
+  position: relative;
+  /* margin-left: 1px;
+  margin-bottom: 5px; */
+  border: 1.5px solid rgb(212, 212, 212);
+}
+.SwiperMainBanner2 {
+  width: 750px;
+  height: 135px;
+  background-image: url(/public/banner02.jpg);
+  background-size: 750px 135px;
+  cursor: pointer;
+  position: relative;
+  /* margin-left: 1px;
+  margin-bottom: 5px; */
+  border: 1.5px solid rgb(212, 212, 212);
+}
+.SwiperMainBanner3 {
+  width: 750px;
+  height: 135px;
+  background-image: url(/public/banner03.jpg);
+  background-size: 750px 135px;
+  cursor: pointer;
+  position: relative;
+  /* margin-left: 1px;
+  margin-bottom: 5px; */
+  border: 1.5px solid rgb(212, 212, 212);
+}
+.swiper2SubNewsHead2 {
+  border: 1.5px solid black;
+  border-radius: 30px;
+  font-size: 12px;
+  width: 36px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper2SubNews3 {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  height: 35px;
+}
+.swiper2SubNews3 > p {
+  margin-left: 10px;
+}
+.swiperNextBt {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgb(212, 212, 212);
+  position: absolute;
+  cursor: pointer;
+  z-index: 999;
+  top: 13px;
+  right: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiperNextBtImg {
+  background-image: url(/public/navericon.png);
+  background-size: 457px 434px;
+  width: 12px;
+  height: 13px;
+  background-position: -448px -390px;
+  background-repeat: no-repeat;
+  position: absolute;
+  content: "next";
+  display: inline-block;
+}
+.swiperPrevBt {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgb(212, 212, 212);
+  position: absolute;
+  cursor: pointer;
+  z-index: 999;
+  top: 13px;
+  right: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiperPrevBtImg {
+  background-image: url(/public/navericon.png);
+  background-size: 457px 434px;
+  display: inline-block;
+  width: 12px;
+  height: 13px;
+  background-position: -405px -72px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  position: absolute;
+  content: "prev";
 }

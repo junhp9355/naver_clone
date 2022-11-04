@@ -1,11 +1,14 @@
 import React from "react";
 import "../styles/M2.css";
 import { Link } from "react-router-dom";
+import MainBanner from "../SwiperComponent/MainBanner";
 
 const M2 = () => {
   return (
     <section className="M2Section">
-      <nav className="M2BannerNav"></nav>
+      <nav className="M2BannerNav">
+        <MainBanner />
+      </nav>
       <div className="M2Space"></div>
       <nav className="M2LoginPosition">
         <div className="M2Login">

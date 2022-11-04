@@ -1,19 +1,12 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, {
-  Navigation,
-  Pagination,
-  Mousewheel,
-  Keyboard,
-  Virtual,
-  Autoplay,
-} from "swiper";
+import SwiperCore, { Navigation, Virtual, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../styles/MySwiper.css";
 
 const M3SubNews1 = () => {
-  SwiperCore.use([Navigation, Autoplay]);
+  SwiperCore.use([Navigation, Autoplay, Virtual]);
   return (
     <div>
       <Swiper
