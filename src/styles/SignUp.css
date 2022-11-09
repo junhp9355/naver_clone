@@ -1,17 +1,18 @@
 .SignUpBody {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: #f5f6f7;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 30px 0 30px 0;
 }
 .SignUpMainLogo {
   display: block;
   position: relative;
   margin: auto;
-  top: 42px;
+  top: 22px;
   left: -8px;
   width: 240px;
   height: 44px;
@@ -21,16 +22,17 @@
   background-size: 240px auto;
   color: transparent;
   font-size: 0;
+  cursor: pointer;
 }
 .SignUpMainSection {
   position: relative;
   width: 500px;
   height: 800px;
   display: flex;
-  top: 100px;
+  top: 70px;
   /* justify-content: center;
   align-items: center; */
-  font-size: 15.5px;
+  font-size: 14px;
   font-weight: bold;
   flex-direction: column;
 }
@@ -41,6 +43,18 @@
   width: 24px;
   height: 24px;
   background: #f5f6f7 url(/public/check.png) no-repeat 0 0;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  padding-right: 15px;
+  margin-top: 5px;
+}
+.SignUpCheckImgClick {
+  content: "";
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: #f5f6f7 url(/public/checkClick.png) no-repeat 0 0;
   background-size: 24px 24px;
   background-repeat: no-repeat;
   padding-right: 15px;
@@ -58,13 +72,13 @@
 }
 .SignUpCheckQ1 {
   display: flex;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .SignUpCheckText {
   display: flex;
-  align-items: flex-end;
-  margin-top: -50px;
+  align-items: center;
   position: relative;
+  margin-top: 5px;
 }
 .SignUpCheckSubText1 {
   color: rgb(0, 190, 0);
@@ -75,4 +89,72 @@
   color: rgb(126, 126, 126);
   font-size: 13px;
   font-weight: 100;
+}
+.CheckForm {
+  width: 453px;
+  height: 90px;
+  margin-top: 15px;
+  overflow-y: scroll;
+  background-color: white;
+  border: 1px solid rgb(209, 209, 209);
+  padding: 15px;
+  font-size: 13px;
+  font-weight: 100;
+}
+.SignUpCheckText02 {
+  font-size: 12px;
+  font-weight: 100;
+  margin-top: 10px;
+  position: relative;
+}
+.SignUpButton {
+  display: flex;
+  width: 480px;
+  justify-content: space-between;
+  margin-top: 100px;
+  position: relative;
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+}
+.SignUpBtCancel {
+  width: 225px;
+  height: 53px;
+  background-color: #8e8e8e;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SignUpBtConfirm {
+  width: 225px;
+  height: 53px;
+  background-color: #03c75a;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SignUpBottomText {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 460px;
+  height: 30px;
+  font-size: 12px;
+  margin-top: 20px;
+}
+.SignUpBottomText > a {
+  text-decoration: underline;
+  margin-left: 10px;
+}
+.CheckClick {
+  color: red;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 25px;
+  font-weight: 500;
+}
+.CheckNone {
+  display: none;
 }

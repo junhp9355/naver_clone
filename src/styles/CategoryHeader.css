@@ -1,0 +1,89 @@
+.CetegoryBody {
+  margin-top: 15px;
+  width: 760px;
+  height: 53px;
+  position: relative;
+}
+.CategorySection {
+  margin-top: 15px;
+  width: 760px;
+  height: 53px;
+  overflow: hidden;
+  position: relative;
+}
+.CategoryNav {
+  width: 949px;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  border-top: 1px solid rgb(202, 202, 202);
+  border-left: 1px solid rgb(202, 202, 202);
+}
+.CategoryNavMoving {
+  width: 949px;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  border-top: 1px solid rgb(202, 202, 202);
+  border-left: 1px solid rgb(202, 202, 202);
+  transform: translateX(-94px);
+}
+.CategoryHeaderBlock {
+  width: 94px;
+  height: 49px;
+  opacity: 0.7;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgb(202, 202, 202);
+}
+.CategoryHeaderNextBt {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 999;
+  top: 10px;
+  right: -18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.CategoryHeaderPrevBt {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 999;
+  top: 10px;
+  left: -18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.CHPrevBtImg {
+  background-image: url(/public/navericon.png);
+  background-size: 457px 434px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-position: -128px -345px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  position: absolute;
+  content: "prev";
+}
+.CHNextImg {
+  background-image: url(/public/navericon.png);
+  background-size: 457px 434px;
+  width: 40px;
+  height: 40px;
+  background-position: -170px -345px;
+  background-repeat: no-repeat;
+  position: absolute;
+  content: "next";
+  display: inline-block;
+}

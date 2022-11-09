@@ -116,6 +116,7 @@
   color: #19ce60;
   font-weight: bold;
   font-size: 14.5px;
+  width: auto;
 }
 .TopCategoryText2 {
   color: #19ce60;
@@ -240,4 +241,8 @@
   width: 70px;
   opacity: 0.5;
   margin-top: 1px;
+}
+.MoreCategoryInfo {
+  border: none;
+  outline: none;
 }

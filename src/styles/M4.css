@@ -21,6 +21,64 @@
   background-color: rgb(252, 252, 252);
   position: relative;
   border: 1.5px solid rgb(236, 236, 236);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.AdvertisementText {
+  width: 1000px;
+  font-size: 15px;
+  margin-left: 50px;
+  color: red;
+  font-weight: bold;
+  animation: Advertisment 1.5s infinite;
+  animation-timing-function: ease;
+}
+.AdvertisementText2 {
+  position: relative;
+  width: 1000px;
+  margin-top: -200px;
+  font-size: 40px;
+  color: red;
+  font-weight: bold;
+  animation: Advertisment2 5s infinite;
+}
+.AdvertisementText3 {
+  position: relative;
+  margin-top: 200px;
+  width: 1000px;
+  font-size: 40px;
+  color: red;
+  font-weight: bold;
+  animation: Advertisment3 5s infinite;
+}
+@keyframes Advertisment {
+  0% {
+    scale: 300%;
+  }
+  50% {
+    scale: 100%;
+  }
+  100% {
+    scale: 300%;
+  }
+}
+@keyframes Advertisment2 {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(800px);
+  }
+}
+@keyframes Advertisment3 {
+  0% {
+    transform: translateX(800px);
+  }
+  100% {
+    transform: translateX(-800px);
+  }
 }
 .M4SubNewsCategoryHeadIcon {
   background-image: url(/public/navericon.png);

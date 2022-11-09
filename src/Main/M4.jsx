@@ -22,7 +22,11 @@ const M4 = () => {
         <M4NewsCategory />
       </nav>
       <div className="M4Space"></div>
-      <nav className="M4SubAdvertisement">광고</nav>
+      <nav className="M4SubAdvertisement">
+        <div className="AdvertisementText2">광고</div>
+        <div className="AdvertisementText">광고 주세요</div>
+        <div className="AdvertisementText3">광고</div>
+      </nav>
     </section>
   );
 };

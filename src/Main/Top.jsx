@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Top.css";
+import Weather from "../SwiperComponent/Weather";
 // import { Link } from "react-router-dom";
 
 const Top = () => {
@@ -172,7 +173,6 @@ const Top = () => {
             TV
             <span className="TopCategoryTVIcon"></span>
           </a>
-
           <a href="#!" className="TopCategoryText3">
             사전
           </a>
@@ -206,14 +206,12 @@ const Top = () => {
           </a>
           <div className="TopCategorySpace" />
           <a href="#!" className="TopCategoryText3">
-            <select name="" id="">
+            <select name="" id="" className="MoreCategoryInfo">
               <option value="">더보기</option>
             </select>
           </a>
           <div className="TopCategorySpace2" />
-          <a href="#!" className="TopCategoryWeather">
-            미세먼지 날씨 정보
-          </a>
+          <Weather />
         </nav>
       </div>
     </section>

@@ -1,0 +1,82 @@
+.MySwiper10 {
+  width: 370px;
+  height: 21px;
+  /* right: -100px; */
+}
+.WeaterSection1 {
+  display: flex;
+}
+.WeatherIcon {
+  background-image: url(/public/weathericon.png);
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  background-position: -31px 0;
+  background-repeat: no-repeat;
+  top: -5px;
+  background-size: 215px 184px;
+  position: relative;
+}
+.WeatherSubInfo {
+  display: flex;
+  font-size: 14px;
+  color: rgb(172, 172, 172);
+}
+.WeatherSubInfo > td:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 10px;
+  color: black;
+  margin-top: -2px;
+}
+.WeatherSubInfo > td:nth-child(2) {
+  color: blue;
+  margin-left: 10px;
+}
+.WeatherSubInfo > td:nth-child(4) {
+  color: red;
+}
+.WeatherSubInfo > td:nth-child(3) {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.WeatherSubInfo > td:last-child {
+  color: rgb(172, 172, 172);
+  margin-left: 10px;
+}
+.WeatherSubInfo td {
+  margin-top: 0px;
+}
+.DustIcon {
+  background-image: url(/public/navericon.png);
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-position: -420px -266px;
+  background-repeat: no-repeat;
+  background-size: 457px 434px;
+  position: relative;
+  margin-left: 10px;
+}
+.DustSection1 {
+  display: flex;
+  font-size: 14px;
+  color: black;
+}
+.DustSection1 > td:nth-child(3) {
+  margin-left: 7px;
+  font-weight: bold;
+}
+.DustSection1 > td:nth-child(4) {
+  margin-left: 10px;
+  margin-right: 10px;
+  opacity: 0.3;
+}
+.DustSection1 > td:nth-child(7) {
+  margin-left: 7px;
+  font-weight: bold;
+}
+.DustSection1 > td:last-child {
+  color: rgb(172, 172, 172);
+  margin-left: 10px;
+}

@@ -1,0 +1,65 @@
+.EnterHead {
+  width: 765px;
+  height: 200px;
+  display: flex;
+}
+.EnterHeadContent01 {
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 25px;
+}
+.EnterThumbnail01 {
+  background-image: url(/public/EnterThumbnail01.jpeg);
+  background-repeat: no-repeat;
+  background-size: 364px 180px;
+  width: 364px;
+  height: 180px;
+  position: relative;
+}
+.EnterHead thead {
+  font-weight: bold;
+  color: rgb(214, 75, 145);
+}
+.EnterHead tbody {
+  font-weight: bold;
+}
+.EnterHead p {
+  margin-top: 0px;
+  opacity: 0.7;
+}
+.EnterHeadSubNav {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.EnterHeadSubContent {
+  display: flex;
+}
+.EnterHeadSubThumbnail01 {
+  background-image: url(/public/EnterThumbnail02.jpeg);
+  background-repeat: no-repeat;
+  background-size: 98px 98px;
+  width: 98px;
+  height: 98px;
+}
+.EnterHeadSubContentText {
+  width: 240px;
+  margin-left: 20px;
+  line-height: 23px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+}
+.EnterHeadSubThumbnail02 {
+  background-image: url(/public/EnterThumbnail03.jpeg);
+  background-repeat: no-repeat;
+  background-size: 98px 98px;
+  width: 98px;
+  height: 98px;
+}
+.EnterHeadSubThumbnail03 {
+  background-image: url(/public/EnterThumbnail04.jpeg);
+  background-repeat: no-repeat;
+  background-size: 98px 98px;
+  width: 98px;
+  height: 98px;
+}

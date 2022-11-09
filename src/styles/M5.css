@@ -1,0 +1,73 @@
+.M5Section {
+  display: flex;
+  justify-content: center;
+}
+.M5Space {
+  width: 30px;
+}
+.M5SubBar {
+  width: 1px;
+  height: 15px;
+  vertical-align: middle;
+  background-color: grey;
+  margin: 0 10px 0 10px;
+  margin-top: 1px;
+  opacity: 0.5;
+}
+.M5ReadCategory {
+  width: 765px;
+  height: 100px;
+  cursor: pointer;
+  /* display: flex; */
+  /* border: 1.5px solid rgb(212, 212, 212); */
+  /* background-color: rgb(252, 252, 252); */
+  /* background-color: red; */
+  font-size: 13px;
+}
+.M5Sopping {
+  width: 350px;
+  height: 314px;
+  background-color: rgb(252, 252, 252);
+  position: relative;
+  border: 1.5px solid rgb(236, 236, 236);
+}
+.M5ReadCategoryHead {
+  display: flex;
+  color: grey;
+  width: 100%;
+  height: 20px;
+  align-items: flex-end;
+}
+.M5ReadCategorySubHead {
+  display: flex;
+  margin-left: 268px;
+}
+.M5ReadCategorySubText {
+  display: flex;
+  font-weight: bold;
+}
+.M5T1 {
+  font-weight: bold;
+  color: black;
+  font-size: 15px;
+  padding-right: 5px;
+}
+.M5T2 {
+  font-weight: 200;
+  padding-left: 5px;
+}
+.M5ReadCategorySubIcon {
+  background-image: url(/public/navericon.png);
+  background-size: 457px 434px;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background-position: -444px -194px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  content: "";
+  margin-top: 4px;
+  vertical-align: -1px;
+  opacity: 0.7;
+  /* padding-right: 5px; */
+}
