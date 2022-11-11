@@ -9,6 +9,7 @@ import SignUp from "./LoginSignUp/SignUp";
 import SignUpMain from "./LoginSignUp/SignUpMain";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <BrowserRouter>
     <Routes>

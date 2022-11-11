@@ -187,4 +187,6 @@
   font-size: 20px;
   top: 1130px;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
