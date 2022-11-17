@@ -1,17 +1,16 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Virtual, Autoplay } from "swiper";
+import SwiperCore, { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../styles/MySwiper.css";
 
 const M3SubNews1 = () => {
-  SwiperCore.use([Navigation, Autoplay, Virtual]);
+  SwiperCore.use([Navigation, Autoplay]);
   return (
     <div>
       <Swiper
         direction="vertical"
-        Virtual
         autoplay={{ delay: 1000 }}
         loop={true}
         slidesPerView={1}

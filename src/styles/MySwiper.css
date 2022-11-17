@@ -14,7 +14,7 @@
   align-items: center;
   font-size: 13px;
   height: 35px;
-  width: 270px;
+  width: 280px;
 }
 .swiper2SubNews1 > p {
   margin-left: 3px;
@@ -128,7 +128,7 @@
   cursor: pointer;
   z-index: 999;
   top: 13px;
-  right: 18px;
+  right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,7 +152,7 @@
   cursor: pointer;
   z-index: 999;
   top: 13px;
-  right: 39px;
+  right: 31px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Virtual, Autoplay, EffectFade } from "swiper";
+import SwiperCore, { Navigation, Autoplay, EffectFade } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
@@ -13,7 +13,7 @@ import { useRef } from "react";
 const M3SubNews1 = () => {
   const [swiper, setSwiper] = useState(null);
   const [mainImageIndex, setMainImageIndex] = useState(0);
-  SwiperCore.use([Navigation, Autoplay, Virtual, EffectFade]);
+  SwiperCore.use([Navigation, Autoplay, EffectFade]);
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 

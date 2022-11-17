@@ -24,12 +24,19 @@
   /* background-color: red; */
   font-size: 13px;
 }
-.M5Sopping {
+.M5Shopping {
   width: 350px;
   height: 314px;
   background-color: rgb(252, 252, 252);
   position: relative;
   border: 1.5px solid rgb(236, 236, 236);
+}
+.M5ShoppingText {
+  width: 350px;
+  height: 314px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .M5ReadCategoryHead {
   display: flex;
@@ -49,11 +56,12 @@
 .M5T1 {
   font-weight: bold;
   color: black;
-  font-size: 15px;
+  font-size: 13px;
   padding-right: 5px;
 }
 .M5T2 {
   font-weight: 200;
+  font-size: 12px;
   padding-left: 5px;
 }
 .M5ReadCategorySubIcon {

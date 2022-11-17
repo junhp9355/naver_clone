@@ -1,12 +1,12 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Virtual, Autoplay, EffectFade } from "swiper";
+import SwiperCore, { Autoplay, EffectFade } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "../styles/MySwiper.css";
 
 const MainBanner = () => {
-  SwiperCore.use([Virtual, Autoplay, EffectFade]);
+  SwiperCore.use([Autoplay, EffectFade]);
   return (
     <div>
       <Swiper

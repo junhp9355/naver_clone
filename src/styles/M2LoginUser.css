@@ -1,0 +1,113 @@
+.M2LoginUserSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 135px;
+}
+.M2LoginUserManinSection {
+  display: flex;
+}
+.M2LoginUserBottmMenu {
+  width: 350px;
+  height: 30px;
+  background-color: rgb(252, 252, 252);
+  border-top: 1px solid rgb(236, 236, 236);
+}
+.M2UserProfileImg {
+  width: 56px;
+  height: 56px;
+  background-color: yellow;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.M2UserMainInfo {
+  margin-left: 20px;
+}
+.M2UserID {
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(22, 22, 22);
+}
+.M2LoginUserSpace {
+  height: 15px;
+}
+.M2Userbar {
+  font-size: 13px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  opacity: 0.7;
+}
+.M2UserFlatform {
+  font-size: 12px;
+  opacity: 0.7;
+}
+.M2UserSubInfo {
+  font-size: 12px;
+  margin-top: 5px;
+}
+.M2UserEmailAdress {
+  font-size: 12px;
+  opacity: 0.5;
+}
+.M2UserMailCount,
+.M2UsermessageCount {
+  color: #03c75a;
+  font-weight: bold;
+  margin-left: 5px;
+}
+.M2Usermessage {
+  margin-left: 10px;
+}
+.M2UserInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 75px;
+}
+.M2LogoutBt {
+  border: 1px solid rgb(168, 168, 168);
+  outline: none;
+  color: white;
+  background-color: rgb(182, 182, 182);
+  border-radius: 30px;
+  font-size: 12px;
+  width: 64px;
+  height: 27px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.M2UserSecurityIcon {
+  background-image: url(/public/usericon.png);
+  background-size: 307px 289px;
+  display: inline-block;
+  width: 9px;
+  height: 13px;
+  background-position: -273px -217px;
+  background-repeat: no-repeat;
+  filter: brightness(0);
+  opacity: 0.5;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-bottom: -2px;
+}
+.M2UserSecurityIcon:hover {
+  filter: brightness(1);
+  opacity: 1;
+}
+.M2UserProfileSetting {
+  background-image: url(/public/usericon.png);
+  position: relative;
+  left: 40px;
+  bottom: -35px;
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  background-position: -50px -249px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  background-size: 307px 289px;
+}

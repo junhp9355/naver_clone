@@ -1,6 +1,5 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Virtual } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -36,8 +35,8 @@ const M4NewsCategory = () => {
       <Swiper>
         <SwiperSlide>
           <section className="swiperM4Page1">
-            <nav>
-              <nav className="swiperM4Line1">
+            <div>
+              <div className="swiperM4Line1">
                 <div className="swiperblock">
                   <img src={NEWScorp01} alt="01" className="swiperM4IMG" />
                 </div>
@@ -56,8 +55,8 @@ const M4NewsCategory = () => {
                 <div className="swiperblock">
                   <img src={NEWScorp06} alt="06" className="swiperM4IMG" />
                 </div>
-              </nav>
-              <nav className="swiperM4Line1">
+              </div>
+              <div className="swiperM4Line1">
                 <div className="swiperblock">
                   <img src={NEWScorp07} alt="07" className="swiperM4IMG" />
                 </div>
@@ -76,8 +75,8 @@ const M4NewsCategory = () => {
                 <div className="swiperblock">
                   <img src={NEWScorp12} alt="12" className="swiperM4IMG" />
                 </div>
-              </nav>
-              <nav className="swiperM4Line1">
+              </div>
+              <div className="swiperM4Line1">
                 <div className="swiperblock">
                   <img src={NEWScorp13} alt="13" className="swiperM4IMG" />
                 </div>
@@ -96,8 +95,8 @@ const M4NewsCategory = () => {
                 <div className="swiperblock">
                   <img src={NEWScorp18} alt="18" className="swiperM4IMG" />
                 </div>
-              </nav>
-              <nav className="swiperM4Line1">
+              </div>
+              <div className="swiperM4Line1">
                 <div className="swiperblock">
                   <img src={NEWScorp19} alt="19" className="swiperM4IMG" />
                 </div>
@@ -116,8 +115,8 @@ const M4NewsCategory = () => {
                 <div className="swiperblock">
                   <img src={NEWScorp24} alt="24" className="swiperM4IMG" />
                 </div>
-              </nav>
-            </nav>
+              </div>
+            </div>
           </section>
         </SwiperSlide>
       </Swiper>

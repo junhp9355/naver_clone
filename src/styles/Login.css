@@ -19,6 +19,7 @@
   width: 155px;
   height: 30px;
   position: relative;
+  cursor: pointer;
 }
 .LoginMain {
   position: relative;
@@ -216,4 +217,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.LoginSignupBt {
+  cursor: pointer;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import { useState } from "react";
 import "../styles/SignUp.css";
@@ -117,7 +118,8 @@ const SignUpMain = () => {
       alert("국가 번호를 선택하지 않았습니다.");
     }
     SendUserData(userid, password, username, birthday, gender, phone, email);
-    // window.location.href = "http://localhost:3000/";
+    alert("회원가입이 완료되었습니다.");
+    window.location.href = "http://localhost:3000/";
   };
 
   console.log("month", global);
@@ -128,7 +130,7 @@ const SignUpMain = () => {
       </nav>
       <form className="SignUpMainSection" onSubmit={onSubmitUserData}>
         <div className="SignUpValueBlock">
-          <thead>아이디</thead>
+          <span>아이디</span>
           <div className="SignUpInputBlock">
             <input
               type="text"
@@ -141,7 +143,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <thead>비밀번호</thead>
+          <span>비밀번호</span>
           <div className="SignUpInputBlock">
             <input
               type="password"
@@ -154,7 +156,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <thead>비밀번호 재확인</thead>
+          <span>비밀번호 재확인</span>
           <div className="SignUpInputBlock">
             <input
               type="password"
@@ -167,7 +169,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <thead>이름</thead>
+          <span>이름</span>
           <div className="SignUpInputBlock">
             <input
               type="text"
@@ -179,7 +181,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <thead>생년월일</thead>
+          <span>생년월일</span>
           <div className="SignUPBirthdayBlock">
             <div className="SignUpInputBirthday">
               <input
@@ -225,7 +227,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <thead>성별</thead>
+          <span>성별</span>
           <div className="SignUpInputBlock">
             <select
               name="gender"
@@ -242,9 +244,9 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <thead>
-            본인 확인 이메일<tbody>(선택)</tbody>
-          </thead>
+          <span>
+            본인 확인 이메일<span>(선택)</span>
+          </span>
           <div className="SignUpInputBlock">
             <input
               type="text"
@@ -256,7 +258,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <thead>휴대전화</thead>
+          <span>휴대전화</span>
           <div className="SignUpInputBlock">
             <select
               name="Globalnumber"

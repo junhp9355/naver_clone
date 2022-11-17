@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Top.css";
 import Weather from "../SwiperComponent/Weather";
-// import { Link } from "react-router-dom";
 
 const Top = () => {
   const [searchVisible, setSearchVisible] = useState(true);
@@ -137,7 +136,7 @@ const Top = () => {
         </div>
       </div>
       <div className="TopCategory">
-        <nav className="TopCategoryPos">
+        <div className="TopCategoryPos">
           <div className="TopCategorySpace" />
           <span className="TopMailIcon" />
           <a href="#!" className="TopCategoryText">
@@ -212,7 +211,7 @@ const Top = () => {
           </a>
           <div className="TopCategorySpace2" />
           <Weather />
-        </nav>
+        </div>
       </div>
     </section>
   );

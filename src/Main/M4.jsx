@@ -5,7 +5,7 @@ import M4NewsCategory from "../SwiperComponent/M4NewsCategory";
 const M4 = () => {
   return (
     <section className="M4Section">
-      <nav className="M4NewsCategory">
+      <div className="M4NewsCategory">
         <div className="M4SubNewsCategory">
           <span className="M4SubNewsCategoryHeadIcon" />
           <div className="M4SubNewsCategoryT1">뉴스스탠드</div>
@@ -20,13 +20,11 @@ const M4 = () => {
           </div>
         </div>
         <M4NewsCategory />
-      </nav>
+      </div>
       <div className="M4Space"></div>
-      <nav className="M4SubAdvertisement">
-        <div className="AdvertisementText2">광고</div>
-        <div className="AdvertisementText">광고 주세요</div>
-        <div className="AdvertisementText3">광고</div>
-      </nav>
+      <div className="M4SubAdvertisement">
+        <div>광고 페이지 구현 예정</div>
+      </div>
     </section>
   );
 };
