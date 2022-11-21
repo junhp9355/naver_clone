@@ -8,6 +8,7 @@ const Login = () => {
   const [userid, setUserid] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useRecoilState(recoilUser);
+  const [fail, setFail] = useState(true);
 
   const onClickSignUpBt = () => {
     window.location.href = "http://localhost:3000/signup";
@@ -32,7 +33,7 @@ const Login = () => {
       setUser(data.data);
       window.location.href = "http://localhost:3000/";
     } catch (e) {
-      alert("아이디 또는 비밀번호가 정확하지 않습니다.");
+      setFail(!fail);
       setPassword("");
     }
   };
@@ -82,7 +83,14 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <button className="LoginMainBt" type="submit">
+        <span className={!fail ? "LoginFailText" : "LoginSuccess"}>
+          아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다.
+          <br /> 입력하신 내용을 다시 확인해주세요.
+        </span>
+        <button
+          className={fail ? "LoginMainBtFail" : "LoginMainBtSuccess"}
+          type="submit"
+        >
           로그인
         </button>
       </form>

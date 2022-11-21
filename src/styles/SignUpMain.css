@@ -6,7 +6,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 480px;
+  padding-bottom: 580px;
   margin-top: -20px;
 }
 .SignUpValueBlock {
@@ -80,7 +80,7 @@
 .SignUpPWIcon {
   display: inline-block;
   position: absolute;
-  top: 50%;
+  top: 40px;
   right: 13px;
   width: 24px;
   height: 24px;
@@ -185,7 +185,7 @@
   font-weight: 600;
   background-color: #03c75a;
   font-size: 20px;
-  top: 1130px;
+  top: 1250px;
   cursor: pointer;
   border: none;
   outline: none;

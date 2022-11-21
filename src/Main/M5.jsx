@@ -2,6 +2,7 @@ import React from "react";
 import CategoryHeader from "../Category/CategoryHeader";
 import Enter from "../Category/Enter";
 import "../styles/M5.css";
+import Shopping01 from "../Shopping/Shopping01";
 
 const M5 = () => {
   return (
@@ -24,7 +25,50 @@ const M5 = () => {
       </div>
       <div className="M5Space"></div>
       <div className="M5Shopping">
-        <div className="M5ShoppingText">쇼핑 페이지 구현 예정</div>
+        <div className="M5ShoppingHeadText">
+          <span className="M5ShoppingNaverIcon"></span>
+          <span>
+            트랜드쇼핑 <span className="M5ShoppingMoveIcon"></span>
+          </span>
+          <div className="M5ShoppingSubHead">
+            <span className="M5ShoppingSubHeadText">상품</span>
+            <span className="M5ShoppingSubHeadText">쇼핑몰</span>
+            <span className="M5ShoppingGreenText">MEN</span>
+          </div>
+        </div>
+        <div className="ShoppingContentMain">
+          <div className="ShoppingContentSection">
+            <div className="ShoppingContentHeadMenu">
+              <div className="ShopContentSection1">
+                <span className="ShopContentBoldText">쿠팡</span>
+                <span className="ShopContentPoint"></span>
+                <span>G마켓</span>
+                <span className="ShopContentPoint"></span>
+                <span>옥션</span>
+                <span className="ShopContentPoint"></span>
+                <span>11번가</span>
+                <span className="ShopContentPoint"></span>
+                <span className="ShopContentBoldText">SSG닷컴</span>
+                <span className="ShopContentPoint"></span>
+                <span>티몬</span>
+              </div>
+              <div className="ShopContentSection2">
+                <span className="ShopContentBoldText">올리브영</span>
+                <span className="ShopContentPoint"></span>
+                <span>위메프</span>
+                <span className="ShopContentPoint"></span>
+                <span>GS샵</span>
+                <span className="ShopContentPoint"></span>
+                <span className="ShopContentBoldText">CJ온스타일</span>
+                <span className="ShopContentPoint"></span>
+                <span>패션플러스</span>
+              </div>
+            </div>
+            <div className="M5ShoppingSlick">
+              <Shopping01 />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

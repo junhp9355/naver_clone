@@ -22,29 +22,29 @@
   font-size: 14px;
   color: rgb(172, 172, 172);
 }
-.WeatherSubInfo > td:first-child {
+.WeatherSubInfo > span:first-child {
   font-weight: bold;
   font-size: 16px;
   margin-left: 10px;
   color: black;
   margin-top: -2px;
 }
-.WeatherSubInfo > td:nth-child(2) {
+.WeatherSubInfo > span:nth-child(2) {
   color: blue;
   margin-left: 10px;
 }
-.WeatherSubInfo > td:nth-child(4) {
+.WeatherSubInfo > span:nth-child(4) {
   color: red;
 }
-.WeatherSubInfo > td:nth-child(3) {
+.WeatherSubInfo > span:nth-child(3) {
   margin-left: 3px;
   margin-right: 3px;
 }
-.WeatherSubInfo > td:last-child {
+.WeatherSubInfo > span:last-child {
   color: rgb(172, 172, 172);
   margin-left: 10px;
 }
-.WeatherSubInfo td {
+.WeatherSubInfo span {
   margin-top: 0px;
 }
 .DustIcon {
@@ -63,20 +63,20 @@
   font-size: 14px;
   color: black;
 }
-.DustSection1 > td:nth-child(3) {
+.DustSection1 > span:nth-child(3) {
   margin-left: 7px;
   font-weight: bold;
 }
-.DustSection1 > td:nth-child(4) {
+.DustSection1 > span:nth-child(4) {
   margin-left: 10px;
   margin-right: 10px;
   opacity: 0.3;
 }
-.DustSection1 > td:nth-child(7) {
+.DustSection1 > span:nth-child(7) {
   margin-left: 7px;
   font-weight: bold;
 }
-.DustSection1 > td:last-child {
+.DustSection1 > span:last-child {
   color: rgb(172, 172, 172);
   margin-left: 10px;
 }

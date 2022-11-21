@@ -1,0 +1,66 @@
+.Shopping01Main {
+  position: relative;
+  width: 349px;
+  height: 700px;
+}
+.ShoppingPrevArrowBt {
+  width: 29px;
+  height: 29px;
+  border: 1px solid rgb(236, 236, 236);
+  position: relative;
+  top: -14px;
+  left: 280px;
+}
+.ShoppingNextArrowBt {
+  width: 29px;
+  height: 29px;
+  border: 1px solid rgb(236, 236, 236);
+  position: relative;
+  bottom: 845px;
+  left: 310px;
+}
+.ShoppingPrevArrow {
+  background-image: url(/public/shoppinicon.png);
+  width: 5px;
+  height: 9px;
+  display: inline-block;
+  background-size: 129px 101px;
+  background-position: -116px -60px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  margin: 9px 12px 9px 10px;
+}
+.ShoppingNextArrow {
+  background-image: url(/public/shoppinicon.png);
+  background-size: 129px 101px;
+  display: inline-block;
+  width: 5px;
+  height: 9px;
+  background-position: -109px -60px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  margin: 9px 10px 9px 12px;
+}
+.ShoppingPageNum1 {
+  font-size: 14px;
+  width: 50px;
+  height: auto;
+  position: absolute;
+  display: inline-block;
+  margin-left: 230px;
+  top: -8px;
+  font-weight: bold;
+}
+.ShoppingPageNum2 {
+  font-weight: 300;
+}
+.ShoppingPageNum3 {
+  font-size: 14px;
+  width: 50px;
+  height: auto;
+  position: absolute;
+  display: inline-block;
+  top: 670px;
+  left: 160px;
+  font-weight: bold;
+}

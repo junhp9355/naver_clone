@@ -33,7 +33,7 @@ const M2 = () => {
                 </span>
                 <div className="M2UserMainInfo">
                   <div className="M2UserInfo">
-                    <span className="M2UserID">{user.userid}</span>
+                    <span className="M2UserID">{user.nickname}</span>
                     <span className="M2Userbar">|</span>
                     <span className="M2UserFlatform">네이버ID</span>
                     <span className="M2UserSecurityIcon"></span>

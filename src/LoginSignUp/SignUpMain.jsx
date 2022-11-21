@@ -16,6 +16,7 @@ const SignUpMain = () => {
   const [email, setEmail] = useState("");
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
+  const [nickname, setNickname] = useState("");
   const [day, setDay] = useState("");
   const [global, setGlobal] = useState("");
   const [error, setError] = useState(null);
@@ -30,6 +31,10 @@ const SignUpMain = () => {
 
   const onChangeID = (e) => {
     setUserID(e.target.value);
+  };
+
+  const onChangeNickname = (e) => {
+    setNickname(e.target.value);
   };
 
   const onChangeRePW1 = (e) => {
@@ -79,7 +84,8 @@ const SignUpMain = () => {
     birthday,
     gender,
     phone,
-    email
+    email,
+    nickname
   ) => {
     try {
       const data = await axios.post("http://localhost:8180/v1/sign", {
@@ -90,8 +96,11 @@ const SignUpMain = () => {
         gender,
         phone,
         email,
+        nickname,
       });
       setUserdata(data.data);
+      alert("회원가입이 완료되었습니다.");
+      window.location.href = "http://localhost:3000/";
     } catch (e) {
       setError(e);
     }
@@ -102,24 +111,28 @@ const SignUpMain = () => {
       alert("아이디를 입력하지 않았습니다.");
     } else if (userid.length < 2) {
       alert("아이디는 최소 2글자 이상이어야 합니다.");
-    }
-    if (repassword1 !== repassword2) {
+    } else if (repassword1 !== repassword2) {
       alert("비밀번호가 일치하지 않습니다.");
     } else if (repassword1.length === 0 || repassword1.length < 4) {
       alert("비밀번호는 최소 4글자 이상이어야 합니다.");
-    }
-    if (month.length === 0 || month === "none") {
+    } else if (month.length === 0 || month === "none") {
       alert("생년월일 형식이 잘못되었습니다.");
-    }
-    if (gender.length === 0 || gender === "none") {
+    } else if (gender.length === 0 || gender === "none") {
       alert("성별을 선택하지 않았습니다.");
-    }
-    if (global.length === 0 || global === "none") {
+    } else if (global.length === 0 || global === "none") {
       alert("국가 번호를 선택하지 않았습니다.");
+    } else {
+      SendUserData(
+        userid,
+        password,
+        username,
+        birthday,
+        gender,
+        phone,
+        email,
+        nickname
+      );
     }
-    SendUserData(userid, password, username, birthday, gender, phone, email);
-    alert("회원가입이 완료되었습니다.");
-    window.location.href = "http://localhost:3000/";
   };
 
   console.log("month", global);
@@ -139,6 +152,18 @@ const SignUpMain = () => {
               onChange={onChangeID}
             />
             <span className="SignUpEmailForm">@naver.com</span>
+          </div>
+          <p className="SignUpInputWarning">필수 정보입니다.</p>
+        </div>
+        <div className="SignUpValueBlock">
+          <span>닉네임</span>
+          <div className="SignUpInputBlock">
+            <input
+              type="text"
+              className="SignUpInputValue"
+              value={nickname}
+              onChange={onChangeNickname}
+            />
           </div>
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>

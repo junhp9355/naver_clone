@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/M4.css";
+import M4Advertisment from "../SwiperComponent/M4Advertisment";
 import M4NewsCategory from "../SwiperComponent/M4NewsCategory";
 
 const M4 = () => {
@@ -23,7 +24,7 @@ const M4 = () => {
       </div>
       <div className="M4Space"></div>
       <div className="M4SubAdvertisement">
-        <div>광고 페이지 구현 예정</div>
+        <M4Advertisment />
       </div>
     </section>
   );

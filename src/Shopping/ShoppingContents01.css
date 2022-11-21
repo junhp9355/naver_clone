@@ -1,0 +1,112 @@
+.Shop01ContentMain {
+  position: relative;
+  display: block;
+  width: 349px;
+  height: 800px;
+  margin-left: 8px;
+}
+.Shop01ContentMain > div {
+  margin-right: 6px;
+}
+.ShpoContentSpace {
+  height: 57px;
+}
+.Shop01Content1 {
+  position: relative;
+  display: inline-block;
+  background-image: url(/public/shopping01-09.jpg);
+  background-size: 107px 146px;
+  width: 107px;
+  height: 146px;
+  text-align: center;
+}
+.Shop01Content2 {
+  position: relative;
+  display: inline-block;
+  background-image: url(/public/shopping01-08.jpg);
+  background-size: 107px 146px;
+  width: 107px;
+  height: 146px;
+  text-align: center;
+}
+.Shop01Content3 {
+  position: relative;
+  display: inline-block;
+  background-image: url(/public/shopping01-07.jpg);
+  background-size: 107px 146px;
+  width: 107px;
+  height: 146px;
+  text-align: center;
+}
+.Shop01Content4 {
+  position: relative;
+  display: inline-block;
+  background-image: url(/public/shopping01-06.jpg);
+  background-size: 107px 146px;
+  width: 107px;
+  height: 146px;
+  text-align: center;
+}
+.Shop01Content5 {
+  position: relative;
+  display: inline-block;
+  background-image: url(/public/shopping01-05.jpg);
+  background-size: 107px 146px;
+  width: 107px;
+  height: 146px;
+  text-align: center;
+}
+.Shop01Content6 {
+  position: relative;
+  display: inline-block;
+  background-image: url(/public/shopping01-04.jpg);
+  background-size: 107px 146px;
+  width: 107px;
+  height: 146px;
+  text-align: center;
+}
+.Shop01Content7 {
+  position: relative;
+  display: inline-block;
+  background-image: url(/public/shopping01-03.jpg);
+  background-size: 107px 146px;
+  width: 107px;
+  height: 146px;
+  text-align: center;
+}
+.Shop01Content8 {
+  position: relative;
+  display: inline-block;
+  background-image: url(/public/shopping01-02.jpg);
+  background-size: 107px 146px;
+  width: 107px;
+  height: 146px;
+  text-align: center;
+}
+.Shop01Content9 {
+  position: relative;
+  background-image: url(/public/shopping01-01.jpg);
+  background-size: 107px 146px;
+  display: inline-block;
+  width: 107px;
+  height: 146px;
+  text-align: center;
+}
+.Shop01ContentTextSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 155px;
+}
+.Shop01ContentHeadText {
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+}
+.Shop01ContentText {
+  font-size: 12px;
+  margin-top: 2px;
+  display: block;
+}

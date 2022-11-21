@@ -18,25 +18,7 @@
   width: 765px;
   height: 100px;
   cursor: pointer;
-  /* display: flex; */
-  /* border: 1.5px solid rgb(212, 212, 212); */
-  /* background-color: rgb(252, 252, 252); */
-  /* background-color: red; */
   font-size: 13px;
-}
-.M5Shopping {
-  width: 350px;
-  height: 314px;
-  background-color: rgb(252, 252, 252);
-  position: relative;
-  border: 1.5px solid rgb(236, 236, 236);
-}
-.M5ShoppingText {
-  width: 350px;
-  height: 314px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .M5ReadCategoryHead {
   display: flex;
@@ -78,4 +60,114 @@
   vertical-align: -1px;
   opacity: 0.7;
   /* padding-right: 5px; */
+}
+.M5Shopping {
+  width: 350px;
+  height: 314px;
+  position: relative;
+  display: block;
+  top: -110px;
+}
+.M5ShoppingHeadText {
+  width: 350px;
+  height: 314px;
+  position: relative;
+  font-weight: bold;
+  display: flex;
+  float: left;
+}
+.M5ShoppingNaverIcon {
+  background-image: url(/public/shoppinicon.png);
+  background-size: 129px 101px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-position: -109px -22px;
+  background-repeat: no-repeat;
+  padding-right: 5px;
+  margin-top: 5px;
+}
+.M5ShoppingMoveIcon {
+  background-image: url(/public/shoppinicon.png);
+  background-size: 129px 101px;
+  display: inline-block;
+  width: 5px;
+  height: 9px;
+  background-position: -109px -49px;
+  background-repeat: no-repeat;
+}
+.M5ShoppingSubHead {
+  width: 140px;
+  position: relative;
+  right: -80px;
+  display: flex;
+  justify-content: space-between;
+}
+.M5ShoppingGreenText {
+  color: #03c75a;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.M5ShoppingSubHeadText {
+  cursor: pointer;
+}
+.ShoppingContentMain {
+  position: relative;
+  width: 350px;
+  height: 314px;
+  top: 40px;
+}
+.ShoppingContentHeadMenu {
+  position: absolute;
+  width: 350px;
+  height: 70px;
+  background-color: rgb(252, 252, 252);
+  border-bottom: 1.5px solid rgb(236, 236, 236);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 13px;
+}
+.ShopContentPoint {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: grey;
+  position: relative;
+  display: inline-block;
+  opacity: 0.3;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 8px;
+}
+.ShopContentBoldText {
+  font-weight: bold;
+}
+.ShoppingContentSection {
+  width: 350px;
+  height: 814px;
+  border: 1.5px solid rgb(236, 236, 236);
+}
+.ShopContentSection1 {
+  display: flex;
+  justify-content: space-between;
+  width: 330px;
+  position: relative;
+  top: 15px;
+}
+.ShopContentSection2 {
+  display: flex;
+  justify-content: space-between;
+  width: 330px;
+  position: relative;
+  top: 22px;
+}
+.M5ShoppingSlick {
+  position: absolute;
+  display: flex;
+  width: 350px;
+  height: 200px;
+  /* background-color: red; */
+  top: 100px;
 }

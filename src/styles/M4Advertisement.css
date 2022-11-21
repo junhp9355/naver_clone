@@ -1,0 +1,36 @@
+.M4SwiperAdMain {
+  width: 350px;
+  height: 314px;
+}
+.SwiperAdvertisement01 {
+  background-image: url(/public/advertise01.jpg);
+  display: block;
+  position: absolute;
+  background-size: 350px 200px;
+  width: 350px;
+  height: 200px;
+}
+.SwiperAdvertisement02 {
+  background-image: url(/public/advertise02.jpg);
+  background-size: 350px 200px;
+  display: block;
+  position: absolute;
+  width: 350px;
+  height: 200px;
+}
+.SwiperAdvertisement03 {
+  background-image: url(/public/advertise03.jpg);
+  background-size: 350px 200px;
+  display: block;
+  position: absolute;
+  width: 350px;
+  height: 200px;
+}
+.SwiperAdvertisement04 {
+  background-image: url(/public/advertise04.jpg);
+  background-size: 350px 200px;
+  display: block;
+  position: absolute;
+  width: 350px;
+  height: 200px;
+}
