@@ -4,6 +4,8 @@ import "../MySlick/slick.css";
 import "../MySlick/slick-theme.css";
 import "./Shopping01.css";
 import ShoppingContents01 from "./ShoppingContents01";
+import ShoppingContents02 from "./ShoppingContents02";
+import ShoppingContents03 from "./ShoppingContents03";
 
 const Shopping01 = () => {
   const [page, setPage] = useState(1);
@@ -13,36 +15,42 @@ const Shopping01 = () => {
     }
   };
   const onClickPageNumNext = () => {
-    if (page < 6) {
+    if (page < 3) {
       setPage(page + 1);
     }
   };
-  //   const ArrowonClick = (e) => {
-  //     function clickHandler(options, e) {
-  //       if (e) {
-  //         e.preventDefault();
-  //       }
-  //       this.props.clickHandler(options, e);
-  //     }
-  //   };
   const SampleNextArrow = (props) => {
     const { onClick } = props;
     return (
-      <div className="ShoppingNextArrowBt" onClick={onClick}>
-        <div onClick={onClickPageNumNext}>
-          <div className="ShoppingNextArrow" />
+      <section className="ShoppingArrowSection">
+        <div className="ShoppingNextArrowBt" onClick={onClick}>
+          <div onClick={onClickPageNumNext}>
+            <div className="ShoppingNextArrow" />
+          </div>
         </div>
-      </div>
+        <div className="ShoppingNextArrowBt2" onClick={onClick}>
+          <div onClick={onClickPageNumNext}>
+            <div className="ShoppingNextArrow" />
+          </div>
+        </div>
+      </section>
     );
   };
   const SamplePrevArrow = (props) => {
     const { onClick } = props;
     return (
-      <div className="ShoppingPrevArrowBt" onClick={onClick}>
-        <div onClick={onClickPageNumPrev}>
-          <div className="ShoppingPrevArrow" />
+      <section className="ShoppingArrowSection">
+        <div className="ShoppingPrevArrowBt" onClick={onClick}>
+          <div onClick={onClickPageNumPrev}>
+            <div className="ShoppingPrevArrow" />
+          </div>
         </div>
-      </div>
+        <div className="ShoppingPrevArrowBt2" onClick={onClick}>
+          <div onClick={onClickPageNumPrev}>
+            <div className="ShoppingPrevArrow" />
+          </div>
+        </div>
+      </section>
     );
   };
   const settings = {
@@ -62,42 +70,23 @@ const Shopping01 = () => {
     <div className="Shopping01Main">
       <span className="ShoppingPageNum1">
         {page}
-        <span className="ShoppingPageNum2"> / 6</span>
+        <span className="ShoppingPageNum2"> / 3</span>
       </span>
-      <Slider {...settings}>
-        <div>
+      <Slider {...settings} className="ShoppingSlider">
+        <div className="ShoppingContnts">
           <ShoppingContents01 />
         </div>
-        <div id="02">
-          <h3>2</h3>
+        <div>
+          <ShoppingContents02 />
         </div>
         <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
+          <ShoppingContents03 />
         </div>
       </Slider>
       <span className="ShoppingPageNum3">
         {page}
-        <span className="ShoppingPageNum2"> / 6</span>
+        <span className="ShoppingPageNum2"> / 3</span>
       </span>
-      {/* <div className="ShoppingNextArrowBt">
-        <div onClick={onClickPageNumNext}>
-          <div className="ShoppingNextArrow" />
-        </div>
-      </div>
-      <div className="ShoppingPrevArrowBt">
-        <div onClick={onClickPageNumPrev}>
-          <div className="ShoppingPrevArrow" />
-        </div>
-      </div> */}
     </div>
   );
 };

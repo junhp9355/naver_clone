@@ -1,0 +1,68 @@
+/* .NewsMainContent{
+
+} */
+.NewsIMG {
+  height: 20px;
+  cursor: pointer;
+}
+.Newsblock {
+  width: 125px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.1px solid rgb(236, 236, 236);
+  cursor: pointer;
+}
+.NewsLine1 {
+  display: flex;
+}
+.NewsPage1 {
+  width: 764px;
+  height: 270px;
+}
+.NewsPrevArrowBt {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 115px;
+  left: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+}
+.NewsNextArrowBt {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 115px;
+  left: 740px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+}
+.NewsPrevArrow {
+  background-image: url(/public/navericon.png);
+  background-size: 442px 428px;
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  background-position: -46px -296px;
+  background-repeat: no-repeat;
+}
+.NewsNextArrow {
+  background-image: url(/public/navericon.png);
+  background-size: 442px 428px;
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  background-position: -92px -296px;
+  background-repeat: no-repeat;
+}
+.NoneArrow {
+  display: none;
+}

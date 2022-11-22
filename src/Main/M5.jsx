@@ -1,6 +1,5 @@
 import React from "react";
 import CategoryHeader from "../Category/CategoryHeader";
-import Enter from "../Category/Enter";
 import "../styles/M5.css";
 import Shopping01 from "../Shopping/Shopping01";
 
@@ -20,8 +19,9 @@ const M5 = () => {
             <div className="M5T2">관심주제 설정</div>
           </div>
         </div>
-        <CategoryHeader />
-        <Enter />
+        <div className="M5CategorySection">
+          <CategoryHeader />
+        </div>
       </div>
       <div className="M5Space"></div>
       <div className="M5Shopping">

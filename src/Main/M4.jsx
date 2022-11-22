@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/M4.css";
 import M4Advertisment from "../SwiperComponent/M4Advertisment";
-import M4NewsCategory from "../SwiperComponent/M4NewsCategory";
+import NewsMain from "../NewsContents/NewsMain";
 
 const M4 = () => {
   return (
@@ -20,7 +20,9 @@ const M4 = () => {
             <span className="M4SubNewsSettingIcon"></span>
           </div>
         </div>
-        <M4NewsCategory />
+        <div className="NewMainSection">
+          <NewsMain />
+        </div>
       </div>
       <div className="M4Space"></div>
       <div className="M4SubAdvertisement">

@@ -14,6 +14,10 @@
   margin-top: 1px;
   opacity: 0.5;
 }
+.M5CategorySection {
+  position: relative;
+  height: 1500px;
+}
 .M5ReadCategory {
   width: 765px;
   height: 100px;

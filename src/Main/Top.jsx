@@ -148,7 +148,10 @@ const Top = () => {
             카페
           </a>
           <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText">
+          <a
+            href="https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0"
+            className="TopCategoryText"
+          >
             블로그
           </a>
           <div className="TopCategorySpace" />

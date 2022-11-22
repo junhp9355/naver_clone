@@ -3,6 +3,18 @@
   width: 349px;
   height: 700px;
 }
+.ShoppingArrowSection {
+  position: relative;
+  top: 30px;
+  z-index: 2;
+}
+.ShoppingContnts {
+  position: relative;
+}
+.ShoppingSlider {
+  position: relative;
+  top: -30px;
+}
 .ShoppingPrevArrowBt {
   width: 29px;
   height: 29px;
@@ -10,14 +22,42 @@
   position: relative;
   top: -14px;
   left: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .ShoppingNextArrowBt {
   width: 29px;
   height: 29px;
   border: 1px solid rgb(236, 236, 236);
   position: relative;
-  bottom: 845px;
+  bottom: 876px;
   left: 310px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ShoppingPrevArrowBt2 {
+  width: 29px;
+  height: 29px;
+  border: 1px solid rgb(236, 236, 236);
+  position: relative;
+  top: 634px;
+  left: 107px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ShoppingNextArrowBt2 {
+  width: 29px;
+  height: 29px;
+  border: 1px solid rgb(236, 236, 236);
+  position: relative;
+  bottom: 228px;
+  left: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .ShoppingPrevArrow {
   background-image: url(/public/shoppinicon.png);

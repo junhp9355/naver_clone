@@ -1,6 +1,6 @@
 .EnterHead {
   width: 765px;
-  height: 200px;
+  height: 360px;
   display: flex;
 }
 .EnterHeadContent01 {
@@ -16,14 +16,26 @@
   height: 180px;
   position: relative;
 }
-.EnterHead thead {
+.EnterHeadText01 {
   font-weight: bold;
   color: rgb(214, 75, 145);
 }
-.EnterHead tbody {
+.EnterHeadText02 {
   font-weight: bold;
 }
-.EnterHead p {
+.EnterSubText01 {
+  font-weight: bold;
+  color: rgb(214, 75, 145);
+}
+.EnterSubText02 {
+  font-weight: bold;
+  width: 180px;
+}
+.EnterHeadContentText p {
+  margin-top: 0px;
+  opacity: 0.7;
+}
+.EnterHeadSubContentText p {
   margin-top: 0px;
   opacity: 0.7;
 }
@@ -40,6 +52,13 @@
   background-size: 98px 98px;
   width: 98px;
   height: 98px;
+}
+.EnterHeadContentText {
+  width: 300px;
+  line-height: 23px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
 }
 .EnterHeadSubContentText {
   width: 240px;
@@ -62,4 +81,213 @@
   background-size: 98px 98px;
   width: 98px;
   height: 98px;
+}
+.EnterPlayIcon {
+  background-image: url(/public/navericon.png);
+  background-size: 442px 428px;
+  display: inline-block;
+  width: 20px;
+  height: 23px;
+  background-position: -405px -48px;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 70px;
+  left: 7px;
+}
+.EnterMiddleContentLine {
+  position: relative;
+  width: 750px;
+  height: 250px;
+  top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.EnterMiddleHead {
+  width: 750px;
+  height: 49px;
+  background-color: #f7f9fa;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid #dae1e6;
+}
+.EnterMiddleBar {
+  width: 1px;
+  height: 25px;
+  background-color: gray;
+  opacity: 0.3;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.EnterMiddleSubHead {
+  display: flex;
+  width: 460px;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+.EnterMiddleMainHead {
+  position: relative;
+  margin-left: 25px;
+  color: #e65da0;
+}
+.EnterMiddleContents01 {
+  background-image: url(/public/EnterMiddlethumbnail01.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.EnterMiddleContents02 {
+  background-image: url(/public/EnterMiddlethumbnail02.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.EnterMiddleContents03 {
+  background-image: url(/public/EnterMiddlethumbnail03.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.EnterMiddleContents04 {
+  background-image: url(/public/EnterMiddlethumbnail04.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.EnterMiddleContents05 {
+  background-image: url(/public/EnterMiddlethumbnail05.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.EnterMiddleContents06 {
+  background-image: url(/public/EnterMiddlethumbnail06.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.EnterMiddleContents07 {
+  background-image: url(/public/EnterMiddlethumbnail07.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.EnterMiddleContents08 {
+  background-image: url(/public/EnterMiddlethumbnail08.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.EnterMiddleContents09 {
+  background-image: url(/public/EnterMiddlethumbnail09.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.MiddleContentsPlayIcon {
+  background-image: url(/public/navericon.png);
+  background-size: 442px 428px;
+  display: inline-block;
+  width: 24px;
+  height: 28px;
+  background-position: 0px -382px;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 95px;
+  left: 10px;
+}
+.EnterMiddleContentsText {
+  font-weight: bold;
+  width: 232px;
+  position: relative;
+  top: 10px;
+}
+.MiddleContentsGenre {
+  color: #e65da0;
+}
+.MiddleContentsAD {
+  color: #8f8f8f;
+}
+.MiddleContentsSubText {
+  font-weight: 200;
+}
+.EnterMiddlePoint {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: grey;
+  opacity: 0.5;
+  position: relative;
+  margin-bottom: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.MiddleContentsTitle {
+  position: relative;
+  margin-top: 5px;
+  width: 232px;
+  height: 40px;
+}
+.MiddleADBt {
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes ImgZoom {
+  100% {
+    transform: scale(1.05);
+  }
+  0% {
+    transform: scale(1);
+  }
+}
+
+.EnterMiddleContents:hover {
+  animation: ImgZoom 0.5s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.EnterMdiddleContentsImgBox {
+  width: 232px;
+  height: 130px;
+  overflow: hidden;
+}
+.EnterHeadContentsImgBox {
+  overflow: hidden;
+}
+.EnterThumbnail01:hover {
+  animation: ImgZoom 0.5s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.EntersubContentsImgBox {
+  overflow: hidden;
+}
+.EnterHeadSubThumbnail:hover {
+  animation: ImgZoom 0.5s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 }
