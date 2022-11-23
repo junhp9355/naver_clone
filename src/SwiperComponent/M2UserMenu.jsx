@@ -6,6 +6,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const M2UserMenu = () => {
+  const onClickBlog = () => {
+    window.location.href = "http://localhost:3000/myblog";
+  };
   SwiperCore.use([Navigation]);
   return (
     <div>
@@ -23,7 +26,9 @@ const M2UserMenu = () => {
           <span className="UserMenuSwipeText">카페</span>
         </SwiperSlide>
         <SwiperSlide>
-          <span className="UserMenuSwipeText">블로그</span>
+          <span className="UserMenuSwipeText" onClick={onClickBlog}>
+            블로그
+          </span>
         </SwiperSlide>
         <SwiperSlide>
           <span className="UserMenuSwipeText">페이</span>

@@ -69,12 +69,15 @@
   color: #00c73c;
   font-weight: bold;
 }
+.EditorFunctionSection {
+  display: flex;
+}
 .FunctionSideMenu {
   position: relative;
   width: 150px;
   height: 1000px;
   border-right: 1px solid #dae1e6;
-  padding: 30px;
+  padding: 25px 20px 0;
   font-size: 12px;
 }
 .FunctionTitle {
@@ -88,7 +91,120 @@
 .FunctionText:hover {
   text-decoration: underline;
 }
-.BasicFunction01 {
+.FunctionText:active {
+  color: #00c73c;
+}
+.FunctionText::after {
+  color: #00c73c;
+}
+.BasicFunction {
   display: flex;
   flex-direction: column;
+  width: 150px;
+  height: 90px;
+  border-bottom: 1px solid #dae1e6;
+}
+.FunctionBlogInfoSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 1000px;
+  padding: 35px 40px 70px;
+}
+.FuncBlogInfoTitle {
+  width: 728px;
+  height: 42px;
+  border-bottom: 2px solid black;
+}
+.FuncBlogInfoTitleText {
+  font-size: 20px;
+  font-weight: bold;
+}
+.FuncBlogInfoAddress {
+  display: flex;
+  align-items: center;
+  width: 728px;
+  height: 76px;
+  border-bottom: 1px solid #dae1e6;
+}
+.FuncBlogName {
+  display: flex;
+  align-items: center;
+  width: 728px;
+  height: 76px;
+  border-bottom: 1px solid #dae1e6;
+}
+.FuncNickName {
+  display: flex;
+  align-items: center;
+  width: 728px;
+  height: 76px;
+  border-bottom: 1px solid #dae1e6;
+}
+.FuncBlogIntroduction {
+  display: flex;
+  align-items: center;
+  width: 728px;
+  height: 176px;
+  border-bottom: 1px solid #dae1e6;
+}
+.FuncBlogCategory {
+  display: flex;
+  align-items: center;
+  width: 728px;
+  height: 76px;
+  border-bottom: 1px solid black;
+}
+.FuncSubTitle {
+  width: 138px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.FuncSupportText {
+  width: 285px;
+  color: #8a8a8a;
+  font-size: 13px;
+}
+.FuncEditArea {
+  width: 285px;
+  font-size: 13px;
+}
+.FunctionButtonArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 728px;
+  height: 100px;
+}
+.FunctionSaveBt {
+  width: 80px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #dae1e6;
+  /* box-shadow: 0 0 1px 1px #dae1e6; */
+  cursor: pointer;
+}
+.inputBlogName {
+  width: 260px;
+  height: 25px;
+  border: 1px solid #dae1e6;
+}
+.inputNickName {
+  width: 260px;
+  height: 25px;
+  border: 1px solid #dae1e6;
+}
+.inputBlogIntroduction {
+  width: 260px;
+  height: 125px;
+  border: 1px solid #dae1e6;
+}
+.BlogCategory {
+  width: 265px;
+  height: 35px;
+  border: 1px solid #dae1e6;
 }
