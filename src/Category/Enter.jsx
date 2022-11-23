@@ -201,8 +201,8 @@ const Enter = () => {
             <div className="EnterMiddleContentsText">
               <div className="MiddleContentsGenre">TV 예능</div>
               <div className="MiddleContentsTitle">
-                [선공개] ‘한 명도 키우기 힘든데’ 형부에게 화난 언니 바보 처제! |
-                고딩엄빠2...
+                [선공개] ‘한 명도 키우기 힘든데’ 형부에게 화난 언니 바보
+                처제!...
               </div>
               <div className="MiddleContentsSubText">
                 <span>고딩엄빠2</span>

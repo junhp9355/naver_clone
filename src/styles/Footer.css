@@ -1,0 +1,236 @@
+.Footer {
+  position: relative;
+  bottom: -980px;
+  background-color: #fdfdfd;
+  width: 100vw;
+  height: 423px;
+  border-top: 1px solid #e4e8eb;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.FooterBanner {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e4e8eb;
+  height: 135px;
+  width: 1130px;
+}
+.FooterBannerFix {
+  overflow: hidden;
+}
+.FooterBannerPos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.FooterBannerTextPos {
+  display: flex;
+  flex-direction: column;
+  width: 172px;
+  height: 86px;
+  font-size: 13px;
+  margin-left: 15px;
+}
+.FooterBannerImg01 {
+  background-image: url(/public/footerBanner01.jpg);
+  background-repeat: no-repeat;
+  background-size: 160px 86px;
+  width: 160px;
+  height: 86px;
+  display: block;
+}
+.FooterBannerImg01:hover {
+  animation: FooterBannerZoom 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.FooterBannerImg02 {
+  background-image: url(/public/footerBanner02.jpg);
+  background-repeat: no-repeat;
+  background-size: 160px 86px;
+  width: 160px;
+  height: 86px;
+  display: block;
+}
+.FooterBannerImg02:hover {
+  animation: FooterBannerZoom 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.FooterBannerImg03 {
+  background-image: url(/public/footerBanner03.jpg);
+  background-repeat: no-repeat;
+  background-size: 160px 86px;
+  width: 160px;
+  height: 86px;
+  display: block;
+}
+.FooterBannerImg03:hover {
+  animation: FooterBannerZoom 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.FooterBannerTitle {
+  display: block;
+  position: relative;
+  width: 172px;
+  height: 15px;
+  color: #58c464;
+  font-weight: bold;
+  margin-top: 2px;
+}
+.FooterBannerSubTitle {
+  display: block;
+  position: relative;
+  width: 172px;
+  height: 15px;
+  font-weight: bold;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.FooterBannerSubTitle:hover {
+  text-decoration: underline;
+}
+.FooterBannerText {
+  display: block;
+  position: relative;
+  width: 172px;
+  height: 36px;
+  font-size: 13px;
+}
+@keyframes FooterBannerZoom {
+  100% {
+    transform: scale(1.05);
+  }
+  0% {
+    transform: scale(1);
+  }
+}
+.FooterNotice {
+  display: flex;
+  justify-content: space-between;
+  width: 1130px;
+  height: 48px;
+  font-size: 13px;
+  font-weight: bold;
+  align-items: center;
+  border-bottom: 1px solid #e4e8eb;
+}
+.LinkIcon {
+  background-image: url(/public/navericon.png);
+  background-size: 442px 428px;
+  display: inline-block;
+  width: 8px;
+  height: 12px;
+  background-position: -430px -300px;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+  position: relative;
+  top: 1px;
+}
+.WhaleServiceImg {
+  background-image: url(/public/footerservice01.png);
+  background-repeat: no-repeat;
+  background-size: 47px 50px;
+  width: 47px;
+  height: 50px;
+  display: block;
+  position: relative;
+}
+.FlowerServiceImg {
+  background-image: url(/public/footerservice02.png);
+  background-repeat: no-repeat;
+  background-size: 47px 50px;
+  width: 47px;
+  height: 50px;
+  display: block;
+  position: relative;
+}
+.FooterInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 1130px;
+  height: 106px;
+  font-size: 13px;
+  font-weight: bold;
+  align-items: center;
+  border-bottom: 1px solid #e4e8eb;
+}
+.FooterInfoTextPos {
+  display: flex;
+  flex-direction: column;
+  width: 780px;
+}
+.FooterInfoContents {
+  position: relative;
+  display: flex;
+  width: 780px;
+  height: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.FooterInfoSubTitle {
+  display: flex;
+  position: relative;
+  color: #777777;
+  margin-left: 5px;
+  font-weight: 300;
+}
+.FooterInfoSpace {
+  width: 20px;
+}
+.FooterInfoBar {
+  position: relative;
+  width: 1px;
+  height: 11px;
+  opacity: 0.3;
+  background-color: #777777;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+.FooterInfoTitle {
+  width: 87px;
+}
+.FooterInfoService {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+}
+.ServiceContents {
+  display: flex;
+  justify-content: space-between;
+  width: 136px;
+  height: 48px;
+}
+.ServiceContentsTextPos {
+  display: flex;
+  flex-direction: column;
+}
+.ServiceContentSubTitle {
+  color: #777777;
+  font-weight: 300;
+}
+.FooterPublic {
+  display: flex;
+  align-items: center;
+  width: 1130px;
+  height: 70px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #777777;
+}
+.FooterPublicTitle {
+  font-weight: bold;
+  margin-left: 15px;
+  color: black;
+}
+.FooterSpace {
+  height: 80px;
+}
+.FooterPublicText2 {
+  font-weight: bold;
+}

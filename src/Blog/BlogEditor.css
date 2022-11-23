@@ -1,0 +1,94 @@
+.EditorTopArea {
+  position: absolute;
+  width: 100vw;
+  height: 54px;
+  top: 0;
+  left: 0;
+  background-color: #00c73c;
+  display: flex;
+  align-items: center;
+}
+.EditorTopLogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  position: relative;
+  left: 20px;
+}
+.EditorNaverLogo {
+  background-image: url(/public/naverbloglogo.svg);
+  background-size: 26px 26px;
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+.EditorBlogLogo {
+  background-image: url(/public/blogLogo.svg);
+  background-size: 48px 26px;
+  background-repeat: no-repeat;
+  width: 48px;
+  height: 26px;
+  margin-top: 5px;
+  display: block;
+  position: relative;
+}
+.EditorTopBar {
+  width: 1px;
+  height: 21px;
+  background-color: white;
+  opacity: 0.5;
+  margin-left: 7px;
+  margin-right: 5px;
+}
+.EditorTopTitle {
+  color: white;
+  font-size: 20px;
+}
+.EditorSection {
+  position: relative;
+  width: 100vw;
+  height: 1000px;
+  top: 45px;
+  left: -5px;
+}
+.EditorMainMenuSection {
+  display: flex;
+  width: 100vw;
+  height: 40px;
+  border-bottom: 1px solid #dae1e6;
+  position: relative;
+  align-items: center;
+}
+.EditorMainMenu {
+  font-size: 14px;
+  margin-left: 20px;
+}
+.EditorMainMenu:hover {
+  color: #00c73c;
+  font-weight: bold;
+}
+.FunctionSideMenu {
+  position: relative;
+  width: 150px;
+  height: 1000px;
+  border-right: 1px solid #dae1e6;
+  padding: 30px;
+  font-size: 12px;
+}
+.FunctionTitle {
+  font-size: 13px;
+  font-weight: bold;
+  height: 27px;
+}
+.FunctionText {
+  height: 20px;
+}
+.FunctionText:hover {
+  text-decoration: underline;
+}
+.BasicFunction01 {
+  display: flex;
+  flex-direction: column;
+}

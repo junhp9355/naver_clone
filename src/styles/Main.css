@@ -1,6 +1,10 @@
 .MainSpace {
+  display: block;
+  position: relative;
   height: 15px;
 }
 .MainSpace2 {
+  display: block;
+  position: relative;
   height: 30px;
 }

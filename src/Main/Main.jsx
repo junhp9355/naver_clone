@@ -5,6 +5,7 @@ import M2 from "./M2";
 import Top from "./Top";
 import "../styles/Main.css";
 import M5 from "./M5";
+import Footer from "./Footer";
 
 const Main = () => {
   return (
@@ -17,7 +18,7 @@ const Main = () => {
       <M4 />
       <div className="MainSpace2"></div>
       <M5 />
-      <div className="MainSpace2"></div>
+      <Footer />
     </>
   );
 };
