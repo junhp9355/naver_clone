@@ -1,13 +1,17 @@
+/* eslint-disable */
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
+import { useRecoilState } from "recoil";
+import { recoilUser } from "../recoil/RecoilUser";
 import "../styles/M2UserMenu.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
 const M2UserMenu = () => {
+  const [user, setUser] = useRecoilState(recoilUser);
   const onClickBlog = () => {
-    window.location.href = "http://localhost:3000/myblog";
+    window.location.href = `http://localhost:3000/myblog/${user.userid}`;
   };
   SwiperCore.use([Navigation]);
   return (

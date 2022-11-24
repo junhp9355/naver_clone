@@ -46,6 +46,12 @@
   color: white;
   font-size: 20px;
 }
+.FunctionVisible {
+  display: block;
+}
+.FunctionVisibleNone {
+  display: none;
+}
 .EditorSection {
   position: relative;
   width: 100vw;
@@ -91,11 +97,10 @@
 .FunctionText:hover {
   text-decoration: underline;
 }
-.FunctionText:active {
+.ClickFunctionText {
   color: #00c73c;
-}
-.FunctionText::after {
-  color: #00c73c;
+  font-weight: bold;
+  height: 20px;
 }
 .BasicFunction {
   display: flex;
@@ -185,7 +190,6 @@
   background-color: white;
   border-radius: 10px;
   border: 1px solid #dae1e6;
-  /* box-shadow: 0 0 1px 1px #dae1e6; */
   cursor: pointer;
 }
 .inputBlogName {

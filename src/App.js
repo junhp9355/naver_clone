@@ -18,8 +18,8 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signupJoin" element={<SignUpMain />} />
-            <Route path="/myblog" element={<MyBlog />} />
-            <Route path="/myblog/edit" element={<BlogEditor />} />
+            <Route path="/myblog/:userid" element={<MyBlog />} />
+            <Route path="/myblog/:userid/edit" element={<BlogEditor />} />
           </Routes>
         </BrowserRouter>
       </RecoilRoot>

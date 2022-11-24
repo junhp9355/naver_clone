@@ -263,7 +263,6 @@ const SignUpMain = () => {
               <option value="none">성별</option>
               <option value="남자">남자</option>
               <option value="여자">여자</option>
-              <option value="none">선택안함</option>
             </select>
           </div>
           <p className="SignUpInputWarning">필수 정보입니다.</p>

@@ -1,0 +1,123 @@
+.MyBlogMainBody {
+  display: flex;
+  position: relative;
+  top: 20px;
+  width: 1150px;
+  height: 1300px;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 0 4px 1px rgb(206, 206, 206);
+}
+
+.BlogMainTop {
+  position: relative;
+  display: flex;
+  width: 850px;
+  height: 50px;
+  right: 0;
+  margin-left: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.BlogMainTopContent {
+  width: 500px;
+  font-size: 14px;
+}
+.BlogTopContentAll {
+  font-weight: bold;
+}
+.BlogTopContentAll:hover {
+  text-decoration: underline;
+}
+.BlogTopContentCount {
+  margin-left: 10px;
+}
+.BlogTopContentList {
+  width: 80px;
+  font-size: 14px;
+}
+.MyBlogSideBody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 1300px;
+}
+.BlogSideHeadBlank {
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 80px;
+  background-color: white;
+}
+.BlogProfileImg {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  background-image: url(/public/EnterThumbnail02.jpeg);
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+}
+.BlogProfileInfo {
+  display: flex;
+  font-size: 14px;
+  width: 200px;
+  height: 30px;
+  position: relative;
+  line-height: 28px;
+  margin-top: 5px;
+}
+.BlogProfileNickName {
+  font-weight: bold;
+  font-size: 15px;
+}
+.BlogProfileID {
+  color: gray;
+  margin-left: 10px;
+}
+.BlogIntroductionArea {
+  width: 200px;
+  height: auto;
+  min-height: 50px;
+  margin-top: 5px;
+  font-size: 13px;
+}
+.BlogManagement {
+  width: 200px;
+  margin-top: 5px;
+}
+.BlogWrittingIcon {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  background-image: url(/public/blogpencil.png);
+  width: 12px;
+  height: 12px;
+}
+.BlogSettingIcon {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  background-image: url(/public/blogsetting.png);
+  width: 12px;
+  height: 12px;
+  margin-left: 10px;
+  margin-right: 3px;
+}
+.BlogWrittingText {
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 3px;
+  cursor: pointer;
+}
+.BlogSettingText {
+  font-size: 14px;
+  cursor: pointer;
+}
+.BlogWrittingText:hover {
+  text-decoration: underline;
+}
+.BlogSettingText:hover {
+  text-decoration: underline;
+}

@@ -1,14 +1,26 @@
+/* eslint-disable */
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Top.css";
 import Weather from "../SwiperComponent/Weather";
+import { useRecoilState } from "recoil";
+import { recoilUser } from "../recoil/RecoilUser";
 
 const Top = () => {
+  const [user, setUser] = useRecoilState(recoilUser);
   const [searchVisible, setSearchVisible] = useState(true);
   const [keyword, setKeyword] = useState("");
   const [keywords, setKeywords] = useState(
     JSON.parse(localStorage.getItem("keywords") || "[]")
   );
   const searchBox = useRef();
+
+  const onClickBlog = () => {
+    if (user.userid === undefined) {
+      alert("로그인이 필요한 서비스 입니다.");
+    } else {
+      window.location.href = `http://localhost:3000/myblog/${user.userid}`;
+    }
+  };
 
   const onClickClose = (e) => {
     if (searchVisible && searchBox.current.contains(e.target)) {
@@ -84,7 +96,6 @@ const Top = () => {
         <div className="TopSearchBox" onClick={() => onClickSearchVisible()}>
           <input
             type="text"
-            placeholder="검색어를 입력하세요"
             value={keyword}
             onChange={onChangeSearchKeyWord}
             onKeyDown={(e) => {
@@ -136,81 +147,64 @@ const Top = () => {
         </div>
       </div>
       <div className="TopCategory">
-        <div className="TopCategoryPos">
-          <div className="TopCategorySpace" />
-          <span className="TopMailIcon" />
-          <a href="#!" className="TopCategoryText">
-            메일
-          </a>
-
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText">
-            카페
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="http://localhost:3000/myblog" className="TopCategoryText">
-            블로그
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText">
-            지식iN
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText">
-            쇼핑
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText">
-            <span className="TopCategoryShppingLiveIcon"></span>
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText">
-            Pay
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText2">
-            TV
-            <span className="TopCategoryTVIcon"></span>
-          </a>
-          <a href="#!" className="TopCategoryText3">
-            사전
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText3">
-            뉴스
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText3">
-            증권
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText3">
-            부동산
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText3">
-            지도
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText3">
-            VIBE
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText3">
-            도서
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText3">
-            웹툰
-          </a>
-          <div className="TopCategorySpace" />
-          <a href="#!" className="TopCategoryText3">
-            <select name="" id="" className="MoreCategoryInfo">
-              <option value="">더보기</option>
-            </select>
-          </a>
-          <div className="TopCategorySpace2" />
-          <Weather />
+        <div className="TopContainer">
+          <div className="TopCategoryPos">
+            <div className="TopCategoryText">
+              <span className="TopMailIcon" />
+              <span>메일</span>
+            </div>
+            <span className="TopCategoryText">카페</span>
+            <a href="#!" className="TopCategoryText" onClick={onClickBlog}>
+              블로그
+            </a>
+            <a href="#!" className="TopCategoryText">
+              지식iN
+            </a>
+            <a href="#!" className="TopCategoryText">
+              쇼핑
+            </a>
+            <a href="#!" className="TopCategoryText">
+              <span className="TopCategoryShppingLiveIcon"></span>
+            </a>
+            <a href="#!" className="TopCategoryText">
+              Pay
+            </a>
+            <a href="#!" className="TopCategoryText2">
+              TV
+              <span className="TopCategoryTVIcon"></span>
+            </a>
+            <a href="#!" className="TopCategoryText3">
+              사전
+            </a>
+            <a href="#!" className="TopCategoryText3">
+              뉴스
+            </a>
+            <a href="#!" className="TopCategoryText3">
+              증권
+            </a>
+            <a href="#!" className="TopCategoryText3">
+              부동산
+            </a>
+            <a href="#!" className="TopCategoryText3">
+              지도
+            </a>
+            <a href="#!" className="TopCategoryText3">
+              VIBE
+            </a>
+            <a href="#!" className="TopCategoryText3">
+              도서
+            </a>
+            <a href="#!" className="TopCategoryText3">
+              웹툰
+            </a>
+            <a href="#!" className="TopCategoryText3">
+              <select name="" id="" className="MoreCategoryInfo">
+                <option value="">더보기</option>
+              </select>
+            </a>
+            <div className="TopCategorySpace2" />
+            <Weather />
+          </div>
         </div>
       </div>
     </section>

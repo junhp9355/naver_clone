@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import "../styles/CategoryHeader.css";
 import "../MySlick/slick.css";

@@ -1,7 +1,6 @@
 .MySwiper10 {
   width: 370px;
   height: 21px;
-  /* right: -100px; */
 }
 .WeaterSection1 {
   display: flex;
@@ -41,7 +40,7 @@
   margin-right: 3px;
 }
 .WeatherSubInfo > span:last-child {
-  color: rgb(172, 172, 172);
+  color: rgb(134, 134, 134);
   margin-left: 10px;
 }
 .WeatherSubInfo span {

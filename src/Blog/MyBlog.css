@@ -1,0 +1,127 @@
+.MyBlogBody {
+  display: inline-block;
+  width: 100vw;
+  height: 1600px;
+  top: -8px;
+  left: -8px;
+  position: absolute;
+  /* background-color: rgb(196, 196, 196); */
+  background-image: url(/public/BlogMainSkin02.png);
+  background-size: 100vw 1600px;
+}
+.MyBlogTopNav {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 10px;
+  width: 1150px;
+  height: 130px;
+  margin: auto;
+}
+.MyBlogTopMenu {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  height: 50px;
+  right: -475px;
+  margin: auto;
+}
+.MyBlogTopHead {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1150px;
+  height: 80px;
+  margin: auto;
+  border-bottom: 1px solid black;
+  font-size: 13px;
+}
+.MyBlogTopMenuText {
+  font-size: 12px;
+  color: grey;
+}
+.MyBlogTopMenuText:hover {
+  text-decoration: underline;
+}
+.BlogTopMenuArrow {
+  display: inline-block;
+  position: relative;
+  background-image: url(/public/blogtoparrow2.png);
+  width: 13px;
+  height: 13px;
+  top: 3px;
+  left: 5px;
+}
+.BlogTopMenuArrowActive {
+  display: inline-block;
+  position: relative;
+  background-image: url(/public/blogtoparrow.png);
+  width: 13px;
+  height: 13px;
+  top: 3px;
+  left: 5px;
+}
+.MyBlogName {
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+.MyBlogName:hover {
+  text-decoration: underline;
+}
+.MyBlogSubMenu {
+  display: flex;
+  width: 140px;
+  justify-content: space-between;
+}
+.MyBlogSubMenuText {
+  color: grey;
+  cursor: pointer;
+}
+.MyblogSubMenuBar {
+  display: inline-block;
+  background-color: gray;
+  width: 1px;
+  height: 11px;
+  margin-top: 4px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.BlogMyMenu {
+  position: absolute;
+  width: 100px;
+  height: 130px;
+  left: 55px;
+  top: 30px;
+  background-color: white;
+  z-index: 99;
+  box-shadow: 0px 0px 5px 1px grey;
+}
+.BackAngle {
+  position: absolute;
+  rotate: 45deg;
+  width: 30px;
+  height: 30px;
+  left: 30px;
+  top: -2px;
+  background-color: white;
+  z-index: -1;
+}
+.MenuNone {
+  display: none;
+}
+.BlogMyMenuList {
+  margin: auto;
+  width: 60px;
+  height: 180px;
+  z-index: 999;
+  position: relative;
+  top: 20px;
+}
+.BlogMyMenueText {
+  font-size: 14px;
+  color: black;
+  cursor: pointer;
+}

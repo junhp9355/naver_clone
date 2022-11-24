@@ -1,0 +1,121 @@
+.BlogContentTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 830px;
+  height: 35px;
+  border-bottom: 1px dotted gray;
+}
+.BlogContentTopHead {
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+.BlogContentTitle {
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 10px;
+}
+.BlogContentTopSubMenu {
+  display: flex;
+  justify-content: space-between;
+  width: 170px;
+  position: relative;
+}
+.BlogContentTopText {
+  font-size: 13px;
+}
+.BlogContentTopCategory {
+  font-size: 13px;
+  margin-left: 10px;
+}
+.BlogContentTopDate {
+  font-size: 12px;
+  color: grey;
+  position: relative;
+  top: 1px;
+}
+.BlogContentTopBar {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  opacity: 0.3;
+  position: relative;
+  top: 3px;
+  background-color: grey;
+}
+.BlogContentTopBar1 {
+  display: inline-block;
+  width: 1px;
+  height: 15px;
+  opacity: 0.3;
+  position: relative;
+  background-color: grey;
+}
+.BlogContentMainBody {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 830px;
+  height: auto;
+}
+.BlogContentFixTop {
+  display: block;
+  width: 830px;
+  height: 50px;
+}
+.BlogContentFixTopText {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  font-size: 12px;
+  color: gray;
+}
+.BlogContentBottom {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  justify-content: space-between;
+  width: 165px;
+  margin-top: 40px;
+}
+.ContentMemoIcon {
+  display: block;
+  background-image: url(/public/blogicon.png);
+  background-position: -112px -182px;
+  width: 29px;
+  height: 29px;
+}
+.ContentIconBox {
+  width: 27px;
+  height: 27px;
+  border: 1px solid rgb(199, 199, 199);
+}
+.ContentEditbox {
+  display: flex;
+  border-top: 1px solid rgb(199, 199, 199);
+  border-bottom: 1px solid rgb(199, 199, 199);
+  border-right: 1px solid rgb(199, 199, 199);
+}
+.ContentIconBox2 {
+  position: relative;
+  width: 45px;
+  height: 27px;
+  text-align: center;
+  border-left: 1px solid rgb(199, 199, 199);
+}
+.ContentIconBox2 > span {
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+}
+.ContentShareIcon {
+  background-image: url(/public/blogicon.png);
+  position: relative;
+  display: block;
+  top: 4px;
+  left: 7px;
+  width: 16px;
+  height: 16px;
+  background-position: -114px -160px;
+}

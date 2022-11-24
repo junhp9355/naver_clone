@@ -8,7 +8,7 @@
 .TopLogoPos {
   display: flex;
   margin: auto;
-  top: 0;
+  top: 10px;
   position: relative;
 }
 .TopLogo {
@@ -88,18 +88,23 @@
   border-bottom: 1px solid lightgrey;
   box-shadow: 1px 1px 2px rgb(226, 226, 226);
   display: flex;
-  align-items: center;
   margin: auto;
-  position: reletive;
+}
+.TopContainer {
+  display: flex;
+  justify-content: center;
+  width: 1250px;
+  position: relative;
+  margin: auto;
 }
 .TopCategoryPos {
   position: relative;
   margin: auto;
   display: flex;
-  width: 1500px;
+  width: 1250px;
   height: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .TopMailIcon {
   background-image: url(/public/navericon.png);
@@ -109,14 +114,15 @@
   background-position: -420px -73px;
   background-repeat: no-repeat;
   vertical-align: top;
-  margin: 0px 9px 3px 0;
+  margin: 0px 7px 3px 0;
   background-size: 457px 434px;
 }
 .TopCategoryText {
   color: #19ce60;
   font-weight: bold;
   font-size: 14.5px;
-  width: auto;
+  display: inline-block;
+  position: relative;
 }
 .TopCategoryText2 {
   color: #19ce60;
