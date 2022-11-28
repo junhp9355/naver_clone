@@ -4,6 +4,8 @@ import "../styles/Top.css";
 import Weather from "../SwiperComponent/Weather";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
+import axios from "axios";
+import { BACKEND_URL } from "../Util/Util";
 
 const Top = () => {
   const [user, setUser] = useRecoilState(recoilUser);
@@ -13,8 +15,9 @@ const Top = () => {
     JSON.parse(localStorage.getItem("keywords") || "[]")
   );
   const searchBox = useRef();
+  const userid = user.userid;
 
-  const onClickBlog = () => {
+  const onClickBlog = async (userid) => {
     if (user.userid === undefined) {
       alert("로그인이 필요한 서비스 입니다.");
     } else {

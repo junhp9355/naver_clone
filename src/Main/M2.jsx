@@ -12,7 +12,6 @@ const M2 = () => {
   const onClickMainLoginBt = () => {
     window.location.href = "http://localhost:3000/Login";
   };
-  console.log("user", user.userid);
 
   const onClickLogout = () => {
     setUser("");

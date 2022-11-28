@@ -1,0 +1,46 @@
+.BlogContentCategory {
+  width: 300px;
+  height: 500px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+}
+.BlogContentCategoryArea {
+  position: relative;
+  top: 20px;
+  width: 200px;
+  font-size: 14px;
+}
+.BlogContentCatHead {
+  font-weight: bold;
+}
+.BlogContCatIcon {
+  background-image: url(/public/blogcategory.gif);
+  width: 10px;
+  height: 12px;
+  margin: 0 2px -2px 0;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  display: inline-block;
+}
+.ContentShowBt {
+  font-size: 12px;
+}
+.ContentEditBt {
+  background-image: url(/public/category_btn_edit.gif);
+  background-size: 21px 9px;
+  width: 21px;
+  height: 9px;
+  display: inline-block;
+}
+.AllContent {
+  width: 145px;
+  padding: 10px 0 10px 0;
+}
+.BlogContCatDetail {
+  font-weight: 300;
+  width: 145px;
+  border-bottom: 1px dashed rgb(121, 121, 121);
+  border-top: 1px dashed rgb(121, 121, 121);
+  padding: 10px 0 10px 0;
+}

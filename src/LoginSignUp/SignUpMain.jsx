@@ -4,6 +4,7 @@ import { useState } from "react";
 import "../styles/SignUp.css";
 import "../styles/SignUpMain.css";
 import axios from "axios";
+import { BACKEND_URL } from "../Util/Util";
 
 const SignUpMain = () => {
   const [userdata, setUserdata] = useState([]);
@@ -88,7 +89,7 @@ const SignUpMain = () => {
     nickname
   ) => {
     try {
-      const data = await axios.post("http://localhost:8180/v1/sign", {
+      const data = await axios.post(`${BACKEND_URL}/v1/sign`, {
         userid,
         password,
         username,
@@ -135,7 +136,6 @@ const SignUpMain = () => {
     }
   };
 
-  console.log("month", global);
   return (
     <body className="SignUpMainBody">
       <nav>

@@ -7,6 +7,7 @@ import { RecoilRoot } from "recoil";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyBlog from "./Blog/MyBlog";
 import BlogEditor from "./Blog/BlogEditor";
+import BlogWrite from "./Blog/BlogWrite";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/signupJoin" element={<SignUpMain />} />
             <Route path="/myblog/:userid" element={<MyBlog />} />
             <Route path="/myblog/:userid/edit" element={<BlogEditor />} />
+            <Route path="/myblog/:userid/write" element={<BlogWrite />} />
           </Routes>
         </BrowserRouter>
       </RecoilRoot>

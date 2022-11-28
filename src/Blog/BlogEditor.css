@@ -46,6 +46,11 @@
   color: white;
   font-size: 20px;
 }
+.FuncBlogcategoryEdit {
+  width: 728px;
+  height: 542px;
+  border-bottom: 2px solid black;
+}
 .FunctionVisible {
   display: block;
 }
@@ -70,6 +75,12 @@
 .EditorMainMenu {
   font-size: 14px;
   margin-left: 20px;
+}
+.EditorMainMenuActive {
+  font-size: 14px;
+  margin-left: 20px;
+  color: #00c73c;
+  font-weight: bold;
 }
 .EditorMainMenu:hover {
   color: #00c73c;
@@ -166,6 +177,14 @@
   font-size: 14px;
   font-weight: bold;
 }
+.FuncSubTitle2 {
+  position: relative;
+  height: 20px;
+  width: 138px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 0 10px 0;
+}
 .FuncSupportText {
   width: 285px;
   color: #8a8a8a;
@@ -211,4 +230,63 @@
   width: 265px;
   height: 35px;
   border: 1px solid #dae1e6;
+}
+.FuncCatEditBtArea {
+  position: relative;
+  display: flex;
+  width: 227px;
+  height: 25px;
+}
+.CatAddBt {
+  position: relative;
+  width: 87px;
+  height: 20px;
+}
+.CatLineAddBt {
+  position: relative;
+  width: 77px;
+  height: 20px;
+}
+.CatDelBt {
+  position: relative;
+  left: 20px;
+  width: 44;
+  height: 20px;
+}
+.FuncCatBt {
+  font-size: 11px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.CatBoxLine {
+  width: 228px;
+  height: 388px;
+  border: 1px solid rgb(71, 71, 71);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.CatListBox {
+  display: inline-block;
+  position: relative;
+  width: 224px;
+  height: 384px;
+  left: 0px;
+  border: 1px solid black;
+}
+.FuncCatGenerate {
+  display: flex;
+}
+.FunCatDetailInfo {
+  font-size: 14px;
+}
+.FunCatDetailInfoTitle {
+  font-weight: bold;
+}
+.FunCatDetailInfoArea {
+  position: relative;
+  left: 30px;
 }

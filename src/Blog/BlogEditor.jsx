@@ -5,9 +5,35 @@ import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 
 const BlogEditor = () => {
+  const [mainBasic, setMainBasic] = useState(false);
+  const [contentEdit, setContentEdit] = useState(true);
   const [funcBlogActive, setFuncBlogActive] = useState(false);
   const [funcProfileActive, setFuncProfileActive] = useState(true);
   const [user, setUser] = useRecoilState(recoilUser);
+  const onClickMainBasic = () => {
+    if (mainBasic === false) {
+      setMainBasic(false);
+      setContentEdit(true);
+    } else if (contentEdit === true) {
+      setContentEdit(false);
+      setMainBasic(true);
+    } else {
+      setContentEdit(true);
+      setMainBasic(false);
+    }
+    setFuncProfileActive(true);
+    setFuncBlogActive(false);
+    setContentEdit(true);
+  };
+  const onClcikContentEdit = () => {
+    if (mainBasic === false) {
+      setMainBasic(true);
+      setContentEdit(false);
+    }
+    setFuncProfileActive(true);
+    setFuncBlogActive(true);
+    setMainBasic(true);
+  };
   const onClickSideBlogInfoFunc = () => {
     if (funcBlogActive === false) {
       setFuncBlogActive(false);
@@ -47,12 +73,24 @@ const BlogEditor = () => {
       </nav>
       <section className="EditorSection">
         <div className="EditorMainMenuSection">
-          <div className="EditorMainMenu">기본 설정</div>
-          <div className="EditorMainMenu">메뉴·글·동영상 관리</div>
+          <div
+            className={mainBasic ? "EditorMainMenu" : "EditorMainMenuActive"}
+            onClick={onClickMainBasic}
+          >
+            기본 설정
+          </div>
+          <div
+            className={contentEdit ? "EditorMainMenu" : "EditorMainMenuActive"}
+            onClick={onClcikContentEdit}
+          >
+            메뉴·글·동영상 관리
+          </div>
         </div>
         <div className="EditorFunctionSection">
           <div className="FunctionSideMenu">
-            <div className="BasicFunction">
+            <div
+              className={mainBasic ? "FunctionVisibleNone" : "BasicFunction"}
+            >
               <span className="FunctionTitle">기본 정보 관리</span>
               <span
                 className={
@@ -69,6 +107,20 @@ const BlogEditor = () => {
                 onClick={onClickSideProfileInfoFunc}
               >
                 프로필 정보
+              </span>
+            </div>
+
+            <div
+              className={!contentEdit ? "BasicFunction" : "FunctionVisibleNone"}
+            >
+              <span className="FunctionTitle">메뉴 관리</span>
+              <span
+                className={
+                  funcBlogActive ? "FunctionText" : "ClickFunctionText"
+                }
+                onClick={onClickSideBlogInfoFunc}
+              >
+                블로그
               </span>
             </div>
           </div>
@@ -190,6 +242,73 @@ const BlogEditor = () => {
             </div>
           </div>
           {/*Edit 프로필정보 페이지*/}
+          {/*Edit 블로그편집 페이지*/}
+          <div
+            className={!contentEdit ? "FunctionVisible" : "FunctionVisibleNone"}
+          >
+            <div className="FunctionBlogInfoSection">
+              <div className="FuncBlogInfoTitle">
+                <span className="FuncBlogInfoTitleText">블로그</span>
+              </div>
+              <div className="FuncBlogInfoAddress">
+                <span className="FuncSubTitle">페이지당 글</span>
+                <span className="FuncEditArea">
+                  <span>
+                    <input type="radio" />
+                    <span>1개</span>
+                  </span>
+                  <span>
+                    <input type="radio" />
+                    <span>3개</span>
+                  </span>
+                  <span>
+                    <input type="radio" />
+                    <span>5개</span>
+                  </span>
+                  <span>
+                    <input type="radio" />
+                    <span>10개</span>
+                  </span>
+                </span>
+              </div>
+              <div className="FuncBlogcategoryEdit">
+                <div className="FuncSubTitle2">카테고리 관리 · 설정</div>
+                <div className="FuncCatEditBtArea">
+                  <button className="FuncCatBt CatAddBt">카테고리 추가</button>
+                  <button className="FuncCatBt CatLineAddBt">
+                    구분선 추가
+                  </button>
+                  <button className="FuncCatBt CatDelBt">삭제</button>
+                </div>
+                <div className="FuncCatGenerate">
+                  <div>
+                    <div className="CatBoxLine">
+                      <div className="CatListBox"></div>
+                    </div>
+                  </div>
+                  <div className="FunCatDetailInfoArea">
+                    <div className="FunCatDetailInfo">
+                      <span className="FunCatDetailInfoTitle">카테고리명</span>
+                      <input type="text" />
+                    </div>
+                    <div className="FunCatDetailInfo">
+                      <span className="FunCatDetailInfoTitle">공개설정</span>
+                      <span>
+                        <input type="radio" />
+                        <span>공개</span>
+                        <input type="radio" />
+                        <span>비공개</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="FunctionButtonArea">
+                <button className="FunctionSaveBt">확인</button>
+              </div>
+            </div>
+          </div>
+          {/*Edit 블로그편집 페이지*/}
         </div>
       </section>
     </>

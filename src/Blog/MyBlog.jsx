@@ -1,16 +1,20 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 import "./MyBlog.css";
 import "./MyBlogMain.css";
 import BlogContent from "./BlogContent";
+import BlogCategory from "./BlogCategory";
+import axios from "axios";
+import { BACKEND_URL } from "../Util/Util";
 
 const MyBlog = () => {
   const [user, setUser] = useRecoilState(recoilUser);
   const [topArrowVisible, setTopArrowVisible] = useState(false);
   const [topArrowVisible2, setTopArrowVisible2] = useState(false);
   const [myMenueVisible, setMyMenuVisible] = useState(false);
+  const [mydata, setMydate] = useState([]);
   const onClickTopArrow = () => {
     setTopArrowVisible((topArrowVisible) => !topArrowVisible);
     setMyMenuVisible((myMenueVisible) => !myMenueVisible);
@@ -24,6 +28,29 @@ const MyBlog = () => {
   const onClickEdit = () => {
     window.location.href = `http://localhost:3000/myblog/${user.userid}/edit`;
   };
+  const onClickWrite = () => {
+    window.location.href = `http://localhost:3000/myblog/${user.userid}/write`;
+  };
+  const userid = user.userid;
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await axios({
+          url: `${BACKEND_URL}/v2/myblog/`,
+          method: "GET",
+          params: {
+            userid,
+          },
+        });
+        setMydate(data.data);
+      } catch (e) {
+        alert("fail");
+      }
+    };
+  }, []);
+  console.log("userid", userid);
+  console.log("블로그 정보", mydata);
   return (
     <body className="MyBlogBody">
       <nav className="MyBlogTopNav">
@@ -82,7 +109,9 @@ const MyBlog = () => {
           </div>
           <div className="BlogManagement">
             <span className="BlogWrittingIcon" />
-            <span className="BlogWrittingText">글쓰기</span>
+            <span className="BlogWrittingText" onClick={onClickWrite}>
+              글쓰기
+            </span>
             <span className="BlogSettingIcon" />
             <span className="BlogSettingText" onClick={onClickEdit}>
               관리
@@ -90,6 +119,7 @@ const MyBlog = () => {
             <span>·</span>
             <span className="BlogSettingText">통계</span>
           </div>
+          <BlogCategory />
         </div>
         <div className="MyBlogMainSection">
           <div className="BlogMainTop">

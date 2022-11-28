@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 import "../styles/Login.css";
+import { BACKEND_URL } from "../Util/Util";
 
 const Login = () => {
   const [userid, setUserid] = useState("");
@@ -24,7 +25,7 @@ const Login = () => {
   };
   const sendLoginUserdata = async (userid, password) => {
     try {
-      const data = await axios.post("http://localhost:8180/v1/login", {
+      const data = await axios.post(`${BACKEND_URL}/v1/login`, {
         userid,
         password,
       });
