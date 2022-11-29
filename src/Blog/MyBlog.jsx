@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
@@ -14,7 +13,7 @@ const MyBlog = () => {
   const [topArrowVisible, setTopArrowVisible] = useState(false);
   const [topArrowVisible2, setTopArrowVisible2] = useState(false);
   const [myMenueVisible, setMyMenuVisible] = useState(false);
-  const [mydata, setMydate] = useState([]);
+  const [mydata, setMydate] = useState("");
   const onClickTopArrow = () => {
     setTopArrowVisible((topArrowVisible) => !topArrowVisible);
     setMyMenuVisible((myMenueVisible) => !myMenueVisible);
@@ -37,7 +36,7 @@ const MyBlog = () => {
     const getData = async () => {
       try {
         const data = await axios({
-          url: `${BACKEND_URL}/v2/myblog/`,
+          url: `${BACKEND_URL}/v2/myblog`,
           method: "GET",
           params: {
             userid,
@@ -48,11 +47,13 @@ const MyBlog = () => {
         alert("fail");
       }
     };
-  }, []);
-  console.log("userid", userid);
-  console.log("블로그 정보", mydata);
+    getData();
+  }, [userid]);
+
+  // const saveblogname = sessionStorage.setItem("blogname",);
+  console.log(mydata);
   return (
-    <body className="MyBlogBody">
+    <div className="MyBlogBody">
       <nav className="MyBlogTopNav">
         <div className="MyBlogTopMenu">
           <span className="MyBlogTopMenuText" onClick={onClickHome}>
@@ -84,7 +85,7 @@ const MyBlog = () => {
           </span>
         </div>
         <div className="MyBlogTopHead">
-          <span className="MyBlogName">블로그 이름</span>
+          <span className="MyBlogName">{mydata.blogname}</span>
           <div className="MyBlogSubMenu">
             <span className="MyBlogSubMenuText">지도</span>
             <span className="MyblogSubMenuBar" />
@@ -105,7 +106,7 @@ const MyBlog = () => {
             <span className="BlogProfileID">{user.userid}</span>
           </div>
           <div className="BlogIntroductionArea">
-            <span>소개글 내용</span>
+            <span>{mydata.blogintro}</span>
           </div>
           <div className="BlogManagement">
             <span className="BlogWrittingIcon" />
@@ -139,7 +140,7 @@ const MyBlog = () => {
           {/*콘텐츠 map*/}
         </div>
       </section>
-    </body>
+    </div>
   );
 };
 

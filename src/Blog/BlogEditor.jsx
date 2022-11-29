@@ -1,8 +1,10 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./BlogEditor.css";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
+import axios from "axios";
+import { BACKEND_URL } from "../Util/Util";
 
 const BlogEditor = () => {
   const [mainBasic, setMainBasic] = useState(false);
@@ -10,6 +12,34 @@ const BlogEditor = () => {
   const [funcBlogActive, setFuncBlogActive] = useState(false);
   const [funcProfileActive, setFuncProfileActive] = useState(true);
   const [user, setUser] = useRecoilState(recoilUser);
+  const [editdata, setEditdata] = useState("");
+  const [blogname, setEditblogname] = useState("");
+  const [editintro, setEditintro] = useState("");
+  const userid = user.userid;
+
+  const updateBlogname = async (blogname) => {
+    try {
+      const data = await axios.patch(
+        `${BACKEND_URL}/v2/edit/blogname/${userid}`,
+        {
+          blogname,
+        }
+      );
+      setEditblogname(data.data);
+    } catch (e) {
+      console.log("fail");
+    }
+  };
+  const onSubmitBlogData = (e) => {
+    e.prevent.default();
+    updateBlogname(blogname);
+  };
+  const onChangeEditBlogname = (e) => {
+    setEditblogname(e.target.value);
+  };
+  const onChangeEditintro = (e) => {
+    setEditintro(e.target.value);
+  };
   const onClickMainBasic = () => {
     if (mainBasic === false) {
       setMainBasic(false);
@@ -60,7 +90,23 @@ const BlogEditor = () => {
   const onClickEditorLogo = () => {
     window.location.href = `http://localhost:3000/myblog/${user.userid}`;
   };
-
+  useEffect(() => {
+    const getData = async (e) => {
+      try {
+        const data = await axios({
+          url: `${BACKEND_URL}/v2/myblog`,
+          method: "GET",
+          params: {
+            userid,
+          },
+        });
+        setEditdata(data.data);
+      } catch (e) {
+        alert("fail");
+      }
+    };
+    getData();
+  }, [userid]);
   return (
     <>
       <nav className="EditorTopArea">
@@ -125,82 +171,97 @@ const BlogEditor = () => {
             </div>
           </div>
           {/*Edit 블로그정보 페이지*/}
-          <div
-            className={
-              !funcBlogActive ? "FunctionVisible" : "FunctionVisibleNone"
-            }
-          >
-            <div className="FunctionBlogInfoSection">
-              <div className="FuncBlogInfoTitle">
-                <span className="FuncBlogInfoTitleText">블로그 정보</span>
-              </div>
-              <div className="FuncBlogInfoAddress">
-                <span className="FuncSubTitle">블로그 주소</span>
-                <span className="FuncEditArea">
-                  http://localhost:3000/myblog/{user.userid}
-                </span>
-                <span className="FuncSupportText">
-                  네이버ID로 자동생성된 블로그 주소입니다.
-                </span>
-              </div>
-              <div className="FuncBlogName">
-                <span className="FuncSubTitle">블로그명</span>
-                <span className="FuncEditArea">
-                  <input type="text" className="inputBlogName" />
-                </span>
-                <span className="FuncSupportText">
-                  한글, 영문, 숫자 혼용가능 (한글 기준 25자 이내)
-                </span>
-              </div>
-              <div className="FuncNickName">
-                <span className="FuncSubTitle">별명</span>
-                <span className="FuncEditArea">
-                  <input
-                    type="text"
-                    className="inputNickName"
-                    placeholder={user.nickname}
-                  />
-                </span>
-                <span className="FuncSupportText">
-                  한글, 영문, 숫자 혼용가능 (한글 기준 10자 이내)
-                </span>
-              </div>
-              <div className="FuncBlogIntroduction">
-                <span className="FuncSubTitle">소개글</span>
-                <span className="FuncEditArea">
-                  <input type="text" className="inputBlogIntroduction" />
-                </span>
-                <span className="FuncSupportText">
-                  블로그 프로필 영역의 프로필 이미지 아래에 <br />
-                  반영됩니다. (한글 기준 200자 이내)
-                </span>
-              </div>
-              <div className="FuncBlogCategory">
-                <span className="FuncSubTitle">내 블로그 주제</span>
-                <span className="FuncEditArea">
-                  <select name="" id="" className="BlogCategory">
-                    <option value="">문학·책</option>
-                    <option value="">영화</option>
-                    <option value="">미술·디자인</option>
-                    <option value="">음악</option>
-                    <option value="">일상·생각</option>
-                    <option value="">건강·의학</option>
-                    <option value="">반려동물</option>
-                    <option value="">게임</option>
-                    <option value="">스포츠</option>
-                    <option value="">교육</option>
-                  </select>
-                </span>
-                <span className="FuncSupportText">
-                  내 블로그에서 다루는 주제를 선택하세요.
-                  <br /> 프로필 영역에 노출됩니다.
-                </span>
-              </div>
-              <div className="FunctionButtonArea">
-                <button className="FunctionSaveBt">확인</button>
+          <form onSubmit={onSubmitBlogData}>
+            <div
+              className={
+                !funcBlogActive ? "FunctionVisible" : "FunctionVisibleNone"
+              }
+            >
+              <div className="FunctionBlogInfoSection">
+                <div className="FuncBlogInfoTitle">
+                  <span className="FuncBlogInfoTitleText">블로그 정보</span>
+                </div>
+                <div className="FuncBlogInfoAddress">
+                  <span className="FuncSubTitle">블로그 주소</span>
+                  <span className="FuncEditArea">
+                    http://localhost:3000/myblog/{user.userid}
+                  </span>
+                  <span className="FuncSupportText">
+                    네이버ID로 자동생성된 블로그 주소입니다.
+                  </span>
+                </div>
+                <div className="FuncBlogName">
+                  <span className="FuncSubTitle">블로그명</span>
+                  <span className="FuncEditArea">
+                    <input
+                      type="text"
+                      className="inputBlogName"
+                      onChange={onChangeEditBlogname}
+                      value={blogname}
+                      placeholder={editdata.blogname}
+                    />
+                  </span>
+                  <span className="FuncSupportText">
+                    한글, 영문, 숫자 혼용가능 (한글 기준 25자 이내)
+                  </span>
+                </div>
+                <div className="FuncNickName">
+                  <span className="FuncSubTitle">별명</span>
+                  <span className="FuncEditArea">
+                    <input
+                      type="text"
+                      className="inputNickName"
+                      placeholder={user.nickname}
+                    />
+                  </span>
+                  <span className="FuncSupportText">
+                    한글, 영문, 숫자 혼용가능 (한글 기준 10자 이내)
+                  </span>
+                </div>
+                <div className="FuncBlogIntroduction">
+                  <span className="FuncSubTitle">소개글</span>
+                  <span className="FuncEditArea">
+                    <input
+                      type="text"
+                      className="inputBlogIntroduction"
+                      value={editintro}
+                      placeholder={editdata.blogintro}
+                    />
+                  </span>
+                  <span className="FuncSupportText">
+                    블로그 프로필 영역의 프로필 이미지 아래에 <br />
+                    반영됩니다. (한글 기준 200자 이내)
+                  </span>
+                </div>
+                <div className="FuncBlogCategory">
+                  <span className="FuncSubTitle">내 블로그 주제</span>
+                  <span className="FuncEditArea">
+                    <select name="" id="" className="BlogCategory">
+                      <option value="">문학·책</option>
+                      <option value="">영화</option>
+                      <option value="">미술·디자인</option>
+                      <option value="">음악</option>
+                      <option value="">일상·생각</option>
+                      <option value="">건강·의학</option>
+                      <option value="">반려동물</option>
+                      <option value="">게임</option>
+                      <option value="">스포츠</option>
+                      <option value="">교육</option>
+                    </select>
+                  </span>
+                  <span className="FuncSupportText">
+                    내 블로그에서 다루는 주제를 선택하세요.
+                    <br /> 프로필 영역에 노출됩니다.
+                  </span>
+                </div>
+                <div className="FunctionButtonArea">
+                  <button className="FunctionSaveBt" type="submit">
+                    확인
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
           {/*Edit 블로그정보 페이지*/}
           {/*Edit 프로필정보 페이지*/}
           <div
