@@ -40,7 +40,7 @@
 .BlogContCatDetail {
   font-weight: 300;
   width: 145px;
-  border-bottom: 1px dashed rgb(121, 121, 121);
-  border-top: 1px dashed rgb(121, 121, 121);
+  /* border-bottom: 1px dashed rgb(121, 121, 121);
+  border-top: 1px dashed rgb(121, 121, 121); */
   padding: 10px 0 10px 0;
 }

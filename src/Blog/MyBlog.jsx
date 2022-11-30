@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
@@ -36,7 +37,7 @@ const MyBlog = () => {
     const getData = async () => {
       try {
         const data = await axios({
-          url: `${BACKEND_URL}/v2/myblog`,
+          url: `${BACKEND_URL}/v1/myblog`,
           method: "GET",
           params: {
             userid,
@@ -50,7 +51,6 @@ const MyBlog = () => {
     getData();
   }, [userid]);
 
-  // const saveblogname = sessionStorage.setItem("blogname",);
   console.log(mydata);
   return (
     <div className="MyBlogBody">
@@ -102,7 +102,7 @@ const MyBlog = () => {
           <span className="BlogSideHeadBlank" />
           <span className="BlogProfileImg" />
           <div className="BlogProfileInfo">
-            <span className="BlogProfileNickName">{user.nickname}</span>
+            <span className="BlogProfileNickName">{mydata.nickname}</span>
             <span className="BlogProfileID">{user.userid}</span>
           </div>
           <div className="BlogIntroductionArea">

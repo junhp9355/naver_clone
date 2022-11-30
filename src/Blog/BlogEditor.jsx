@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
+import BlogFuncCategory from "./BlogFuncCategory";
 
 const BlogEditor = () => {
   const [mainBasic, setMainBasic] = useState(false);
@@ -13,16 +14,19 @@ const BlogEditor = () => {
   const [funcProfileActive, setFuncProfileActive] = useState(true);
   const [user, setUser] = useRecoilState(recoilUser);
   const [editdata, setEditdata] = useState("");
-  const [blogname, setEditblogname] = useState("");
+  const [editblogname, setEditblogname] = useState("");
   const [editintro, setEditintro] = useState("");
+  const [editnickname, setEditnickname] = useState("");
   const userid = user.userid;
 
-  const updateBlogname = async (blogname) => {
+  const updateBlogname = async (blogname, blogintro, nickname) => {
     try {
       const data = await axios.patch(
-        `${BACKEND_URL}/v2/edit/blogname/${userid}`,
+        `${BACKEND_URL}/v1/edit/blogname/${userid}`,
         {
           blogname,
+          blogintro,
+          nickname,
         }
       );
       setEditblogname(data.data);
@@ -31,8 +35,7 @@ const BlogEditor = () => {
     }
   };
   const onSubmitBlogData = (e) => {
-    e.prevent.default();
-    updateBlogname(blogname);
+    updateBlogname(editblogname, editintro, editnickname);
   };
   const onChangeEditBlogname = (e) => {
     setEditblogname(e.target.value);
@@ -40,6 +43,11 @@ const BlogEditor = () => {
   const onChangeEditintro = (e) => {
     setEditintro(e.target.value);
   };
+  const onChaneEditNickname = (e) => {
+    setEditnickname(e.target.value);
+  };
+
+  //메인 기본설정
   const onClickMainBasic = () => {
     if (mainBasic === false) {
       setMainBasic(false);
@@ -55,6 +63,8 @@ const BlogEditor = () => {
     setFuncBlogActive(false);
     setContentEdit(true);
   };
+
+  // 메뉴,글,동영상관리
   const onClcikContentEdit = () => {
     if (mainBasic === false) {
       setMainBasic(true);
@@ -64,6 +74,8 @@ const BlogEditor = () => {
     setFuncBlogActive(true);
     setMainBasic(true);
   };
+
+  // 기본정보-블로그정보
   const onClickSideBlogInfoFunc = () => {
     if (funcBlogActive === false) {
       setFuncBlogActive(false);
@@ -72,6 +84,7 @@ const BlogEditor = () => {
       setFuncProfileActive(true);
     }
   };
+  // 기본정보-프로필정보
   const onClickSideProfileInfoFunc = () => {
     if (funcProfileActive === true) {
       setFuncProfileActive(false);
@@ -94,7 +107,7 @@ const BlogEditor = () => {
     const getData = async (e) => {
       try {
         const data = await axios({
-          url: `${BACKEND_URL}/v2/myblog`,
+          url: `${BACKEND_URL}/v1/myblog`,
           method: "GET",
           params: {
             userid,
@@ -161,10 +174,8 @@ const BlogEditor = () => {
             >
               <span className="FunctionTitle">메뉴 관리</span>
               <span
-                className={
-                  funcBlogActive ? "FunctionText" : "ClickFunctionText"
-                }
-                onClick={onClickSideBlogInfoFunc}
+                className={contentEdit ? "FunctionText" : "ClickFunctionText"}
+                // onClick={onClickSideBlogInfoFunc}
               >
                 블로그
               </span>
@@ -197,7 +208,7 @@ const BlogEditor = () => {
                       type="text"
                       className="inputBlogName"
                       onChange={onChangeEditBlogname}
-                      value={blogname}
+                      value={editblogname}
                       placeholder={editdata.blogname}
                     />
                   </span>
@@ -211,7 +222,9 @@ const BlogEditor = () => {
                     <input
                       type="text"
                       className="inputNickName"
-                      placeholder={user.nickname}
+                      placeholder={editdata.nickname}
+                      value={editnickname}
+                      onChange={onChaneEditNickname}
                     />
                   </span>
                   <span className="FuncSupportText">
@@ -226,6 +239,7 @@ const BlogEditor = () => {
                       className="inputBlogIntroduction"
                       value={editintro}
                       placeholder={editdata.blogintro}
+                      onChange={onChangeEditintro}
                     />
                   </span>
                   <span className="FuncSupportText">
@@ -307,67 +321,7 @@ const BlogEditor = () => {
           <div
             className={!contentEdit ? "FunctionVisible" : "FunctionVisibleNone"}
           >
-            <div className="FunctionBlogInfoSection">
-              <div className="FuncBlogInfoTitle">
-                <span className="FuncBlogInfoTitleText">블로그</span>
-              </div>
-              <div className="FuncBlogInfoAddress">
-                <span className="FuncSubTitle">페이지당 글</span>
-                <span className="FuncEditArea">
-                  <span>
-                    <input type="radio" />
-                    <span>1개</span>
-                  </span>
-                  <span>
-                    <input type="radio" />
-                    <span>3개</span>
-                  </span>
-                  <span>
-                    <input type="radio" />
-                    <span>5개</span>
-                  </span>
-                  <span>
-                    <input type="radio" />
-                    <span>10개</span>
-                  </span>
-                </span>
-              </div>
-              <div className="FuncBlogcategoryEdit">
-                <div className="FuncSubTitle2">카테고리 관리 · 설정</div>
-                <div className="FuncCatEditBtArea">
-                  <button className="FuncCatBt CatAddBt">카테고리 추가</button>
-                  <button className="FuncCatBt CatLineAddBt">
-                    구분선 추가
-                  </button>
-                  <button className="FuncCatBt CatDelBt">삭제</button>
-                </div>
-                <div className="FuncCatGenerate">
-                  <div>
-                    <div className="CatBoxLine">
-                      <div className="CatListBox"></div>
-                    </div>
-                  </div>
-                  <div className="FunCatDetailInfoArea">
-                    <div className="FunCatDetailInfo">
-                      <span className="FunCatDetailInfoTitle">카테고리명</span>
-                      <input type="text" />
-                    </div>
-                    <div className="FunCatDetailInfo">
-                      <span className="FunCatDetailInfoTitle">공개설정</span>
-                      <span>
-                        <input type="radio" />
-                        <span>공개</span>
-                        <input type="radio" />
-                        <span>비공개</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="FunctionButtonArea">
-                <button className="FunctionSaveBt">확인</button>
-              </div>
-            </div>
+            <BlogFuncCategory />
           </div>
           {/*Edit 블로그편집 페이지*/}
         </div>

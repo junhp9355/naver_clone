@@ -290,3 +290,22 @@
   position: relative;
   left: 30px;
 }
+.DBCatArea {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: auto;
+  position: relative;
+  margin-top: 10px;
+}
+.DBMainCat {
+  display: block;
+  position: relative;
+  width: 150px;
+  background-color: yellow;
+}
+.CatLine {
+  width: 200px;
+  height: 1px;
+  border-bottom: 1px dashed grey;
+}
