@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyBlog from "./Blog/MyBlog";
 import BlogEditor from "./Blog/BlogEditor";
 import BlogWrite from "./Blog/BlogWrite";
+import FuncEditContent from "./Blog/FuncEditContent";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
             <Route path="/myblog/:userid" element={<MyBlog />} />
             <Route path="/myblog/:userid/edit" element={<BlogEditor />} />
             <Route path="/myblog/:userid/write" element={<BlogWrite />} />
+            <Route
+              path="/myblog/:userid/edit/content"
+              element={<FuncEditContent />}
+            />
           </Routes>
         </BrowserRouter>
       </RecoilRoot>

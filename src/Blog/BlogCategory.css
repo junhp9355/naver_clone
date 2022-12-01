@@ -32,15 +32,55 @@
   width: 21px;
   height: 9px;
   display: inline-block;
+  position: relative;
+  left: 8px;
+  cursor: pointer;
 }
 .AllContent {
   width: 145px;
   padding: 10px 0 10px 0;
+  vertical-align: middle;
+}
+.AllContent > span:nth-child(2) {
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.AllContent > span:nth-child(3) {
+  font-size: 12px;
+  position: relative;
+  left: 5px;
+  top: -1px;
+  font-weight: 100;
 }
 .BlogContCatDetail {
+  width: auto;
+  height: 22px;
+}
+.BlogContCatTitle {
+  cursor: pointer;
+  height: 22px;
   font-weight: 300;
+  font-size: 13px;
+}
+.BlogContCatTitle1 {
+  cursor: pointer;
+  height: 22px;
+  font-weight: 300;
+  font-size: 13px;
+  position: relative;
+  top: 2px;
+}
+.BlogCatAreaDashed {
   width: 145px;
-  /* border-bottom: 1px dashed rgb(121, 121, 121);
-  border-top: 1px dashed rgb(121, 121, 121); */
-  padding: 10px 0 10px 0;
+  height: auto;
+  border-bottom: 1px dashed rgb(121, 121, 121);
+  border-top: 1px dashed rgb(121, 121, 121);
+  padding: 15px 0 15px 0;
+}
+.CatMapArea {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding: 2px 0 2px 0;
 }

@@ -44,11 +44,15 @@ const BlogCategory = () => {
               <span>(3)</span>
               <span className="ContentEditBt" onClick={onClickEditBt}></span>
             </div>
-            {/*세부 카테고리map pos*/}
-            {catDB.map((item, index) => (
-              <div className="BlogContCatDetail">{item.maincategory}</div>
-            ))}
-
+            <div className="BlogCatAreaDashed">
+              {/*세부 카테고리map pos*/}
+              {catDB.map((item, index) => (
+                <div className="BlogContCatDetail">
+                  <span className="BlogContCatIcon"></span>
+                  <span className="BlogContCatTitle">{item.maincategory}</span>
+                </div>
+              ))}
+            </div>
             {/*세부 카테고리map pos*/}
           </div>
         </div>
