@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BACKEND_URL } from "../Util/Util";
@@ -7,10 +8,7 @@ import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 
 const BlogFuncCategory = () => {
-  const [lineCount, setLineCount] = useState([0]);
-  const [mainCatCount, setMainCatCount] = useState([0]);
   const [categoryname, setCategoryname] = useState("");
-  const [defaultname, setDefaultname] = useState("");
   const [user, setUser] = useRecoilState(recoilUser);
   const [editCatDB, setEditCatDB] = useState([]);
   const [selectId, setSeletId] = useState(0);
@@ -27,6 +25,9 @@ const BlogFuncCategory = () => {
     setCategoryname(e.target.value);
   };
 
+  const onClickConfirm = () => {
+    window.location.href = `http://localhost:3000/myblog/${user.userid}/edit/content`;
+  };
   const postCategory = async (maincategory, userid) => {
     try {
       const data = await axios.post(
@@ -62,9 +63,6 @@ const BlogFuncCategory = () => {
   const onClickDeleteCat = () => {
     deleteCategory(categoryname, userid);
   };
-
-  console.log("category", categoryname);
-  console.log("userid", userid);
 
   useEffect(() => {
     const getData = async (e) => {
@@ -189,7 +187,9 @@ const BlogFuncCategory = () => {
                 </form>
               </div>
               <div className="FunctionButtonArea">
-                <button className="FunctionSaveBt">확인</button>
+                <button className="FunctionSaveBt" onClick={onClickConfirm}>
+                  확인
+                </button>
               </div>
             </div>
           </form>

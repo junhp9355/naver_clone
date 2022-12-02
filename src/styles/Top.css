@@ -1,7 +1,9 @@
 .TopSection {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 220px;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
 }
@@ -105,6 +107,7 @@
   height: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .TopMailIcon {
   background-image: url(/public/navericon.png);
@@ -123,6 +126,11 @@
   font-size: 14.5px;
   display: inline-block;
   position: relative;
+  vertical-align: middle;
+}
+.TopCategoryText > span:nth-child(2) {
+  position: relative;
+  top: 4px;
 }
 .TopCategoryText2 {
   color: #19ce60;

@@ -3,17 +3,23 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  top: -10px;
-  left: -5px;
+  background-color: rgb(224, 224, 224);
+  height: auto;
 }
 .WriteBody {
   display: flex;
   justify-content: center;
+  background-color: rgb(224, 224, 224);
+  padding-bottom: 80px;
+  position: relative;
+  top: 30px;
 }
 .WriteMainSection {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  background-color: white;
+  width: 1200px;
+  padding: 40px 50px 50px 50px;
 }
 .WriteTopArea {
   position: relative;
@@ -23,15 +29,32 @@
   display: flex;
   align-items: center;
 }
-.WriteInput {
-  width: 800px;
-  height: 300px;
-}
 .WriteTitleInput {
-  width: 300px;
+  width: 800px;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  font-size: 30px;
+  position: relative;
+  left: 30px;
+}
+.WriteCatSelet {
+  position: relative;
+  height: 53px;
+  font-size: 20px;
+  width: 250px;
+  outline: none;
+  text-align: center;
 }
 .WriteHead {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 0 10px 0;
+  width: 800px;
+  height: 80px;
 }
 .WriteBtSection {
   display: flex;
@@ -70,4 +93,22 @@
 .WriteTopText {
   color: gray;
   cursor: pointer;
+}
+.ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+  min-height: 700px;
+  margin-bottom: 20px;
+  font-family: "NanumSquareNeo-Variable";
+}
+.WriteSaveBt {
+  background-color: #00c73c;
+  border: 1px solid #009e2f;
+  font-size: 20px;
+  color: white;
+  font-weight: 500;
+  padding: 8px 18px 8px 18px;
+  cursor: pointer;
+}
+.ChoiceCat {
+  color: grey;
+  opacity: 0.2;
 }

@@ -5,7 +5,7 @@ import { recoilUser } from "../recoil/RecoilUser";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
 
-const BlogCategory = () => {
+const BlogCategory = ({ getAllDB }) => {
   const [user, setUser] = useRecoilState(recoilUser);
   const [catDB, setCatDB] = useState([]);
   const onClickEditBt = () => {
@@ -41,13 +41,13 @@ const BlogCategory = () => {
             <div className="AllContent">
               <span className="BlogContCatIcon"></span>
               <span>전체보기</span>
-              <span>(3)</span>
+              <span>({getAllDB.length})</span>
               <span className="ContentEditBt" onClick={onClickEditBt}></span>
             </div>
             <div className="BlogCatAreaDashed">
               {/*세부 카테고리map pos*/}
               {catDB.map((item, index) => (
-                <div className="BlogContCatDetail">
+                <div className="BlogContCatDetail" key={index}>
                   <span className="BlogContCatIcon"></span>
                   <span className="BlogContCatTitle">{item.maincategory}</span>
                 </div>

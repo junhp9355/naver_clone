@@ -3,10 +3,12 @@
   position: relative;
   top: 20px;
   width: 1150px;
-  height: 1300px;
+  /* height: 1300px; */
   margin: auto;
   background-color: white;
   box-shadow: 0 0 4px 1px rgb(206, 206, 206);
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
 }
 
 .BlogMainTop {
@@ -120,4 +122,8 @@
 }
 .BlogSettingText:hover {
   text-decoration: underline;
+}
+.MyBlogMainSection {
+  position: relative;
+  left: -10px;
 }

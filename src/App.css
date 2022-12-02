@@ -34,3 +34,33 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+body {
+  width: 100vw;
+  position: relative;
+  display: block;
+  top: -10px;
+  left: -10px;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "NanumSquareNeo-Variable";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+html,
+body,
+span,
+div,
+a,
+section,
+nav,
+button,
+input,
+select,
+option {
+  font-family: "NanumSquareNeo-Variable";
+}

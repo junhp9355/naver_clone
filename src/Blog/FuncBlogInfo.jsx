@@ -21,7 +21,7 @@ const FuncBlogInfo = ({ editdata, userid, user }) => {
       console.log("fail");
     }
   };
-  const onSubmitBlogData = (e) => {
+  const onSubmitBlogData = () => {
     if (editblogname === "") {
       alert("블로그명을 입력하세요");
     } else if (editintro === "") {

@@ -9,7 +9,7 @@ import Footer from "./Footer";
 
 const Main = () => {
   return (
-    <>
+    <div className="mainsection">
       <Top />
       <M2 />
       <div className="MainSpace"></div>
@@ -19,7 +19,7 @@ const Main = () => {
       <div className="MainSpace2"></div>
       <M5 />
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -14,6 +14,7 @@ const MyBlog = () => {
   const [topArrowVisible, setTopArrowVisible] = useState(false);
   const [topArrowVisible2, setTopArrowVisible2] = useState(false);
   const [myMenueVisible, setMyMenuVisible] = useState(false);
+  const [getAllDB, setGetAllDB] = useState(() => []);
   const [mydata, setMydate] = useState("");
   const onClickTopArrow = () => {
     setTopArrowVisible((topArrowVisible) => !topArrowVisible);
@@ -50,7 +51,23 @@ const MyBlog = () => {
     };
     getData();
   }, [userid]);
-
+  useEffect(() => {
+    const getData = async (e) => {
+      try {
+        const data = await axios({
+          url: `${BACKEND_URL}/v3/content/${user.userid}`,
+          method: "GET",
+          params: {
+            userid,
+          },
+        });
+        setGetAllDB(data.data.reverse());
+      } catch (e) {
+        alert("실패");
+      }
+    };
+    getData();
+  }, [userid]);
   console.log(mydata);
   return (
     <div className="MyBlogBody">
@@ -120,13 +137,15 @@ const MyBlog = () => {
             <span>·</span>
             <span className="BlogSettingText">통계</span>
           </div>
-          <BlogCategory />
+          <BlogCategory getAllDB={getAllDB} />
         </div>
         <div className="MyBlogMainSection">
           <div className="BlogMainTop">
             <div className="BlogMainTopContent">
               <span className="BlogTopContentAll">전체보기</span>
-              <span className="BlogTopContentCount">3개의 글</span>
+              <span className="BlogTopContentCount">
+                {getAllDB.length}개의 글
+              </span>
             </div>
             <div className="BlogTopContentList">
               <span className="BlogTopContentListText">목록열기</span>
@@ -135,7 +154,7 @@ const MyBlog = () => {
           </div>
           {/*콘텐츠 map*/}
           <div>
-            <BlogContent />
+            <BlogContent getAllDB={getAllDB} userid={userid} />
           </div>
           {/*콘텐츠 map*/}
         </div>

@@ -1,13 +1,13 @@
 .MyBlogBody {
   display: inline-block;
-  width: 100vw;
+  width: 100%;
   height: 1600px;
-  top: -8px;
-  left: -8px;
+  top: 0px;
+  left: 0px;
   position: absolute;
   /* background-color: rgb(196, 196, 196); */
-  background-image: url(/public/BlogMainSkin02.png);
-  background-size: 100vw 1600px;
+  background-image: url(/public/BlogMainSkin04.jpg);
+  background-size: 3000px 2000px;
 }
 .MyBlogTopNav {
   display: flex;
@@ -22,10 +22,15 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 200px;
   height: 50px;
   right: -475px;
   margin: auto;
+}
+.MyBlogTopMenu > span:first-child {
+  position: relative;
+  top: 2px;
 }
 .MyBlogTopHead {
   position: relative;
@@ -93,8 +98,8 @@
   position: absolute;
   width: 100px;
   height: 130px;
-  left: 55px;
-  top: 30px;
+  left: 50px;
+  top: 45px;
   background-color: white;
   z-index: 99;
   box-shadow: 0px 0px 5px 1px grey;
@@ -119,6 +124,7 @@
   z-index: 999;
   position: relative;
   top: 20px;
+  left: 15px;
 }
 .BlogMyMenueText {
   font-size: 14px;
