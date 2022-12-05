@@ -14,7 +14,6 @@ const BlogFuncCategory = () => {
   const [selectId, setSeletId] = useState(0);
   const userid = user.userid;
   const id = selectId;
-  console.log(id);
 
   const onClickSelect = (cat, num) => {
     setCategoryname(cat);

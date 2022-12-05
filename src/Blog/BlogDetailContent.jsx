@@ -4,8 +4,7 @@ import ReactHtmlParser from "react-html-parser";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
 
-const BlogContent = ({ getAllDB, userid }) => {
-  // const id = selectid;
+const BlogDetailContent = ({ selectDetailDB, userid }) => {
   const onClickUpdateBt = (id) => {
     if (id === undefined) {
       alert("fail");
@@ -24,7 +23,7 @@ const BlogContent = ({ getAllDB, userid }) => {
   };
   return (
     <section>
-      {getAllDB.map((content, index) => (
+      {selectDetailDB.map((content, index) => (
         <div className="BlogContentMain" key={index}>
           <div className="BlogContentTop">
             <div className="BlogContentTopHead">
@@ -83,4 +82,4 @@ const BlogContent = ({ getAllDB, userid }) => {
   );
 };
 
-export default BlogContent;
+export default BlogDetailContent;

@@ -6,15 +6,20 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { BACKEND_URL } from "../Util/Util";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const BlogWrite = () => {
+const BlogUpdate = () => {
   const [user, setUser] = useRecoilState(recoilUser);
   const [title, setTitle] = useState(() => "");
   const [content, setContent] = useState(() => "");
-  const [categoryDB, setCategoryDB] = useState(() => []);
-  const [selectCategory, setSelectCategory] = useState(() => "");
-  const [date, setDate] = useState(() => "");
+  const [editContentDB, setEditContentDB] = useState(() => "");
+  const [selectCategory, setSelectCategory] = useState(
+    () => editContentDB.maincategory
+  );
+  const [categoryDB, setCategoryDB] = useState([]);
+  const { id } = useParams();
   const userid = user.userid;
+
   const onClickMyBlog = () => {
     window.location.href = `http://localhost:3000/myblog/${user.userid}`;
   };
@@ -28,50 +33,67 @@ const BlogWrite = () => {
   const onClickCategory = (e) => {
     setSelectCategory(e.target.value);
   };
-  const postWritedata = async (maincategory, title, userid, contents) => {
+
+  const updateContent = async (id, title, contents) => {
     try {
-      const data = await axios.post(`${BACKEND_URL}/v3/content`, {
-        maincategory,
-        title,
-        userid,
-        contents,
-      });
+      const data = await axios.patch(
+        `${BACKEND_URL}/v3/content/${userid}/${id}`,
+        {
+          title,
+          contents,
+        }
+      );
       window.location.href = `http://localhost:3000/myblog/${userid}`;
     } catch (e) {}
   };
-  const onSubmitWriteData = (e) => {
+
+  const onSubmitUpdateData = (e) => {
     if (selectCategory === "null" || selectCategory === "") {
       alert("게시판을 선택해주세요.");
       e.preventDefault();
     } else if (title === "") {
       alert("제목을 입력해주세요");
     } else {
-      postWritedata(selectCategory, title, userid, content);
+      updateContent(id, title, content);
     }
   };
+
   useEffect(() => {
     const getData = async (e) => {
       try {
         const data = await axios({
+          url: `${BACKEND_URL}/v3/content/update/${id}`,
+          method: "GET",
+        });
+        setEditContentDB(data.data);
+      } catch (e) {
+        alert("단건 fail");
+      }
+    };
+    getData();
+  }, [id]);
+
+  useEffect(() => {
+    const getDatas = async (e) => {
+      try {
+        const datas = await axios({
           url: `${BACKEND_URL}/v2/maincategory`,
           method: "GET",
           params: {
             userid,
           },
         });
-        setCategoryDB(data.data);
+        setCategoryDB(datas.data);
       } catch (e) {
         alert("fail");
       }
     };
-    getData();
+    getDatas();
   }, [userid]);
 
-  // console.log("카테고리DB", categoryDB);
-  console.log("선택 카테고리", selectCategory);
-  console.log("제목", title);
-  console.log("내용", content);
-  // console.log("디폴트", defaultcategoty);
+  console.log("수정 데이터", editContentDB);
+  console.log("단건 id", id);
+
   return (
     <section className="WriteSection">
       <div className="WriteTopArea">
@@ -83,7 +105,7 @@ const BlogWrite = () => {
           </span>
         </div>
       </div>
-      <form onSubmit={onSubmitWriteData}>
+      <form onSubmit={() => onSubmitUpdateData()}>
         <div className="WriteBody">
           <div className="WriteMainSection">
             <div className="WriteHead">
@@ -92,7 +114,7 @@ const BlogWrite = () => {
                 id=""
                 className="WriteCatSelet"
                 onClick={onClickCategory}
-                defaultValue="null"
+                defaultValue={editContentDB.maincategory}
               >
                 <option value="null" className="ChoiceCat">
                   게시판 선택
@@ -106,16 +128,14 @@ const BlogWrite = () => {
               <input
                 type="text"
                 className="WriteTitleInput"
-                placeholder="제목"
+                placeholder={editContentDB.title}
                 onChange={onChangeTitle}
                 value={title}
               />
             </div>
             <CKEditor
               editor={ClassicEditor}
-              config={{
-                placeholder: "내용을 입력하세요.",
-              }}
+              data={editContentDB.contents}
               onReady={(editor) => {}}
               onChange={(event, editor) => {
                 onChangeEditor(event, editor);
@@ -135,4 +155,4 @@ const BlogWrite = () => {
   );
 };
 
-export default BlogWrite;
+export default BlogUpdate;

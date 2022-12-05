@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
@@ -6,6 +5,7 @@ import "./MyBlog.css";
 import "./MyBlogMain.css";
 import BlogContent from "./BlogContent";
 import BlogCategory from "./BlogCategory";
+import BlogDetailContent from "./BlogDetailContent";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
 
@@ -15,7 +15,27 @@ const MyBlog = () => {
   const [topArrowVisible2, setTopArrowVisible2] = useState(false);
   const [myMenueVisible, setMyMenuVisible] = useState(false);
   const [getAllDB, setGetAllDB] = useState(() => []);
-  const [mydata, setMydate] = useState("");
+  const [mydata, setMydate] = useState(() => "");
+  const [listvisible, setListvisible] = useState(true);
+  const [chooseCat, setChooseCat] = useState(() => "");
+  const [catDB, setCatDB] = useState(() => []);
+  const [detailDB, setDetailDB] = useState(() => []);
+  const onClickEditBt = () => {
+    window.location.href = `http://localhost:3000/myblog/${user.userid}/edit`;
+  };
+
+  const selectDetailDB = getAllDB.filter(
+    (value) => value.maincategory === chooseCat
+  );
+  const onClickAllContentList = () => {
+    setChooseCat("");
+  };
+  const onClickChooseCat = (e) => {
+    setChooseCat(e);
+  };
+  const onClinckListBt = () => {
+    setListvisible((listvisible) => !listvisible);
+  };
   const onClickTopArrow = () => {
     setTopArrowVisible((topArrowVisible) => !topArrowVisible);
     setMyMenuVisible((myMenueVisible) => !myMenueVisible);
@@ -33,6 +53,10 @@ const MyBlog = () => {
     window.location.href = `http://localhost:3000/myblog/${user.userid}/write`;
   };
   const userid = user.userid;
+  console.log("전체DB", getAllDB);
+  console.log("선택 DB", detailDB);
+  console.log("선택", chooseCat);
+  console.log("테스트", selectDetailDB);
 
   useEffect(() => {
     const getData = async () => {
@@ -55,7 +79,7 @@ const MyBlog = () => {
     const getData = async (e) => {
       try {
         const data = await axios({
-          url: `${BACKEND_URL}/v3/content/${user.userid}`,
+          url: `${BACKEND_URL}/v3/content/${userid}`,
           method: "GET",
           params: {
             userid,
@@ -68,7 +92,24 @@ const MyBlog = () => {
     };
     getData();
   }, [userid]);
-  console.log(mydata);
+
+  useEffect(() => {
+    const getData = async (e) => {
+      try {
+        const data = await axios({
+          url: `${BACKEND_URL}/v2/maincategory`,
+          method: "GET",
+          params: {
+            userid,
+          },
+        });
+        setCatDB(data.data);
+      } catch (e) {
+        alert("fail");
+      }
+    };
+    getData();
+  }, [userid]);
   return (
     <div className="MyBlogBody">
       <nav className="MyBlogTopNav">
@@ -137,24 +178,105 @@ const MyBlog = () => {
             <span>·</span>
             <span className="BlogSettingText">통계</span>
           </div>
-          <BlogCategory getAllDB={getAllDB} />
+          <section className="BlogContentCategory">
+            <div className="BlogContentCategoryArea">
+              <div className="BlogContentCatHead">
+                <span>카테고리</span>
+                <span className="ContentShowBt">^</span>
+                <div className="BlogContCatMain">
+                  <div className="AllContent">
+                    <span className="BlogContCatIcon"></span>
+                    <span onClick={onClickAllContentList}>전체보기</span>
+                    <span>({getAllDB.length})</span>
+                    <span
+                      className="ContentEditBt"
+                      onClick={onClickEditBt}
+                    ></span>
+                  </div>
+                  <div className="BlogCatAreaDashed">
+                    {/*세부 카테고리map pos*/}
+                    {catDB.map((item, index) => (
+                      <div className="BlogContCatDetail" key={index}>
+                        <span className="BlogContCatIcon"></span>
+                        <span
+                          className="BlogContCatTitle"
+                          onClick={() => onClickChooseCat(item.maincategory)}
+                        >
+                          {item.maincategory}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  {/*세부 카테고리map pos*/}
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
         <div className="MyBlogMainSection">
           <div className="BlogMainTop">
             <div className="BlogMainTopContent">
-              <span className="BlogTopContentAll">전체보기</span>
+              <span
+                className="BlogTopContentAll"
+                onClick={onClickAllContentList}
+              >
+                전체보기
+              </span>
               <span className="BlogTopContentCount">
                 {getAllDB.length}개의 글
               </span>
+              <div className="BlogTopContentList">
+                <span
+                  className={
+                    listvisible ? "BlogTopContentListText" : "ListTextNone"
+                  }
+                  onClick={onClinckListBt}
+                >
+                  목록열기
+                </span>
+                <span
+                  className={
+                    !listvisible ? "BlogTopContentListText" : "ListTextNone"
+                  }
+                  onClick={onClinckListBt}
+                >
+                  목록닫기
+                </span>
+              </div>
             </div>
-            <div className="BlogTopContentList">
-              <span className="BlogTopContentListText">목록열기</span>
-              {/* <span>목록닫기</span> */}
+          </div>
+          <div className={!listvisible ? "BlogListShow" : "ListTextNone"}>
+            <div className="BlogAllContentLineListHead">
+              <div className="LineListHeadTitle">
+                <span>제목</span>
+                <span>작성일</span>
+              </div>
+              {getAllDB.map((allDB, index) => (
+                <div key={index} className="BlogAllContentLineList">
+                  <span>{allDB.title}</span>
+                  <span>
+                    {allDB.date[0]}.{allDB.date[1]}.{allDB.date[2]}{" "}
+                    {allDB.date[3]}:{allDB.date[4]}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
           {/*콘텐츠 map*/}
-          <div>
+          <div
+            className={chooseCat === "" ? "BlogAllContentList" : "ListTextNone"}
+          >
             <BlogContent getAllDB={getAllDB} userid={userid} />
+          </div>
+          <div
+            className={
+              chooseCat === "" ? "ListTextNone" : "BlogDetailContentList"
+            }
+          >
+            <BlogDetailContent
+              selectDetailDB={selectDetailDB}
+              userid={userid}
+            />
           </div>
           {/*콘텐츠 map*/}
         </div>

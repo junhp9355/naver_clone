@@ -24,6 +24,7 @@
 }
 .BlogContentTopText {
   font-size: 13px;
+  cursor: pointer;
 }
 .BlogContentTopCategory {
   font-size: 13px;
@@ -102,6 +103,7 @@
   width: 45px;
   height: 27px;
   text-align: center;
+  cursor: pointer;
   border-left: 1px solid rgb(199, 199, 199);
 }
 .ContentIconBox2 > span {

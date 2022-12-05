@@ -5,7 +5,7 @@ import { recoilUser } from "../recoil/RecoilUser";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
 
-const BlogCategory = ({ getAllDB }) => {
+const BlogCategory = ({ getAllDB, onClickChooseCat }) => {
   const [user, setUser] = useRecoilState(recoilUser);
   const [catDB, setCatDB] = useState([]);
   const onClickEditBt = () => {
@@ -30,7 +30,6 @@ const BlogCategory = ({ getAllDB }) => {
     getData();
   }, [userid]);
 
-  console.log("CATDB", catDB);
   return (
     <section className="BlogContentCategory">
       <div className="BlogContentCategoryArea">
@@ -49,7 +48,9 @@ const BlogCategory = ({ getAllDB }) => {
               {catDB.map((item, index) => (
                 <div className="BlogContCatDetail" key={index}>
                   <span className="BlogContCatIcon"></span>
-                  <span className="BlogContCatTitle">{item.maincategory}</span>
+                  <span className="BlogContCatTitle" onClick={onClickChooseCat}>
+                    {item.maincategory}
+                  </span>
                 </div>
               ))}
             </div>

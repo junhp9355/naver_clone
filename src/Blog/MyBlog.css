@@ -131,3 +131,64 @@
   color: black;
   cursor: pointer;
 }
+.BlogAllContentList {
+  position: relative;
+  display: inline-block;
+}
+.BlogAllContentLineList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 850px;
+  height: 30px;
+  font-size: 13px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+.BlogAllContentLineList > span {
+  width: 400px;
+  text-align: right;
+}
+.BlogAllContentLineList > span:first-child {
+  text-align: center;
+  position: relative;
+  left: 40px;
+  cursor: pointer;
+}
+.LineListHeadTitle {
+  font-size: 14px;
+  width: 850px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 35px;
+  border-bottom: 1px solid rgb(182, 182, 182);
+}
+.LineListHeadTitle > span {
+  width: 100px;
+  color: rgb(179, 179, 179);
+}
+.LineListHeadTitle > span:first-child {
+  position: relative;
+  left: 250px;
+}
+.BlogListShow {
+  display: block;
+  position: relative;
+  width: 850px;
+}
+.BlogTopContentList {
+  width: 150px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.BlogTopContentListText {
+  position: relative;
+  right: -650px;
+  cursor: pointer;
+}
+.ListTextNone {
+  display: none;
+}
