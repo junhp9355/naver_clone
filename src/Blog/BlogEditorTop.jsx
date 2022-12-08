@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import "./BlogEditor.css";
+import "../BlogStyle/BlogEditor.css";
 
-const BlogEditorTop = ({ user }) => {
+const BlogEditorTop = ({ user, setUser }) => {
   const [basicShow, setBasicShow] = useState(false);
   const [contentShow, setContentShow] = useState(false);
+  const onClickLogout = () => {
+    setUser("");
+    window.location.href = "http://localhost:3000/";
+    localStorage.clear();
+  };
 
   const onClickNaverLogo = () => {
     window.location.href = "http://localhost:3000/";
@@ -24,9 +29,17 @@ const BlogEditorTop = ({ user }) => {
       <nav className="EditorTopArea">
         <div className="EditorTopLogo">
           <span className="EditorNaverLogo" onClick={onClickNaverLogo} />
-          <span className="EditorBlogLogo" onClick={onClickEditorLogo} />
+          <span className="EditorBlogLogo" />
           <span className="EditorTopBar" />
           <span className="EditorTopTitle">관리</span>
+        </div>
+        <div className="EditorTopFunc">
+          <div className="EditorTopFuncText" onClick={onClickEditorLogo}>
+            내 블로그
+          </div>
+          <div className="EditorTopFuncText" onClick={onClickLogout}>
+            로그아웃
+          </div>
         </div>
       </nav>
       <section className="EditorTopSection">

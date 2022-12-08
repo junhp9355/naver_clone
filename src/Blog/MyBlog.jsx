@@ -1,32 +1,41 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
-import "./MyBlog.css";
-import "./MyBlogMain.css";
+import "../BlogStyle/MyBlog.css";
+import "../BlogStyle/MyBlogMain.css";
 import BlogContent from "./BlogContent";
-import BlogCategory from "./BlogCategory";
 import BlogDetailContent from "./BlogDetailContent";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
+import Pagination from "../Pagination/Pagination";
+import ListPagination from "../Pagination/ListPagination";
+import { useNavigate } from "react-router-dom";
 
 const MyBlog = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useRecoilState(recoilUser);
   const [topArrowVisible, setTopArrowVisible] = useState(false);
   const [topArrowVisible2, setTopArrowVisible2] = useState(false);
   const [myMenueVisible, setMyMenuVisible] = useState(false);
+  const [myMenueVisible2, setMyMenuVisible2] = useState(false);
   const [getAllDB, setGetAllDB] = useState(() => []);
   const [mydata, setMydate] = useState(() => "");
   const [listvisible, setListvisible] = useState(true);
   const [chooseCat, setChooseCat] = useState(() => "");
   const [catDB, setCatDB] = useState(() => []);
-  const [detailDB, setDetailDB] = useState(() => []);
-  const onClickEditBt = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}/edit`;
-  };
-
+  const [limit, setLimit] = useState(4);
+  const [page, setPage] = useState(1);
+  const [listlimit, setListLimit] = useState(4);
+  const [listpage, setListPage] = useState(1);
+  const userid = user.userid;
+  const listoffset = (listpage - 1) * listlimit;
   const selectDetailDB = getAllDB.filter(
     (value) => value.maincategory === chooseCat
   );
+  const onClickEditBt = () => {
+    navigate(`/myblog/${user.userid}/edit`);
+  };
   const onClickAllContentList = () => {
     setChooseCat("");
   };
@@ -37,27 +46,35 @@ const MyBlog = () => {
     setListvisible((listvisible) => !listvisible);
   };
   const onClickTopArrow = () => {
+    if (topArrowVisible2 === true) {
+      setTopArrowVisible2(false);
+      setMyMenuVisible2(false);
+    }
     setTopArrowVisible((topArrowVisible) => !topArrowVisible);
     setMyMenuVisible((myMenueVisible) => !myMenueVisible);
   };
   const onClickTopArrow2 = () => {
+    if (topArrowVisible === true) {
+      setTopArrowVisible(false);
+      setMyMenuVisible(false);
+    }
     setTopArrowVisible2((topArrowVisible2) => !topArrowVisible2);
+    setMyMenuVisible2((myMenueVisible2) => !myMenueVisible2);
   };
   const onClickHome = () => {
-    window.location.href = "http://localhost:3000/";
+    navigate("/");
   };
   const onClickEdit = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}/edit`;
+    navigate(`/myblog/${user.userid}/edit`);
   };
   const onClickWrite = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}/write`;
+    navigate(`/myblog/${user.userid}/write`);
   };
-  const userid = user.userid;
-  console.log("전체DB", getAllDB);
-  console.log("선택 DB", detailDB);
-  console.log("선택", chooseCat);
-  console.log("테스트", selectDetailDB);
-
+  const onClickLogout = () => {
+    setUser("");
+    navigate("/");
+    localStorage.clear();
+  };
   useEffect(() => {
     const getData = async () => {
       try {
@@ -69,47 +86,37 @@ const MyBlog = () => {
           },
         });
         setMydate(data.data);
-      } catch (e) {
-        alert("fail");
-      }
+      } catch (e) {}
     };
     getData();
-  }, [userid]);
-  useEffect(() => {
-    const getData = async (e) => {
+    const getContentData = async (e) => {
       try {
-        const data = await axios({
+        const contentdata = await axios({
           url: `${BACKEND_URL}/v3/content/${userid}`,
           method: "GET",
           params: {
             userid,
           },
         });
-        setGetAllDB(data.data.reverse());
-      } catch (e) {
-        alert("실패");
-      }
+        setGetAllDB(contentdata.data.reverse());
+      } catch (e) {}
     };
-    getData();
-  }, [userid]);
-
-  useEffect(() => {
-    const getData = async (e) => {
+    getContentData();
+    const getCategoryData = async (e) => {
       try {
-        const data = await axios({
+        const categorydata = await axios({
           url: `${BACKEND_URL}/v2/maincategory`,
           method: "GET",
           params: {
             userid,
           },
         });
-        setCatDB(data.data);
-      } catch (e) {
-        alert("fail");
-      }
+        setCatDB(categorydata.data);
+      } catch (e) {}
     };
-    getData();
+    getCategoryData();
   }, [userid]);
+
   return (
     <div className="MyBlogBody">
       <nav className="MyBlogTopNav">
@@ -128,7 +135,7 @@ const MyBlog = () => {
               <span className="BackAngle"></span>
               <div className="BlogMyMenuList">
                 <span className="BlogMyMenueText" onClick={onClickEdit}>
-                  관리
+                  관 리
                 </span>
               </div>
             </div>
@@ -140,6 +147,14 @@ const MyBlog = () => {
                 topArrowVisible2 ? "BlogTopMenuArrow" : "BlogTopMenuArrowActive"
               }
             />
+            <div className={myMenueVisible2 ? "BlogMyMenu2" : "MenuNone"}>
+              <span className="BackAngle2"></span>
+              <div className="BlogMyMenuList2">
+                <span className="BlogMyMenueText" onClick={onClickLogout}>
+                  로그아웃
+                </span>
+              </div>
+            </div>
           </span>
         </div>
         <div className="MyBlogTopHead">
@@ -181,8 +196,6 @@ const MyBlog = () => {
           <section className="BlogContentCategory">
             <div className="BlogContentCategoryArea">
               <div className="BlogContentCatHead">
-                <span>카테고리</span>
-                <span className="ContentShowBt">^</span>
                 <div className="BlogContCatMain">
                   <div className="AllContent">
                     <span className="BlogContCatIcon"></span>
@@ -208,6 +221,10 @@ const MyBlog = () => {
                     ))}
                   </div>
                   {/*세부 카테고리map pos*/}
+                </div>
+                <div className="BlogSearchArea">
+                  <input type="text" className="BlogSearchBox" />
+                  <span className="BlogSearchIcon" />
                 </div>
               </div>
             </div>
@@ -251,22 +268,41 @@ const MyBlog = () => {
                 <span>제목</span>
                 <span>작성일</span>
               </div>
-              {getAllDB.map((allDB, index) => (
-                <div key={index} className="BlogAllContentLineList">
-                  <span>{allDB.title}</span>
-                  <span>
-                    {allDB.date[0]}.{allDB.date[1]}.{allDB.date[2]}{" "}
-                    {allDB.date[3]}:{allDB.date[4]}
-                  </span>
-                </div>
-              ))}
+              {getAllDB
+                .slice(listoffset, listoffset + listlimit)
+                .map((allDB, index) => (
+                  <div key={index} className="BlogAllContentLineList">
+                    <span>{allDB.title}</span>
+                    <span>
+                      {allDB.date[0]}.{allDB.date[1]}.{allDB.date[2]}{" "}
+                      {allDB.date[3]}:{allDB.date[4]}
+                    </span>
+                  </div>
+                ))}
             </div>
+            <ListPagination
+              listlimit={listlimit}
+              listpage={listpage}
+              setListPage={setListPage}
+              total={getAllDB.length}
+            />
           </div>
           {/*콘텐츠 map*/}
           <div
             className={chooseCat === "" ? "BlogAllContentList" : "ListTextNone"}
           >
-            <BlogContent getAllDB={getAllDB} userid={userid} />
+            <BlogContent
+              getAllDB={getAllDB}
+              userid={userid}
+              page={page}
+              limit={limit}
+            />
+            <Pagination
+              limit={limit}
+              page={page}
+              setPage={setPage}
+              total={getAllDB.length}
+            />
           </div>
           <div
             className={
@@ -276,6 +312,14 @@ const MyBlog = () => {
             <BlogDetailContent
               selectDetailDB={selectDetailDB}
               userid={userid}
+              page={page}
+              limit={limit}
+            />
+            <Pagination
+              limit={limit}
+              page={page}
+              setPage={setPage}
+              total={selectDetailDB.length}
             />
           </div>
           {/*콘텐츠 map*/}

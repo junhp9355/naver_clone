@@ -1,10 +1,10 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
-import "./BlogEditor.css";
+import "../BlogStyle/BlogEditor.css";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
-import BlogFuncCategory from "./BlogFuncCategory";
 import BlogEditorTop from "./BlogEditorTop";
 import FuncBlogInfo from "./FuncBlogInfo";
 import FuncProfileInfo from "./FuncProfileInfo";
@@ -26,9 +26,7 @@ const BlogEditor = () => {
           },
         });
         setEditdata(data.data);
-      } catch (e) {
-        alert("fail");
-      }
+      } catch (e) {}
     };
     getData();
   }, [userid]);
@@ -42,7 +40,7 @@ const BlogEditor = () => {
   };
   return (
     <>
-      <BlogEditorTop user={user} />
+      <BlogEditorTop user={user} setUser={setUser} />
       <section className="EditorSection">
         <div className="EditorFunctionSection">
           <div className="FunctionSideMenu">

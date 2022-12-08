@@ -4,18 +4,20 @@ import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 import "../styles/Login.css";
 import { BACKEND_URL } from "../Util/Util";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [userid, setUserid] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useRecoilState(recoilUser);
   const [fail, setFail] = useState(true);
 
   const onClickSignUpBt = () => {
-    window.location.href = "http://localhost:3000/signup";
+    navigate("/signup");
   };
   const onClickSignUpLogo = () => {
-    window.location.href = "http://localhost:3000/";
+    navigate("/");
   };
   const onChangeUserid = (e) => {
     setUserid(e.target.value);
@@ -32,7 +34,7 @@ const Login = () => {
       setUserid("");
       setPassword("");
       setUser(data.data);
-      window.location.href = "http://localhost:3000/";
+      navigate("/");
     } catch (e) {
       setFail(!fail);
       setPassword("");

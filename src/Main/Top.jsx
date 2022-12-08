@@ -4,10 +4,10 @@ import "../styles/Top.css";
 import Weather from "../SwiperComponent/Weather";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
-import axios from "axios";
-import { BACKEND_URL } from "../Util/Util";
+import { useNavigate } from "react-router-dom";
 
 const Top = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useRecoilState(recoilUser);
   const [searchVisible, setSearchVisible] = useState(true);
   const [keyword, setKeyword] = useState("");
@@ -15,13 +15,14 @@ const Top = () => {
     JSON.parse(localStorage.getItem("keywords") || "[]")
   );
   const searchBox = useRef();
-  const userid = user.userid;
-
+  console.log(user);
   const onClickBlog = async (userid) => {
-    if (user.userid === undefined) {
+    if (user === undefined || user === null) {
+      alert("로그인이 필요한 서비스 입니다.");
+    } else if (user.userid === undefined || user.userid === null) {
       alert("로그인이 필요한 서비스 입니다.");
     } else {
-      window.location.href = `http://localhost:3000/myblog/${user.userid}`;
+      navigate(`/myblog/${user.userid}`);
     }
   };
 

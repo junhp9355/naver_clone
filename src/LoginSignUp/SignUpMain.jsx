@@ -5,8 +5,10 @@ import "../styles/SignUp.css";
 import "../styles/SignUpMain.css";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
+import { useNavigate } from "react-router-dom";
 
 const SignUpMain = () => {
+  const navigate = useNavigate();
   const [userdata, setUserdata] = useState([]);
   const [userid, setUserID] = useState("");
   const [repassword1, setRePassword1] = useState("");
@@ -27,7 +29,7 @@ const SignUpMain = () => {
   const phone = global + " " + usernumber;
 
   const onClickLogo = () => {
-    window.location.href = "http://localhost:3000/";
+    navigate("/");
   };
 
   const onChangeID = (e) => {
@@ -101,7 +103,7 @@ const SignUpMain = () => {
       });
       setUserdata(data.data);
       alert("회원가입이 완료되었습니다.");
-      window.location.href = "http://localhost:3000/";
+      navigate("/");
     } catch (e) {
       setError(e);
     }

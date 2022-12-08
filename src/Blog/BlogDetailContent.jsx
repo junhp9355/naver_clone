@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import "./BlogContent.css";
+import React from "react";
+import "../BlogStyle/BlogContent.css";
 import ReactHtmlParser from "react-html-parser";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
+import { useNavigate } from "react-router-dom";
 
-const BlogDetailContent = ({ selectDetailDB, userid }) => {
+const BlogDetailContent = ({ selectDetailDB, userid, page, limit }) => {
+  const navigate = useNavigate();
+  const offset = (page - 1) * limit;
   const onClickUpdateBt = (id) => {
     if (id === undefined) {
       alert("fail");
@@ -23,7 +26,7 @@ const BlogDetailContent = ({ selectDetailDB, userid }) => {
   };
   return (
     <section>
-      {selectDetailDB.map((content, index) => (
+      {selectDetailDB.slice(offset, offset + limit).map((content, index) => (
         <div className="BlogContentMain" key={index}>
           <div className="BlogContentTop">
             <div className="BlogContentTopHead">

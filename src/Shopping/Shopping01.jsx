@@ -62,6 +62,7 @@ const Shopping01 = () => {
     centerMode: true,
     centerPadding: "0px",
     autoplay: false,
+    draggable: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };

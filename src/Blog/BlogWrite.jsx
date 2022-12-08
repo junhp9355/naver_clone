@@ -1,5 +1,6 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
-import "./BlogWrite.css";
+import "../BlogStyle/BlogWrite.css";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
@@ -13,7 +14,6 @@ const BlogWrite = () => {
   const [content, setContent] = useState(() => "");
   const [categoryDB, setCategoryDB] = useState(() => []);
   const [selectCategory, setSelectCategory] = useState(() => "");
-  const [date, setDate] = useState(() => "");
   const userid = user.userid;
   const onClickMyBlog = () => {
     window.location.href = `http://localhost:3000/myblog/${user.userid}`;
@@ -60,18 +60,11 @@ const BlogWrite = () => {
           },
         });
         setCategoryDB(data.data);
-      } catch (e) {
-        alert("fail");
-      }
+      } catch (e) {}
     };
     getData();
   }, [userid]);
 
-  // console.log("카테고리DB", categoryDB);
-  console.log("선택 카테고리", selectCategory);
-  console.log("제목", title);
-  console.log("내용", content);
-  // console.log("디폴트", defaultcategoty);
   return (
     <section className="WriteSection">
       <div className="WriteTopArea">

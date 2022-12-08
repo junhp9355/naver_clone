@@ -7,6 +7,7 @@
   background-color: #00c73c;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .EditorTopLogo {
   display: flex;
@@ -16,6 +17,20 @@
   position: relative;
   left: 20px;
 }
+.EditorTopFunc {
+  width: 200px;
+  display: flex;
+  position: relative;
+}
+.EditorTopFuncText {
+  font-size: 14px;
+  display: block;
+  position: relative;
+  color: white;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+}
 .EditorNaverLogo {
   background-image: url(/public/naverbloglogo.svg);
   background-size: 26px 26px;
@@ -23,6 +38,7 @@
   width: 26px;
   height: 26px;
   display: block;
+  cursor: pointer;
 }
 .EditorBlogLogo {
   background-image: url(/public/blogLogo.svg);
@@ -80,16 +96,19 @@
 .EditorMainMenu {
   font-size: 14px;
   margin-left: 20px;
+  cursor: pointer;
 }
 .EditorMainMenuActive {
   font-size: 14px;
   margin-left: 20px;
   color: #00c73c;
   font-weight: bold;
+  cursor: pointer;
 }
 .EditorMainMenu:hover {
   color: #00c73c;
   font-weight: bold;
+  cursor: pointer;
 }
 .EditorFunctionSection {
   display: flex;
@@ -109,14 +128,17 @@
 }
 .FunctionText {
   height: 20px;
+  cursor: pointer;
 }
 .FunctionText:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 .ClickFunctionText {
   color: #00c73c;
   font-weight: bold;
   height: 20px;
+  cursor: pointer;
 }
 .BasicFunction {
   display: flex;
@@ -241,7 +263,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 250px;
   height: 50px;
 }
 .CatAddBt {
@@ -256,8 +278,14 @@
 }
 .CatDelBt {
   position: relative;
-  left: 10px;
+  left: 20px;
   width: 44;
+  height: 20px;
+}
+.CatUpdateBt {
+  position: relative;
+  left: 10px;
+  width: 87px;
   height: 20px;
 }
 .FuncCatBt {

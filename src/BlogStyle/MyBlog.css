@@ -1,9 +1,10 @@
 .MyBlogBody {
   display: inline-block;
   width: 100%;
-  height: 1600px;
+  height: auto;
   top: 0px;
   left: 0px;
+  padding-bottom: 100px;
   position: absolute;
   /* background-color: rgb(196, 196, 196); */
   background-image: url(/public/BlogMainSkin04.jpg);
@@ -70,8 +71,10 @@
 }
 .MyBlogName {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 17px;
   cursor: pointer;
+  width: 150px;
+  height: auto;
 }
 .MyBlogName:hover {
   text-decoration: underline;
@@ -96,15 +99,35 @@
 }
 .BlogMyMenu {
   position: absolute;
-  width: 100px;
-  height: 130px;
-  left: 50px;
+  width: 80px;
+  height: 60px;
+  left: 60px;
   top: 45px;
   background-color: white;
   z-index: 99;
-  box-shadow: 0px 0px 5px 1px grey;
+  box-shadow: 0px 0px 5px 1px rgb(204, 204, 204);
 }
 .BackAngle {
+  position: absolute;
+  rotate: 45deg;
+  width: 30px;
+  height: 30px;
+  left: 25px;
+  top: -2px;
+  background-color: white;
+  z-index: -1;
+}
+.BlogMyMenu2 {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  right: -20px;
+  top: 45px;
+  background-color: white;
+  z-index: 99;
+  box-shadow: 0px 0px 5px 1px rgb(204, 204, 204);
+}
+.BackAngle2 {
   position: absolute;
   rotate: 45deg;
   width: 30px;
@@ -124,7 +147,18 @@
   z-index: 999;
   position: relative;
   top: 20px;
-  left: 15px;
+  display: flex;
+  justify-content: center;
+}
+.BlogMyMenuList2 {
+  margin: auto;
+  width: 60px;
+  height: 180px;
+  z-index: 999;
+  position: relative;
+  top: 20px;
+  display: flex;
+  justify-content: center;
 }
 .BlogMyMenueText {
   font-size: 14px;
@@ -134,6 +168,9 @@
 .BlogAllContentList {
   position: relative;
   display: inline-block;
+}
+.BlogTopListArea {
+  display: flex;
 }
 .BlogAllContentLineList {
   display: flex;
@@ -191,4 +228,29 @@
 }
 .ListTextNone {
   display: none;
+}
+.BlogSearchArea {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  top: 10px;
+}
+.BlogSearchBox {
+  position: relative;
+  width: 150px;
+  height: 22px;
+  outline: none;
+  border: 1px solid black;
+}
+.BlogSearchIcon {
+  background-image: url(/public/blogicon.svg);
+  position: absolute;
+  right: 19px;
+  top: 7px;
+  background-position: -87px -24px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid black;
 }

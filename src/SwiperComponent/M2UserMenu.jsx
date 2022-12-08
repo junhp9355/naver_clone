@@ -7,11 +7,13 @@ import { recoilUser } from "../recoil/RecoilUser";
 import "../styles/M2UserMenu.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import { useNavigate } from "react-router-dom";
 
 const M2UserMenu = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useRecoilState(recoilUser);
   const onClickBlog = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}`;
+    navigate(`/myblog/${user.userid}`);
   };
   SwiperCore.use([Navigation]);
   return (

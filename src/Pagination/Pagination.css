@@ -1,0 +1,70 @@
+.PageNav {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 800px;
+  gap: 4px;
+}
+.ListPageNav {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 800px;
+  gap: 4px;
+  padding-top: 20px;
+}
+.numbering {
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 0;
+  color: black;
+  font-size: 12px;
+  background-color: transparent;
+}
+.numbering:hover {
+  cursor: pointer;
+  /* transform: translateY(-1px); */
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.PageLeft {
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 0;
+  color: black;
+  font-size: 12px;
+  background-color: transparent;
+}
+
+.PageRight {
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 0;
+  color: black;
+  font-size: 12px;
+  background-color: transparent;
+}
+
+.PageRight:hover {
+  cursor: pointer;
+  /* transform: translateY(-1px); */
+  text-decoration: underline;
+}
+
+.PageLeft:hover {
+  cursor: pointer;
+  /* transform: translateY(-1px); */
+  text-decoration: underline;
+}
+
+[aria-current="page"] {
+  background: #19ce60;
+  font-weight: bold;
+  cursor: revert;
+  transform: revert;
+  color: white;
+}

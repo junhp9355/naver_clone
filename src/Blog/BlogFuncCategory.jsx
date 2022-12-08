@@ -2,8 +2,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BACKEND_URL } from "../Util/Util";
-import "./BlogEditor.css";
-import "./BlogCategory.css";
+import "../BlogStyle/BlogEditor.css";
+import "../BlogStyle/BlogCategory.css";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 
@@ -14,18 +14,45 @@ const BlogFuncCategory = () => {
   const [selectId, setSeletId] = useState(0);
   const userid = user.userid;
   const id = selectId;
-
+  console.log(categoryname);
+  console.log(selectId);
+  const onChangeCatName = (e) => {
+    setCategoryname(e.target.value);
+  };
   const onClickSelect = (cat, num) => {
     setCategoryname(cat);
     setSeletId(num);
   };
-
-  const onChangeCatName = (e) => {
-    setCategoryname(e.target.value);
+  const onClickUpdateCat = () => {
+    updateCategory(categoryname);
   };
-
-  const onClickConfirm = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}/edit/content`;
+  const onClickDeleteCat = () => {
+    deleteCategory(categoryname, userid);
+  };
+  const onClickAddCat = () => {
+    if (categoryname === "") {
+      alert("카테고리명을 입력하세요.");
+    } else {
+      postCategory(categoryname, userid);
+    }
+  };
+  const updateCategory = async (maincategory) => {
+    try {
+      const updateData = await axios.patch(
+        `${BACKEND_URL}/v2/${id}/update/category`,
+        { maincategory }
+      );
+    } catch (e) {}
+  };
+  const deleteCategory = async () => {
+    try {
+      const deldata = await axios.delete(
+        `${BACKEND_URL}/v2/${id}/maincategory`
+      );
+      alert("삭제");
+    } catch (e) {
+      alert("fail");
+    }
   };
   const postCategory = async (maincategory, userid) => {
     try {
@@ -40,27 +67,6 @@ const BlogFuncCategory = () => {
     } catch (e) {
       alert("fail");
     }
-  };
-  const deleteCategory = async () => {
-    try {
-      const deldata = await axios.delete(
-        `${BACKEND_URL}/v2/${id}/maincategory`
-      );
-      alert("삭제");
-    } catch (e) {
-      alert("fail");
-    }
-  };
-  const onClickAddCat = () => {
-    if (categoryname === "") {
-      alert("카테고리명을 입력하세요.");
-    } else {
-      postCategory(categoryname, userid);
-    }
-  };
-
-  const onClickDeleteCat = () => {
-    deleteCategory(categoryname, userid);
   };
 
   useEffect(() => {
@@ -174,6 +180,13 @@ const BlogFuncCategory = () => {
                           카테고리 추가
                         </button>
                         <button
+                          className="FuncCatBt CatUpdateBt"
+                          onClick={onClickUpdateCat}
+                          onSubmit={updateCategory}
+                        >
+                          카테고리 수정
+                        </button>
+                        <button
                           className="FuncCatBt CatDelBt"
                           onClick={onClickDeleteCat}
                           onSubmit={deleteCategory}
@@ -186,9 +199,7 @@ const BlogFuncCategory = () => {
                 </form>
               </div>
               <div className="FunctionButtonArea">
-                <button className="FunctionSaveBt" onClick={onClickConfirm}>
-                  확인
-                </button>
+                <button className="FunctionSaveBt">확인</button>
               </div>
             </div>
           </form>

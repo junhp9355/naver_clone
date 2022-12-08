@@ -15,6 +15,8 @@ const M4Advertisment = () => {
         loop={true}
         autoplay={{ delay: 3000 }}
         slidesPerView={1}
+        scrollbar={{ draggable: false }}
+        pagination={{ clickable: false }}
         className="M4SwiperAdMain"
       >
         <SwiperSlide>

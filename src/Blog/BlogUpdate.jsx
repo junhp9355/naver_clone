@@ -1,5 +1,6 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
-import "./BlogWrite.css";
+import "../BlogStyle/BlogWrite.css";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
@@ -7,8 +8,10 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { BACKEND_URL } from "../Util/Util";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BlogUpdate = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useRecoilState(recoilUser);
   const [title, setTitle] = useState(() => "");
   const [content, setContent] = useState(() => "");
@@ -21,7 +24,7 @@ const BlogUpdate = () => {
   const userid = user.userid;
 
   const onClickMyBlog = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}`;
+    navigate(`/myblog/${user.userid}`);
   };
   const onChangeEditor = (event, editor) => {
     const data = editor.getData();
@@ -33,7 +36,6 @@ const BlogUpdate = () => {
   const onClickCategory = (e) => {
     setSelectCategory(e.target.value);
   };
-
   const updateContent = async (id, title, contents) => {
     try {
       const data = await axios.patch(
@@ -43,7 +45,6 @@ const BlogUpdate = () => {
           contents,
         }
       );
-      window.location.href = `http://localhost:3000/myblog/${userid}`;
     } catch (e) {}
   };
 
@@ -66,9 +67,7 @@ const BlogUpdate = () => {
           method: "GET",
         });
         setEditContentDB(data.data);
-      } catch (e) {
-        alert("단건 fail");
-      }
+      } catch (e) {}
     };
     getData();
   }, [id]);
@@ -84,15 +83,10 @@ const BlogUpdate = () => {
           },
         });
         setCategoryDB(datas.data);
-      } catch (e) {
-        alert("fail");
-      }
+      } catch (e) {}
     };
     getDatas();
   }, [userid]);
-
-  console.log("수정 데이터", editContentDB);
-  console.log("단건 id", id);
 
   return (
     <section className="WriteSection">
@@ -105,7 +99,7 @@ const BlogUpdate = () => {
           </span>
         </div>
       </div>
-      <form onSubmit={() => onSubmitUpdateData()}>
+      <form onSubmit={onSubmitUpdateData}>
         <div className="WriteBody">
           <div className="WriteMainSection">
             <div className="WriteHead">

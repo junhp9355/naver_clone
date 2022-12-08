@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import "../styles/SignUp.css";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [allcheck, setAllCheck] = useState(false);
   const [essentialCheck1, setEssentialCheck1] = useState(false);
   const [essentialCheck2, setEssentialCheck2] = useState(false);
@@ -10,7 +12,7 @@ const SignUp = () => {
   const [checkIcon2, setCheckIcon2] = useState(false);
   const [warning, setWarning] = useState(true);
   const onClickLogo = () => {
-    window.location.href = "http://localhost:3000/";
+    navigate("/");
   };
   const onClickCheck1 = () => {
     setCheckIcon1((checkIcon1) => !checkIcon1);
@@ -44,13 +46,13 @@ const SignUp = () => {
   };
 
   const onClickSignUpCancel = () => {
-    window.location.href = "http://localhost:3000/";
+    navigate("/");
   };
   const onClickSignUpConfirm = () => {
     if (essentialCheck1 === false && essentialCheck2 === false) {
       setWarning(false);
     } else {
-      window.location.href = "http://localhost:3000/signupJoin";
+      navigate("/signupJoin");
     }
   };
   return (

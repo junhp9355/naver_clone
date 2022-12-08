@@ -1,7 +1,28 @@
 .MySwiper1 {
   width: 470px;
-  height: 21px;
-  margin-left: 20px;
+  height: 20px;
+  left: 20px;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.M3SubNews1swiper {
+  width: 470px;
+  height: 30px;
+  top: 7px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.M3SubNews1Title {
+  height: 30px;
+  width: 470px;
+  font-size: 14px;
+  display: block;
+}
+.M3SubNews1Title2 {
+  position: relative;
+  top: -2px;
 }
 .MySwiper2 {
   margin-top: 6px;
@@ -12,7 +33,7 @@
 .swiper2SubNews1 {
   display: flex;
   align-items: center;
-  font-size: 13px;
+  font-size: 11px;
   height: 35px;
   width: 280px;
 }
@@ -30,8 +51,9 @@
   opacity: 0.5;
 }
 .swiper2SubNewsHead {
-  font-weight: bold;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
+  width: 30px;
 }
 .swiper2SubNews1 > p:last-child {
   color: blue;
@@ -54,7 +76,7 @@
 .swiper2SubNews2 {
   display: flex;
   align-items: center;
-  font-size: 13px;
+  font-size: 11px;
   height: 35px;
   width: 270px;
 }
@@ -71,35 +93,35 @@
 .SwiperMainBanner1 {
   width: 750px;
   height: 135px;
+  max-width: 750px;
   background-image: url(/public/banner01.jpg);
   background-size: 750px 135px;
   cursor: pointer;
   position: relative;
-  /* margin-left: 1px;
-  margin-bottom: 5px; */
-  border: 1.5px solid rgb(212, 212, 212);
+  /* border: 1.5px solid rgb(212, 212, 212); */
+  display: block;
 }
 .SwiperMainBanner2 {
+  display: block;
   width: 750px;
   height: 135px;
+  max-width: 750px;
   background-image: url(/public/banner02.jpg);
   background-size: 750px 135px;
   cursor: pointer;
   position: relative;
-  /* margin-left: 1px;
-  margin-bottom: 5px; */
-  border: 1.5px solid rgb(212, 212, 212);
+  /* border: 1.5px solid rgb(212, 212, 212); */
 }
 .SwiperMainBanner3 {
+  display: block;
   width: 750px;
   height: 135px;
+  max-width: 750px;
   background-image: url(/public/banner03.jpg);
   background-size: 750px 135px;
   cursor: pointer;
   position: relative;
-  /* margin-left: 1px;
-  margin-bottom: 5px; */
-  border: 1.5px solid rgb(212, 212, 212);
+  /* border: 1.5px solid rgb(212, 212, 212); */
 }
 .swiper2SubNewsHead2 {
   border: 1.5px solid black;

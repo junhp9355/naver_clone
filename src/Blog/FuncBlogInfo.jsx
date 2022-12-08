@@ -17,9 +17,7 @@ const FuncBlogInfo = ({ editdata, userid, user }) => {
         }
       );
       setEditblogname(data.data);
-    } catch (e) {
-      console.log("fail");
-    }
+    } catch (e) {}
   };
   const onSubmitBlogData = () => {
     if (editblogname === "") {

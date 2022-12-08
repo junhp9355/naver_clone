@@ -46,6 +46,7 @@ const CategoryHeader = () => {
     slidesToShow: 8,
     slidesToScroll: 1,
     autoplay: false,
+    draggable: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };

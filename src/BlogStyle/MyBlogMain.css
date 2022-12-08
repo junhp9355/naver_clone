@@ -3,12 +3,11 @@
   position: relative;
   top: 20px;
   width: 1150px;
-  /* height: 1300px; */
+  height: auto;
   margin: auto;
   background-color: white;
   box-shadow: 0 0 4px 1px rgb(206, 206, 206);
-  /* overflow-y: scroll;
-  overflow-x: hidden; */
+  padding-bottom: 50px;
 }
 
 .BlogMainTop {
@@ -49,7 +48,7 @@
   flex-direction: column;
   align-items: center;
   width: 300px;
-  height: 1300px;
+  height: auto;
 }
 .BlogSideHeadBlank {
   position: relative;
@@ -131,4 +130,5 @@
 .MyBlogMainSection {
   position: relative;
   left: -10px;
+  height: auto;
 }

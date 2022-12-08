@@ -5,16 +5,19 @@ import { recoilUser } from "../recoil/RecoilUser";
 import MainBanner from "../SwiperComponent/MainBanner";
 import "../styles/M2LoginUser.css";
 import M2UserMenu from "../SwiperComponent/M2UserMenu";
+import { useNavigate } from "react-router-dom";
 
 const M2 = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useRecoilState(recoilUser);
 
   const onClickMainLoginBt = () => {
-    window.location.href = "http://localhost:3000/Login";
+    navigate("/Login");
   };
 
   const onClickLogout = () => {
     setUser("");
+    localStorage.clear();
   };
   return (
     <section className="M2Section">

@@ -8,7 +8,7 @@ const FuncEditContent = () => {
   const [user, setUser] = useRecoilState(recoilUser);
   return (
     <>
-      <BlogEditorTop2 user={user} />
+      <BlogEditorTop2 user={user} setUser={setUser} />
       <BlogFuncCategory />
     </>
   );
