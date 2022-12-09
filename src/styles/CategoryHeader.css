@@ -79,6 +79,9 @@
   color: white;
   font-weight: bold;
 }
+.Cat01:hover {
+  color: #e65da0;
+}
 .Category02 {
   width: 95px;
   height: 49px;
@@ -91,6 +94,9 @@
   background-color: #0147b5;
   color: white;
   font-weight: bold;
+}
+.Cat02:hover {
+  color: #0147b5;
 }
 .Category03 {
   width: 95px;
@@ -105,6 +111,9 @@
   color: white;
   font-weight: bold;
 }
+.Cat03:hover {
+  color: #4a94e1;
+}
 .Category04 {
   width: 95px;
   height: 49px;
@@ -117,6 +126,9 @@
   color: white;
   background-color: #66c971;
   font-weight: bold;
+}
+.Cat04:hover {
+  color: #66c971;
 }
 .Category05 {
   width: 95px;
@@ -131,6 +143,9 @@
   color: white;
   font-weight: bold;
 }
+.Cat05:hover {
+  color: #35ae5e;
+}
 .Category06 {
   width: 95px;
   height: 49px;
@@ -143,6 +158,9 @@
   background-color: #5290ff;
   color: white;
   font-weight: bold;
+}
+.Cat06:hover {
+  color: #5290ff;
 }
 .Category07 {
   width: 95px;
@@ -157,6 +175,9 @@
   color: white;
   font-weight: bold;
 }
+.Cat07:hover {
+  color: #ebaa00;
+}
 .Category08 {
   width: 95px;
   height: 49px;
@@ -169,6 +190,9 @@
   background-color: #c08d31;
   color: white;
   font-weight: bold;
+}
+.Cat08:hover {
+  color: #c08d31;
 }
 .Category09 {
   width: 95px;
@@ -183,6 +207,9 @@
   color: white;
   font-weight: bold;
 }
+.Cat09:hover {
+  color: #42be6f;
+}
 .Category10 {
   width: 95px;
   height: 49px;
@@ -195,4 +222,7 @@
   background-color: #8449ca;
   color: white;
   font-weight: bold;
+}
+.Cat10:hover {
+  color: #8449ca;
 }

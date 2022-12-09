@@ -12,16 +12,16 @@ const BlogDetailContent = ({ selectDetailDB, userid, page, limit }) => {
     if (id === undefined) {
       alert("fail");
     } else {
-      window.location.href = `http://localhost:3000/myblog/${userid}/update/${id}`;
+      navigate(`/myblog/${userid}/update/${id}`);
     }
   };
   const onClickDeletBt = (id) => {
     deleteContents(id);
   };
-  const deleteContents = async (id, e) => {
+  const deleteContents = async (id) => {
     try {
-      const data = await axios.delete(`${BACKEND_URL}/v3/content/delete/${id}`);
-      window.location.href = `http://localhost:3000/myblog/${userid}`;
+      await axios.delete(`${BACKEND_URL}/v3/content/delete/${id}`);
+      navigate(`/myblog/${userid}`);
     } catch (e) {}
   };
   return (

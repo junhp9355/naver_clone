@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
@@ -33,9 +32,6 @@ const MyBlog = () => {
   const selectDetailDB = getAllDB.filter(
     (value) => value.maincategory === chooseCat
   );
-  const onClickEditBt = () => {
-    navigate(`/myblog/${user.userid}/edit`);
-  };
   const onClickAllContentList = () => {
     setChooseCat("");
   };
@@ -65,10 +61,14 @@ const MyBlog = () => {
     navigate("/");
   };
   const onClickEdit = () => {
-    navigate(`/myblog/${user.userid}/edit`);
+    navigate(`/myblog/${user.userid}/edit`, {
+      state: { mydata: mydata },
+    });
   };
   const onClickWrite = () => {
-    navigate(`/myblog/${user.userid}/write`);
+    navigate(`/myblog/${user.userid}/write`, {
+      state: { catDB: catDB, userid: userid },
+    });
   };
   const onClickLogout = () => {
     setUser("");
@@ -203,7 +203,7 @@ const MyBlog = () => {
                     <span>({getAllDB.length})</span>
                     <span
                       className="ContentEditBt"
-                      onClick={onClickEditBt}
+                      onClick={onClickEdit}
                     ></span>
                   </div>
                   <div className="BlogCatAreaDashed">
@@ -282,6 +282,7 @@ const MyBlog = () => {
             </div>
             <ListPagination
               listlimit={listlimit}
+              setListLimit={setListLimit}
               listpage={listpage}
               setListPage={setListPage}
               total={getAllDB.length}
@@ -296,6 +297,8 @@ const MyBlog = () => {
               userid={userid}
               page={page}
               limit={limit}
+              setLimit={setLimit}
+              catDB={catDB}
             />
             <Pagination
               limit={limit}

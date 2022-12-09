@@ -1,28 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import "../BlogStyle/BlogEditor.css";
+import { useNavigate } from "react-router-dom";
 
 const BlogEditorTop = ({ user, setUser }) => {
-  const [basicShow, setBasicShow] = useState(false);
-  const [contentShow, setContentShow] = useState(false);
+  const navigate = useNavigate();
   const onClickLogout = () => {
     setUser("");
-    window.location.href = "http://localhost:3000/";
+    navigate("/");
     localStorage.clear();
   };
 
   const onClickNaverLogo = () => {
-    window.location.href = "http://localhost:3000/";
+    navigate("/");
   };
   const onClickEditorLogo = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}`;
+    navigate(`/myblog/${user.userid}`);
   };
 
   const onClickMainBasic = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}/edit`;
+    navigate(`/myblog/${user.userid}/edit`);
   };
 
   const onClcikContentEdit = (e) => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}/edit/content`;
+    navigate(`/myblog/${user.userid}/edit/content`);
   };
   return (
     <>
@@ -44,16 +44,10 @@ const BlogEditorTop = ({ user, setUser }) => {
       </nav>
       <section className="EditorTopSection">
         <div className="EditorMainMenuSection">
-          <div
-            className={basicShow ? "EditorMainMenu" : "EditorMainMenuActive"}
-            onClick={onClickMainBasic}
-          >
+          <div className="EditorMainMenuActive" onClick={onClickMainBasic}>
             기본 설정
           </div>
-          <div
-            className={contentShow ? "EditorMainMenuActive" : "EditorMainMenu"}
-            onClick={onClcikContentEdit}
-          >
+          <div className="EditorMainMenu" onClick={onClcikContentEdit}>
             메뉴·글·동영상 관리
           </div>
         </div>

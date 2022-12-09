@@ -7,7 +7,7 @@ import "../BlogStyle/BlogCategory.css";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
 
-const BlogFuncCategory = () => {
+const FuncCategory = () => {
   const [categoryname, setCategoryname] = useState("");
   const [user, setUser] = useRecoilState(recoilUser);
   const [editCatDB, setEditCatDB] = useState([]);
@@ -124,82 +124,79 @@ const BlogFuncCategory = () => {
                 </span>
               </div>
               <div className="FuncBlogcategoryEdit">
-                <form>
-                  <div className="FuncSubTitle2">카테고리 관리 · 설정</div>
-
-                  <div className="FuncCatGenerate">
-                    <div>
-                      <div className="CatBoxLine">
-                        <div className="CatListBox">
-                          {/* 카테고리 영역*/}
-                          <div className="DBCatArea">
-                            {editCatDB.map((cat) => (
-                              <div className="CatMapArea" key={cat.id}>
-                                <span className="BlogContCatIcon"></span>
-                                <div
-                                  className="BlogContCatTitle1"
-                                  onClick={() =>
-                                    onClickSelect(cat.maincategory, cat.id)
-                                  }
-                                >
-                                  {cat.maincategory}
-                                </div>
+                <div className="FuncSubTitle2">카테고리 관리 · 설정</div>
+                <div className="FuncCatGenerate">
+                  <div>
+                    <div className="CatBoxLine">
+                      <div className="CatListBox">
+                        {/* 카테고리 영역*/}
+                        <div className="DBCatArea">
+                          {editCatDB.map((cat) => (
+                            <div className="CatMapArea" key={cat.id}>
+                              <span className="BlogContCatIcon"></span>
+                              <div
+                                className="BlogContCatTitle1"
+                                onClick={() =>
+                                  onClickSelect(cat.maincategory, cat.id)
+                                }
+                              >
+                                {cat.maincategory}
                               </div>
-                            ))}
-                          </div>
-                          {/* 카테고리 영역*/}
+                            </div>
+                          ))}
                         </div>
-                      </div>
-                    </div>
-                    <div className="FunCatDetailInfoArea">
-                      <div className="FunCatDetailInfo">
-                        <span className="FunCatDetailInfoTitle">
-                          카테고리명
-                        </span>
-                        <input
-                          type="text"
-                          onChange={onChangeCatName}
-                          value={categoryname}
-                        />
-                      </div>
-                      <div className="FunCatDetailInfo">
-                        <span className="FunCatDetailInfoTitle">공개설정</span>
-                        <span>
-                          <input type="radio" />
-                          <span>공개</span>
-                          <input type="radio" />
-                          <span>비공개</span>
-                        </span>
-                      </div>
-                      <div className="FuncCatEditBtArea">
-                        <button
-                          className="FuncCatBt CatAddBt"
-                          onClick={onClickAddCat}
-                          onSubmit={postCategory}
-                        >
-                          카테고리 추가
-                        </button>
-                        <button
-                          className="FuncCatBt CatUpdateBt"
-                          onClick={onClickUpdateCat}
-                          onSubmit={updateCategory}
-                        >
-                          카테고리 수정
-                        </button>
-                        <button
-                          className="FuncCatBt CatDelBt"
-                          onClick={onClickDeleteCat}
-                          onSubmit={deleteCategory}
-                        >
-                          삭제
-                        </button>
+                        {/* 카테고리 영역*/}
                       </div>
                     </div>
                   </div>
-                </form>
+                  <div className="FunCatDetailInfoArea">
+                    <div className="FunCatDetailInfo">
+                      <span className="FunCatDetailInfoTitle">카테고리명</span>
+                      <input
+                        type="text"
+                        onChange={onChangeCatName}
+                        value={categoryname}
+                      />
+                    </div>
+                    <div className="FunCatDetailInfo">
+                      <span className="FunCatDetailInfoTitle">공개설정</span>
+                      <span>
+                        <input type="radio" />
+                        <span>공개</span>
+                        <input type="radio" />
+                        <span>비공개</span>
+                      </span>
+                    </div>
+                    <div className="FuncCatEditBtArea">
+                      <button
+                        className="FuncCatBt CatAddBt"
+                        onClick={onClickAddCat}
+                        onSubmit={postCategory}
+                      >
+                        카테고리 추가
+                      </button>
+                      <button
+                        className="FuncCatBt CatUpdateBt"
+                        onClick={onClickUpdateCat}
+                        onSubmit={updateCategory}
+                      >
+                        카테고리 수정
+                      </button>
+                      <button
+                        className="FuncCatBt CatDelBt"
+                        onClick={onClickDeleteCat}
+                        onSubmit={deleteCategory}
+                      >
+                        삭제
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="FunctionButtonArea">
-                <button className="FunctionSaveBt">확인</button>
+                <button className="FunctionSaveBt" type="button">
+                  확인
+                </button>
               </div>
             </div>
           </form>
@@ -209,4 +206,4 @@ const BlogFuncCategory = () => {
   );
 };
 
-export default BlogFuncCategory;
+export default FuncCategory;

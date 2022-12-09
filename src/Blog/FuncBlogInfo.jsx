@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { BACKEND_URL } from "../Util/Util";
 import axios from "axios";
 
-const FuncBlogInfo = ({ editdata, userid, user }) => {
+const FuncBlogInfo = ({ editdata }) => {
   const [editblogname, setEditblogname] = useState("");
   const [editintro, setEditintro] = useState("");
   const [editnickname, setEditnickname] = useState("");
   const updateBlogname = async (blogname, blogintro, nickname) => {
     try {
       const data = await axios.patch(
-        `${BACKEND_URL}/v1/edit/blogname/${userid}`,
+        `${BACKEND_URL}/v1/edit/blogname/${editdata.userid}`,
         {
           blogname,
           blogintro,
@@ -49,7 +49,7 @@ const FuncBlogInfo = ({ editdata, userid, user }) => {
         <div className="FuncBlogInfoAddress">
           <span className="FuncSubTitle">블로그 주소</span>
           <span className="FuncEditArea">
-            http://localhost:3000/myblog/{user.userid}
+            http://localhost:3000/myblog/{editdata.userid}
           </span>
           <span className="FuncSupportText">
             네이버ID로 자동생성된 블로그 주소입니다.

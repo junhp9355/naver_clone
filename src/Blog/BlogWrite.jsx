@@ -1,22 +1,22 @@
-/* eslint-disable */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../BlogStyle/BlogWrite.css";
-import { useRecoilState } from "recoil";
-import { recoilUser } from "../recoil/RecoilUser";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { BACKEND_URL } from "../Util/Util";
 import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const BlogWrite = () => {
-  const [user, setUser] = useRecoilState(recoilUser);
   const [title, setTitle] = useState(() => "");
   const [content, setContent] = useState(() => "");
-  const [categoryDB, setCategoryDB] = useState(() => []);
   const [selectCategory, setSelectCategory] = useState(() => "");
-  const userid = user.userid;
+  const navigate = useNavigate();
+  const location = useLocation();
+  const categoryDB = location.state.catDB;
+  const userid = location.state.userid;
+
   const onClickMyBlog = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}`;
+    navigate(`/myblog/${userid}`);
   };
   const onChangeEditor = (event, editor) => {
     const data = editor.getData();
@@ -30,13 +30,12 @@ const BlogWrite = () => {
   };
   const postWritedata = async (maincategory, title, userid, contents) => {
     try {
-      const data = await axios.post(`${BACKEND_URL}/v3/content`, {
+      await axios.post(`${BACKEND_URL}/v3/content`, {
         maincategory,
         title,
         userid,
         contents,
       });
-      window.location.href = `http://localhost:3000/myblog/${userid}`;
     } catch (e) {}
   };
   const onSubmitWriteData = (e) => {
@@ -47,23 +46,9 @@ const BlogWrite = () => {
       alert("제목을 입력해주세요");
     } else {
       postWritedata(selectCategory, title, userid, content);
+      navigate(`/myblog/${userid}`);
     }
   };
-  useEffect(() => {
-    const getData = async (e) => {
-      try {
-        const data = await axios({
-          url: `${BACKEND_URL}/v2/maincategory`,
-          method: "GET",
-          params: {
-            userid,
-          },
-        });
-        setCategoryDB(data.data);
-      } catch (e) {}
-    };
-    getData();
-  }, [userid]);
 
   return (
     <section className="WriteSection">
@@ -76,54 +61,52 @@ const BlogWrite = () => {
           </span>
         </div>
       </div>
-      <form onSubmit={onSubmitWriteData}>
-        <div className="WriteBody">
-          <div className="WriteMainSection">
-            <div className="WriteHead">
-              <select
-                name=""
-                id=""
-                className="WriteCatSelet"
-                onClick={onClickCategory}
-                defaultValue="null"
-              >
-                <option value="null" className="ChoiceCat">
-                  게시판 선택
+      <div className="WriteBody">
+        <div className="WriteMainSection">
+          <div className="WriteHead">
+            <select
+              name=""
+              id=""
+              className="WriteCatSelet"
+              onClick={onClickCategory}
+              defaultValue="null"
+            >
+              <option value="null" className="ChoiceCat">
+                게시판 선택
+              </option>
+              {categoryDB.map((cat, index) => (
+                <option value={cat.maincategory} key={index}>
+                  {cat.maincategory}
                 </option>
-                {categoryDB.map((cat, index) => (
-                  <option value={cat.maincategory} key={index}>
-                    {cat.maincategory}
-                  </option>
-                ))}
-              </select>
-              <input
-                type="text"
-                className="WriteTitleInput"
-                placeholder="제목"
-                onChange={onChangeTitle}
-                value={title}
-              />
-            </div>
-            <CKEditor
-              editor={ClassicEditor}
-              config={{
-                placeholder: "내용을 입력하세요.",
-              }}
-              onReady={(editor) => {}}
-              onChange={(event, editor) => {
-                onChangeEditor(event, editor);
-              }}
-              onBlur={(event, editor) => {}}
-              onFocus={(event, editor) => {}}
+              ))}
+            </select>
+            <input
+              type="text"
+              className="WriteTitleInput"
+              placeholder="제목"
+              onChange={onChangeTitle}
+              value={title}
             />
-            <div className="WriteBtSection">
-              <button className="WriteSaveBt" type="submit">
-                발행
-              </button>
-            </div>
+          </div>
+          <CKEditor
+            editor={ClassicEditor}
+            config={{
+              placeholder: "내용을 입력하세요.",
+            }}
+            onReady={(editor) => {}}
+            onChange={(event, editor) => {
+              onChangeEditor(event, editor);
+            }}
+            onBlur={(event, editor) => {}}
+            onFocus={(event, editor) => {}}
+          />
+          <div className="WriteBtSection">
+            <button className="WriteSaveBt" onClick={onSubmitWriteData}>
+              발행
+            </button>
           </div>
         </div>
-      </form>
+      </div>
     </section>
   );
 };

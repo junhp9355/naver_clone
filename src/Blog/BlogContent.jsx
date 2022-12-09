@@ -3,23 +3,28 @@ import "../BlogStyle/BlogContent.css";
 import ReactHtmlParser from "react-html-parser";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
+import { useNavigate } from "react-router-dom";
 
-const BlogContent = ({ getAllDB, userid, page, limit }) => {
+const BlogContent = ({ getAllDB, userid, page, limit, catDB }) => {
+  const navigate = useNavigate();
   const offset = (page - 1) * limit;
   const onClickUpdateBt = (id) => {
     if (id === undefined) {
       alert("fail");
     } else {
-      window.location.href = `http://localhost:3000/myblog/${userid}/update/${id}`;
+      navigate(`/myblog/${userid}/update/${id}`, {
+        state: { catDB: catDB, userid: userid },
+      });
     }
   };
+  console.log("catDB", catDB);
   const onClickDeletBt = (id) => {
     deleteContents(id);
   };
   const deleteContents = async (id, e) => {
     try {
-      const data = await axios.delete(`${BACKEND_URL}/v3/content/delete/${id}`);
-      window.location.href = `http://localhost:3000/myblog/${userid}`;
+      await axios.delete(`${BACKEND_URL}/v3/content/delete/${id}`);
+      navigate(`/myblog/${userid}`);
     } catch (e) {}
   };
   return (

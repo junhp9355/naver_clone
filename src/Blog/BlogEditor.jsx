@@ -16,7 +16,7 @@ const BlogEditor = () => {
   const [profileinfo, setProfileinfo] = useState(true);
   const userid = user.userid;
   useEffect(() => {
-    const getData = async (e) => {
+    const getData = async () => {
       try {
         const data = await axios({
           url: `${BACKEND_URL}/v1/myblog`,
@@ -61,12 +61,12 @@ const BlogEditor = () => {
             </div>
           </div>
           <div className={bloginfo ? "FunctionVisibleNone" : "FunctionVisible"}>
-            <FuncBlogInfo editdata={editdata} userid={userid} user={user} />
+            <FuncBlogInfo editdata={editdata} />
           </div>
           <div
             className={profileinfo ? "FunctionVisibleNone" : "FunctionVisible"}
           >
-            <FuncProfileInfo user={user} />
+            <FuncProfileInfo editdata={editdata} />
           </div>
         </div>
       </section>

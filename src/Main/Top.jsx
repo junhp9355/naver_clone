@@ -15,7 +15,6 @@ const Top = () => {
     JSON.parse(localStorage.getItem("keywords") || "[]")
   );
   const searchBox = useRef();
-  console.log(user);
   const onClickBlog = async (userid) => {
     if (user === undefined || user === null) {
       alert("로그인이 필요한 서비스 입니다.");

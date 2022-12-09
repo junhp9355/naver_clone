@@ -1,28 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import "../BlogStyle/BlogEditor.css";
+import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { recoilUser } from "../recoil/RecoilUser";
 
-const BlogEditorTop = ({ user, setUser }) => {
-  const [basicShow, setBasicShow] = useState(true);
-  const [contentShow, setContentShow] = useState(true);
+const BlogEditorTop2 = () => {
+  const [user, setUser] = useRecoilState(recoilUser);
+  const navigate = useNavigate();
   const onClickLogout = () => {
     setUser("");
-    window.location.href = "http://localhost:3000/";
+    navigate("/");
     localStorage.clear();
   };
 
   const onClickNaverLogo = () => {
-    window.location.href = "http://localhost:3000/";
+    navigate("/");
   };
   const onClickEditorLogo = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}`;
+    navigate(`/myblog/${user.userid}`);
   };
 
   const onClickMainBasic = () => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}/edit`;
+    navigate(`/myblog/${user.userid}/edit`);
   };
 
   const onClcikContentEdit = (e) => {
-    window.location.href = `http://localhost:3000/myblog/${user.userid}/edit/content`;
+    navigate(`/myblog/${user.userid}/edit/content`);
   };
   return (
     <>
@@ -44,16 +47,10 @@ const BlogEditorTop = ({ user, setUser }) => {
       </nav>
       <section className="EditorTopSection">
         <div className="EditorMainMenuSection">
-          <div
-            className={basicShow ? "EditorMainMenu" : "EditorMainMenuActive"}
-            onClick={onClickMainBasic}
-          >
+          <div className="EditorMainMenu" onClick={onClickMainBasic}>
             기본 설정
           </div>
-          <div
-            className={contentShow ? "EditorMainMenuActive" : "EditorMainMenu"}
-            onClick={onClcikContentEdit}
-          >
+          <div className="EditorMainMenuActive" onClick={onClcikContentEdit}>
             메뉴·글·동영상 관리
           </div>
         </div>
@@ -62,4 +59,4 @@ const BlogEditorTop = ({ user, setUser }) => {
   );
 };
 
-export default BlogEditorTop;
+export default BlogEditorTop2;

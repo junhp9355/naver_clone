@@ -1,6 +1,6 @@
 import React from "react";
 
-const FuncProfileInfo = ({ user }) => {
+const FuncProfileInfo = ({ editdata }) => {
   return (
     <div className="FunctionBlogInfoSection">
       <div className="FuncBlogInfoTitle">
@@ -8,7 +8,7 @@ const FuncProfileInfo = ({ user }) => {
       </div>
       <div className="FuncBlogInfoAddress">
         <span className="FuncSubTitle">이름</span>
-        <span className="FuncEditArea">{user.username}</span>
+        <span className="FuncEditArea">{editdata.username}</span>
         <span className="FuncSupportText">
           <select name="" id="" defaultValue={"비공개"}>
             <option value="전체">전체공개</option>
@@ -20,7 +20,7 @@ const FuncProfileInfo = ({ user }) => {
       </div>
       <div className="FuncBlogInfoAddress">
         <span className="FuncSubTitle">성별</span>
-        <span className="FuncEditArea">{user.gender}</span>
+        <span className="FuncEditArea">{editdata.gender}</span>
         <span className="FuncSupportText">
           <select name="" id="" defaultValue={"비공개"}>
             <option value="전체">전체공개</option>
