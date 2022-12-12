@@ -1,26 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../BlogStyle/BlogWrite.css";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { BACKEND_URL } from "../Util/Util";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Editor } from "@toast-ui/react-editor";
+import "@toast-ui/editor/dist/toastui-editor.css";
 
 const BlogWrite = () => {
-  const [title, setTitle] = useState(() => "");
-  const [content, setContent] = useState(() => "");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [selectCategory, setSelectCategory] = useState(() => "");
   const navigate = useNavigate();
   const location = useLocation();
   const categoryDB = location.state.catDB;
   const userid = location.state.userid;
+  const formData = new FormData();
+  const contentRef = useRef();
 
+  console.log(contentRef);
   const onClickMyBlog = () => {
     navigate(`/myblog/${userid}`);
   };
-  const onChangeEditor = (event, editor) => {
-    const data = editor.getData();
-    setContent(data);
+  const onChangeEditor = (e) => {
+    setContent(e.target.value);
   };
   const onChangeTitle = (e) => {
     setTitle(e.target.value);
@@ -88,23 +90,32 @@ const BlogWrite = () => {
               value={title}
             />
           </div>
-          <CKEditor
-            editor={ClassicEditor}
-            config={{
-              placeholder: "내용을 입력하세요.",
-            }}
-            onReady={(editor) => {}}
-            onChange={(event, editor) => {
-              onChangeEditor(event, editor);
-            }}
-            onBlur={(event, editor) => {}}
-            onFocus={(event, editor) => {}}
-          />
+          <div className="EditorArea">
+            <Editor
+              initialValue="내용을 작성해주세요."
+              previewStyle="vertical"
+              height="600px"
+              width="1000px"
+              initialEditType="markdown"
+              useCommandShortcut={true}
+              ref={contentRef}
+            />
+          </div>
           <div className="WriteBtSection">
             <button className="WriteSaveBt" onClick={onSubmitWriteData}>
               발행
             </button>
           </div>
+          {/* <input
+            type="file"
+            multiple
+            onChange={(e) => {
+              console.log(e.target.files.length);
+              for (let i = 0; i < e.target.files.length; i++) {
+                formData.append("files", e.target.files[i]);
+              }
+            }}
+          /> */}
         </div>
       </div>
     </section>

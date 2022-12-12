@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../BlogStyle/BlogWrite.css";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { BACKEND_URL } from "../Util/Util";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -106,16 +104,7 @@ const BlogUpdate = () => {
               value={title}
             />
           </div>
-          <CKEditor
-            editor={ClassicEditor}
-            data={editContentDB.contents}
-            onReady={(editor) => {}}
-            onChange={(event, editor) => {
-              onChangeEditor(event, editor);
-            }}
-            onBlur={(event, editor) => {}}
-            onFocus={(event, editor) => {}}
-          />
+
           <div className="WriteBtSection">
             <button className="WriteSaveBt" onClick={onSubmitUpdateData}>
               발행

@@ -55,6 +55,7 @@
   padding: 10px 0 10px 0;
   width: 800px;
   height: 80px;
+  margin: auto;
 }
 .WriteBtSection {
   display: flex;
@@ -111,4 +112,8 @@
 .ChoiceCat {
   color: grey;
   opacity: 0.2;
+}
+.EditorArea {
+  display: flex;
+  margin: auto;
 }

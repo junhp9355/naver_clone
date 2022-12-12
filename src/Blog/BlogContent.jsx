@@ -1,6 +1,5 @@
 import React from "react";
 import "../BlogStyle/BlogContent.css";
-import ReactHtmlParser from "react-html-parser";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
 import { useNavigate } from "react-router-dom";
@@ -66,7 +65,7 @@ const BlogContent = ({ getAllDB, userid, page, limit, catDB }) => {
                 http://localhost:3000/myblog/{userid}/{content.id}
               </span>
             </div>
-            <div>{ReactHtmlParser(content.contents)}</div>
+            <div>{content.contents}</div>
           </div>
           <div className="BlogContentBottom">
             <span className="ContentMemoIcon" />
