@@ -3,6 +3,7 @@ import "../BlogStyle/BlogContent.css";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
 import { useNavigate } from "react-router-dom";
+import { Viewer } from "@toast-ui/react-editor";
 
 const BlogContent = ({ getAllDB, userid, page, limit, catDB }) => {
   const navigate = useNavigate();
@@ -16,7 +17,6 @@ const BlogContent = ({ getAllDB, userid, page, limit, catDB }) => {
       });
     }
   };
-  console.log("catDB", catDB);
   const onClickDeletBt = (id) => {
     deleteContents(id);
   };
@@ -65,7 +65,9 @@ const BlogContent = ({ getAllDB, userid, page, limit, catDB }) => {
                 http://localhost:3000/myblog/{userid}/{content.id}
               </span>
             </div>
-            <div>{content.contents}</div>
+            <div>
+              <Viewer initialValue={content.contents} />
+            </div>
           </div>
           <div className="BlogContentBottom">
             <span className="ContentMemoIcon" />

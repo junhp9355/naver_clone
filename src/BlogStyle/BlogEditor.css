@@ -2,7 +2,7 @@
   position: absolute;
   width: 100vw;
   height: 54px;
-  top: 0;
+  top: 10px;
   left: 0;
   background-color: #00c73c;
   display: flex;
@@ -77,13 +77,13 @@
   position: relative;
   width: 100vw;
   height: 1000px;
-  top: 45px;
-  left: -5px;
+  top: 55px;
+  left: 0px;
 }
 .EditorTopSection {
   display: block;
   position: relative;
-  top: 55px;
+  top: 65px;
 }
 .EditorMainMenuSection {
   display: flex;

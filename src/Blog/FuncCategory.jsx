@@ -6,12 +6,14 @@ import "../BlogStyle/BlogEditor.css";
 import "../BlogStyle/BlogCategory.css";
 import { useRecoilState } from "recoil";
 import { recoilUser } from "../recoil/RecoilUser";
+import { useNavigate } from "react-router-dom";
 
 const FuncCategory = () => {
   const [categoryname, setCategoryname] = useState("");
   const [user, setUser] = useRecoilState(recoilUser);
   const [editCatDB, setEditCatDB] = useState([]);
   const [selectId, setSeletId] = useState(0);
+  const navigate = useNavigate();
   const userid = user.userid;
   const id = selectId;
   console.log(categoryname);
@@ -194,7 +196,13 @@ const FuncCategory = () => {
                 </div>
               </div>
               <div className="FunctionButtonArea">
-                <button className="FunctionSaveBt" type="button">
+                <button
+                  className="FunctionSaveBt"
+                  type="button"
+                  onClick={() => {
+                    navigate(`/myblog/${userid}`);
+                  }}
+                >
                   확인
                 </button>
               </div>

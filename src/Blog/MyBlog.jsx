@@ -18,7 +18,7 @@ const MyBlog = () => {
   const [topArrowVisible2, setTopArrowVisible2] = useState(false);
   const [myMenueVisible, setMyMenuVisible] = useState(false);
   const [myMenueVisible2, setMyMenuVisible2] = useState(false);
-  const [getAllDB, setGetAllDB] = useState(() => []);
+  const [getAllDB, setGetAllDB] = useState([]);
   const [mydata, setMydate] = useState(() => "");
   const [listvisible, setListvisible] = useState(true);
   const [chooseCat, setChooseCat] = useState(() => "");
@@ -32,6 +32,8 @@ const MyBlog = () => {
   const selectDetailDB = getAllDB.filter(
     (value) => value.maincategory === chooseCat
   );
+
+  console.log(getAllDB);
   const onClickAllContentList = () => {
     setChooseCat("");
   };
@@ -89,20 +91,18 @@ const MyBlog = () => {
       } catch (e) {}
     };
     getData();
-    const getContentData = async (e) => {
+    const getContentData = async () => {
       try {
         const contentdata = await axios({
-          url: `${BACKEND_URL}/v3/content/${userid}`,
+          url: `${BACKEND_URL}/v3/content`,
           method: "GET",
-          params: {
-            userid,
-          },
         });
         setGetAllDB(contentdata.data.reverse());
+        console.log(contentdata.data);
       } catch (e) {}
     };
     getContentData();
-    const getCategoryData = async (e) => {
+    const getCategoryData = async () => {
       try {
         const categorydata = await axios({
           url: `${BACKEND_URL}/v2/maincategory`,
@@ -203,7 +203,9 @@ const MyBlog = () => {
                     <span>({getAllDB.length})</span>
                     <span
                       className="ContentEditBt"
-                      onClick={onClickEdit}
+                      onClick={() => {
+                        navigate(`/myblog/${user.userid}/edit/content`);
+                      }}
                     ></span>
                   </div>
                   <div className="BlogCatAreaDashed">

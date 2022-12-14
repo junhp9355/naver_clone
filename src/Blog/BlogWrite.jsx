@@ -33,6 +33,7 @@ const BlogWrite = () => {
     );
     formData.append("maincategory", selectCategory);
     formData.append("userid", userid);
+    formData.append("imageIdList", imageIdList);
 
     const postWritedata = async () => {
       try {
@@ -40,9 +41,9 @@ const BlogWrite = () => {
           method: "POST",
           url: `${BACKEND_URL}/v3/content`,
           data: formData,
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+          // headers: {
+          //   "Content-Type": "multipart/form-data",
+          // },
         });
         console.log(data);
         navigate(`/myblog/${userid}`);
@@ -113,7 +114,7 @@ const BlogWrite = () => {
                   formData.append("file", blob);
                   const data = await axios({
                     method: "POST",
-                    url: `${BACKEND_URL}/v3/content/image`,
+                    url: `${BACKEND_URL}/v4/content/image`,
                     data: formData,
                   });
                   setImageIdList((prev) => prev.concat(parseInt(data.data.id)));
