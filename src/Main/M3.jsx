@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/M3.css";
-import M3SubNews1 from "../SwiperComponent/M3SubNews1";
-import M3SubNews2 from "../SwiperComponent/M3SubNews2";
+import M3SubNews1 from "./M3SubNews1";
+import M3SubNews2 from "./M3SubNews2";
 
 const M3 = () => {
   return (

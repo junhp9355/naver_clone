@@ -3,8 +3,9 @@ import "../BlogStyle/BlogContent.css";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
 import { useNavigate } from "react-router-dom";
+import { Viewer } from "@toast-ui/react-editor";
 
-const BlogDetailContent = ({ selectDetailDB, userid, page, limit }) => {
+const BlogContentSelect = ({ selectDetailDB, userid, page, limit }) => {
   const navigate = useNavigate();
   const offset = (page - 1) * limit;
   const onClickUpdateBt = (id) => {
@@ -62,7 +63,9 @@ const BlogDetailContent = ({ selectDetailDB, userid, page, limit }) => {
                 http://localhost:3000/myblog/{userid}/{content.id}
               </span>
             </div>
-            <div>{content.contents}</div>
+            <div>
+              <Viewer initialValue={content.contents} />
+            </div>
           </div>
           <div className="BlogContentBottom">
             <span className="ContentMemoIcon" />
@@ -84,4 +87,4 @@ const BlogDetailContent = ({ selectDetailDB, userid, page, limit }) => {
   );
 };
 
-export default BlogDetailContent;
+export default BlogContentSelect;

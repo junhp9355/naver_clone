@@ -1,23 +1,17 @@
-/* eslint-disable */
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BACKEND_URL } from "../Util/Util";
 import "../BlogStyle/BlogEditor.css";
 import "../BlogStyle/BlogCategory.css";
-import { useRecoilState } from "recoil";
-import { recoilUser } from "../recoil/RecoilUser";
 import { useNavigate } from "react-router-dom";
 
-const FuncCategory = () => {
+const FuncCategory = ({ userid }) => {
   const [categoryname, setCategoryname] = useState("");
-  const [user, setUser] = useRecoilState(recoilUser);
   const [editCatDB, setEditCatDB] = useState([]);
   const [selectId, setSeletId] = useState(0);
   const navigate = useNavigate();
-  const userid = user.userid;
   const id = selectId;
-  console.log(categoryname);
-  console.log(selectId);
+
   const onChangeCatName = (e) => {
     setCategoryname(e.target.value);
   };
@@ -40,17 +34,14 @@ const FuncCategory = () => {
   };
   const updateCategory = async (maincategory) => {
     try {
-      const updateData = await axios.patch(
-        `${BACKEND_URL}/v2/${id}/update/category`,
-        { maincategory }
-      );
+      await axios.patch(`${BACKEND_URL}/v2/${id}/update/category`, {
+        maincategory,
+      });
     } catch (e) {}
   };
   const deleteCategory = async () => {
     try {
-      const deldata = await axios.delete(
-        `${BACKEND_URL}/v2/${id}/maincategory`
-      );
+      await axios.delete(`${BACKEND_URL}/v2/${id}/maincategory`);
       alert("삭제");
     } catch (e) {
       alert("fail");
@@ -58,13 +49,10 @@ const FuncCategory = () => {
   };
   const postCategory = async (maincategory, userid) => {
     try {
-      const data = await axios.post(
-        `${BACKEND_URL}/v2/${userid}/maincategory`,
-        {
-          maincategory,
-          userid,
-        }
-      );
+      await axios.post(`${BACKEND_URL}/v2/${userid}/maincategory`, {
+        maincategory,
+        userid,
+      });
       setCategoryname("");
     } catch (e) {
       alert("fail");

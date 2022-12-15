@@ -4,7 +4,7 @@ import { recoilUser } from "../recoil/RecoilUser";
 import "../BlogStyle/MyBlog.css";
 import "../BlogStyle/MyBlogMain.css";
 import BlogContent from "./BlogContent";
-import BlogDetailContent from "./BlogDetailContent";
+import BlogContentSelect from "./BlogContentSelect";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
 import Pagination from "../Pagination/Pagination";
@@ -32,8 +32,6 @@ const MyBlog = () => {
   const selectDetailDB = getAllDB.filter(
     (value) => value.maincategory === chooseCat
   );
-
-  console.log(getAllDB);
   const onClickAllContentList = () => {
     setChooseCat("");
   };
@@ -98,7 +96,6 @@ const MyBlog = () => {
           method: "GET",
         });
         setGetAllDB(contentdata.data.reverse());
-        console.log(contentdata.data);
       } catch (e) {}
     };
     getContentData();
@@ -314,7 +311,7 @@ const MyBlog = () => {
               chooseCat === "" ? "ListTextNone" : "BlogDetailContentList"
             }
           >
-            <BlogDetailContent
+            <BlogContentSelect
               selectDetailDB={selectDetailDB}
               userid={userid}
               page={page}

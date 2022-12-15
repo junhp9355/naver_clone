@@ -1,19 +1,12 @@
 import React from "react";
 import "../styles/M2.css";
-import { useRecoilState } from "recoil";
-import { recoilUser } from "../recoil/RecoilUser";
-import MainBanner from "../SwiperComponent/MainBanner";
+import MainBanner from "./MainBanner";
 import "../styles/M2LoginUser.css";
-import M2UserMenu from "../SwiperComponent/M2UserMenu";
+import M2UserMenu from "./M2UserMenu";
 import { useNavigate } from "react-router-dom";
 
-const M2 = () => {
+const M2 = ({ user, setUser }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useRecoilState(recoilUser);
-
-  const onClickMainLoginBt = () => {
-    navigate("/Login");
-  };
 
   const onClickLogout = () => {
     setUser("");
@@ -30,7 +23,14 @@ const M2 = () => {
           <div className="M2LoginUserSection">
             <div>
               <div className="M2LoginUserManinSection">
-                <span className="M2UserProfileImg">
+                <span
+                  className="M2UserProfileImg"
+                  onClick={() => {
+                    navigate(`/profile/${user.userid}`, {
+                      state: { user: user },
+                    });
+                  }}
+                >
                   <span className="M2UserProfileSetting"></span>
                 </span>
                 <div className="M2UserMainInfo">
@@ -57,13 +57,18 @@ const M2 = () => {
             </div>
             <div className="M2LoginUserSpace"></div>
             <div className="M2LoginUserBottmMenu">
-              <M2UserMenu />
+              <M2UserMenu user={user} />
             </div>
           </div>
         ) : (
           <div className="M2Login">
             <p>네이버를 더 안전하고 편리하게 이용하세요</p>
-            <div className="M2LoginMainBt" onClick={onClickMainLoginBt}>
+            <div
+              className="M2LoginMainBt"
+              onClick={() => {
+                navigate("/Login");
+              }}
+            >
               NAVER 로그인
             </div>
             <div className="M2LoginSubMenu">

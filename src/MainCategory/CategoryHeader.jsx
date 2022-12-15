@@ -1,15 +1,14 @@
-/* eslint-disable */
 import React, { useState } from "react";
 import "../styles/CategoryHeader.css";
 import "../MySlick/slick.css";
 import "../MySlick/slick-theme.css";
 import Slider from "react-slick";
-import Enter from "../Category/Enter";
+import Enter from "../MainCategory/Enter";
 
 const CategoryHeader = () => {
   const [number, setNumber] = useState(1);
-  const [prevVisible, setPrevVisible] = useState(true);
-  const [nextVisible, setNextVisible] = useState(true);
+  // const [prevVisible, setPrevVisible] = useState(true);
+  // const [nextVisible, setNextVisible] = useState(true);
   const onClickNextBt = () => {
     setNumber(number + 1);
   };

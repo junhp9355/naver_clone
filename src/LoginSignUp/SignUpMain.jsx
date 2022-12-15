@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from "react";
 import { useState } from "react";
 import "../styles/SignUp.css";
@@ -22,7 +21,6 @@ const SignUpMain = () => {
   const [nickname, setNickname] = useState("");
   const [day, setDay] = useState("");
   const [global, setGlobal] = useState("");
-  const [error, setError] = useState(null);
 
   const password = repassword1;
   const birthday = year + "." + month + "." + day;
@@ -102,11 +100,10 @@ const SignUpMain = () => {
         nickname,
       });
       setUserdata(data.data);
+      console.log(userdata);
       alert("회원가입이 완료되었습니다.");
       navigate("/");
-    } catch (e) {
-      setError(e);
-    }
+    } catch (e) {}
   };
   const onSubmitUserData = (e) => {
     e.preventDefault();

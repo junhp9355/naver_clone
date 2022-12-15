@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/M4.css";
-import M4Advertisment from "../SwiperComponent/M4Advertisment";
+import M4Advertisment from "./M4Advertisment";
 import NewsMain from "../NewsContents/NewsMain";
 
 const M4 = () => {

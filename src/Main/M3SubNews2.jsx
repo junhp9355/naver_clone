@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Autoplay, EffectFade } from "swiper";

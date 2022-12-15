@@ -1,17 +1,13 @@
-/* eslint-disable */
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
-import { useRecoilState } from "recoil";
-import { recoilUser } from "../recoil/RecoilUser";
 import "../styles/M2UserMenu.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useNavigate } from "react-router-dom";
 
-const M2UserMenu = () => {
+const M2UserMenu = ({ user }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useRecoilState(recoilUser);
   const onClickBlog = () => {
     navigate(`/myblog/${user.userid}`);
   };

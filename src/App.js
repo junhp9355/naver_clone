@@ -8,8 +8,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyBlog from "./Blog/MyBlog";
 import BlogEditor from "./Blog/BlogEditor";
 import BlogWrite from "./Blog/BlogWrite";
-import FuncEditContent from "./Blog/FuncEditContent";
+import BlogEditorContent from "./Blog/BlogEditorContent";
 import BlogUpdate from "./Blog/BlogUpdate";
+import ProfileImage from "./LoginSignUp/ProfileImage";
 
 function App() {
   return (
@@ -27,8 +28,9 @@ function App() {
             <Route path="/myblog/:userid/update/:id" element={<BlogUpdate />} />
             <Route
               path="/myblog/:userid/edit/content"
-              element={<FuncEditContent />}
+              element={<BlogEditorContent />}
             />
+            <Route path="profile/:userid" element={<ProfileImage />} />
           </Routes>
         </BrowserRouter>
       </RecoilRoot>

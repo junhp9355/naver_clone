@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryHeader from "../Category/CategoryHeader";
+import CategoryHeader from "../MainCategory/CategoryHeader";
 import "../styles/M5.css";
 import Shopping01 from "../Shopping/Shopping01";
 

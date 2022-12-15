@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../BlogStyle/BlogWrite.css";
 import { BACKEND_URL } from "../Util/Util";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Editor } from "@toast-ui/react-editor";
+import "@toast-ui/editor/dist/toastui-editor.css";
 
 const BlogUpdate = () => {
   const navigate = useNavigate();
+  const [testImgdata, setTestImgdata] = useState(() => "");
   const [title, setTitle] = useState(() => "");
   const [content, setContent] = useState(() => "");
+  const [imageIdList, setImageIdList] = useState([]);
   const [editContentDB, setEditContentDB] = useState(() => "");
   const [selectCategory, setSelectCategory] = useState(
     () => editContentDB.maincategory
@@ -17,6 +21,8 @@ const BlogUpdate = () => {
   const location = useLocation();
   const categoryDB = location.state.catDB;
   const userid = location.state.userid;
+  const contentRef = useRef();
+  const formData = new FormData();
 
   const onClickMyBlog = () => {
     navigate(`/myblog/${userid}`);
@@ -31,14 +37,6 @@ const BlogUpdate = () => {
   const onClickCategory = (e) => {
     setSelectCategory(e.target.value);
   };
-  const updateContent = async (id, title, contents) => {
-    try {
-      await axios.patch(`${BACKEND_URL}/v3/content/${userid}/${id}`, {
-        title,
-        contents,
-      });
-    } catch (e) {}
-  };
 
   const onSubmitUpdateData = (e) => {
     if (selectCategory === "null" || selectCategory === "") {
@@ -46,14 +44,31 @@ const BlogUpdate = () => {
       e.preventDefault();
     } else if (title === "") {
       alert("제목을 입력해주세요");
-    } else {
-      updateContent(id, title, content);
-      navigate(`/myblog/${userid}`);
+      return;
     }
+    formData.append("title", title);
+    formData.append(
+      "contents",
+      contentRef.current?.getInstance().getMarkdown()
+    );
+    formData.append("maincategory", selectCategory);
+
+    const updateContent = async () => {
+      try {
+        await axios({
+          method: "PATCH",
+          url: `${BACKEND_URL}/v3/content/${id}`,
+          data: formData,
+        });
+      } catch (e) {
+        alert("PATCH FAIL");
+      }
+    };
+    updateContent();
   };
 
   useEffect(() => {
-    const getData = async (e) => {
+    const getData = async () => {
       try {
         const data = await axios({
           url: `${BACKEND_URL}/v3/content/update/${id}`,
@@ -61,6 +76,8 @@ const BlogUpdate = () => {
         });
         setEditContentDB(data.data);
         setTitle(data.data.title);
+        contentRef.current?.getInstance().setMarkdown(data.data.contents);
+        console.log(data.data.contents);
       } catch (e) {}
     };
     getData();
@@ -99,12 +116,38 @@ const BlogUpdate = () => {
             <input
               type="text"
               className="WriteTitleInput"
-              // placeholder={editContentDB.title}
               onChange={onChangeTitle}
               value={title}
             />
           </div>
+          <div className="EditorArea">
+            <Editor
+              initialValue="내용을 작성해주세요."
+              previewStyle="vertical"
+              height="600px"
+              initialEditType="markdown"
+              useCommandShortcut={true}
+              ref={contentRef}
+              hooks={{
+                addImageBlobHook: async (blob, callback) => {
+                  const formData = new FormData();
+                  formData.append("file", blob);
+                  const data = await axios({
+                    method: "POST",
+                    url: `${BACKEND_URL}/v4/content/image`,
+                    data: formData,
+                  });
+                  setImageIdList((prev) => prev.concat(parseInt(data.data.id)));
 
+                  // 1. 첨부된 이미지 파일을 서버로 전송후, 이미지 경로 url을 받아온다.
+
+                  // 2. 첨부된 이미지를 화면에 표시
+                  callback(data.data.imgUrl, "");
+                  console.log("imgdata", data);
+                },
+              }}
+            />
+          </div>
           <div className="WriteBtSection">
             <button className="WriteSaveBt" onClick={onSubmitUpdateData}>
               발행

@@ -1,11 +1,8 @@
 import React from "react";
 import "../BlogStyle/BlogEditor.css";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { recoilUser } from "../recoil/RecoilUser";
 
-const BlogEditorTop2 = () => {
-  const [user, setUser] = useRecoilState(recoilUser);
+const BlogEditorTop2 = ({ user, setUser }) => {
   const navigate = useNavigate();
   const onClickLogout = () => {
     setUser("");
