@@ -56,7 +56,7 @@ const SignUp = () => {
     }
   };
   return (
-    <body className="SignUpBody">
+    <div className="SignUpBody">
       <nav>
         <span className="SignUpMainLogo" onClick={onClickLogo}></span>
       </nav>
@@ -647,7 +647,7 @@ const SignUp = () => {
           <a href="#!">단체 회원 가입</a>
         </div>
       </nav>
-    </body>
+    </div>
   );
 };
 

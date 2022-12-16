@@ -1,9 +1,8 @@
 .M5Section {
   display: flex;
-  justify-content: center;
-}
-.M5Space {
-  width: 30px;
+  justify-content: space-between;
+  margin: auto;
+  width: 1150px;
 }
 .M5SubBar {
   width: 1px;
@@ -19,7 +18,7 @@
   height: 1500px;
 }
 .M5ReadCategory {
-  width: 765px;
+  width: 770px;
   height: 100px;
   cursor: pointer;
   font-size: 13px;
@@ -30,14 +29,19 @@
   width: 100%;
   height: 20px;
   align-items: flex-end;
+  justify-content: space-between;
 }
 .M5ReadCategorySubHead {
   display: flex;
-  margin-left: 268px;
+  align-items: flex-end;
 }
 .M5ReadCategorySubText {
   display: flex;
   font-weight: bold;
+}
+.M5Text {
+  display: flex;
+  align-items: flex-end;
 }
 .M5T1 {
   font-weight: bold;

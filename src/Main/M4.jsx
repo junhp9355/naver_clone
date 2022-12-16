@@ -24,7 +24,6 @@ const M4 = () => {
           <NewsMain />
         </div>
       </div>
-      <div className="M4Space"></div>
       <div className="M4SubAdvertisement">
         <M4Advertisment />
       </div>

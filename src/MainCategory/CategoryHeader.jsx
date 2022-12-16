@@ -7,8 +7,6 @@ import Enter from "../MainCategory/Enter";
 
 const CategoryHeader = () => {
   const [number, setNumber] = useState(1);
-  // const [prevVisible, setPrevVisible] = useState(true);
-  // const [nextVisible, setNextVisible] = useState(true);
   const onClickNextBt = () => {
     setNumber(number + 1);
   };
@@ -45,116 +43,137 @@ const CategoryHeader = () => {
     slidesToShow: 8,
     slidesToScroll: 1,
     autoplay: false,
+    variableWidth: true,
     draggable: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
   return (
     <div className="CategoryMainSection">
-      <Slider {...settings}>
+      <Slider {...settings} className="CategoryScale">
         <div className="MainCategoryBlock">
           <div
-            className={number === 1 ? "Category01" : "MainCategoryHeader Cat01"}
+            className={
+              number === 1 ? "Category01 BoxScale" : "MainCategoryHeader Cat01"
+            }
           >
             엔터
-          </div>
-          <div className={number === 1 ? undefined : "NoneContents"}>
-            <Enter />
-          </div>
-        </div>
-        <div className="MainCategoryBlock">
-          <div
-            className={number === 2 ? "Category02" : "MainCategoryHeader Cat02"}
-          >
-            스포츠
-          </div>
-          <div className={number === 2 ? undefined : "NoneContents"}>
-            하단 내용
-          </div>
-        </div>
-        <div className="MainCategoryBlock">
-          <div
-            className={number === 3 ? "Category03" : "MainCategoryHeader Cat03"}
-          >
-            자동차
-          </div>
-          <div className={number === 3 ? undefined : "NoneContents"}>
-            하단 내용
-          </div>
-        </div>
-        <div className="MainCategoryBlock">
-          <div
-            className={number === 4 ? "Category04" : "MainCategoryHeader Cat04"}
-          >
-            웹툰
-          </div>
-          <div className={number === 4 ? undefined : "NoneContents"}>
-            하단 내용
-          </div>
-        </div>
-        <div className="MainCategoryBlock">
-          <div
-            className={number === 5 ? "Category05" : "MainCategoryHeader Cat05"}
-          >
-            경제
-          </div>
-          <div className={number === 5 ? undefined : "NoneContents"}>
-            하단 내용
-          </div>
-        </div>
-        <div className="MainCategoryBlock">
-          <div
-            className={number === 6 ? "Category06" : "MainCategoryHeader Cat06"}
-          >
-            추천구독
-          </div>
-          <div className={number === 6 ? undefined : "NoneContents"}>
-            하단 내용
-          </div>
-        </div>
-        <div className="MainCategoryBlock">
-          <div
-            className={number === 7 ? "Category07" : "MainCategoryHeader Cat07"}
-          >
-            레시피
-          </div>
-          <div className={number === 7 ? undefined : "NoneContents"}>
-            하단 내용
-          </div>
-        </div>
-        <div className="MainCategoryBlock">
-          <div
-            className={number === 8 ? "Category08" : "MainCategoryHeader Cat08"}
-          >
-            리빙
-          </div>
-          <div className={number === 8 ? undefined : "NoneContents"}>
-            하단 내용
-          </div>
-        </div>
-        <div className="MainCategoryBlock">
-          <div
-            className={number === 9 ? "Category09" : "MainCategoryHeader Cat09"}
-          >
-            책방
-          </div>
-          <div className={number === 9 ? undefined : "NoneContents"}>
-            하단 내용
           </div>
         </div>
         <div className="MainCategoryBlock">
           <div
             className={
-              number === 10 ? "Category10" : "MainCategoryHeader Cat10"
+              number === 2 ? "Category02 BoxScale" : "MainCategoryHeader Cat02"
+            }
+          >
+            스포츠
+          </div>
+        </div>
+        <div className="MainCategoryBlock">
+          <div
+            className={
+              number === 3 ? "Category03 BoxScale" : "MainCategoryHeader Cat03"
+            }
+          >
+            자동차
+          </div>
+        </div>
+        <div className="MainCategoryBlock">
+          <div
+            className={
+              number === 4 ? "Category04 BoxScale" : "MainCategoryHeader Cat04"
+            }
+          >
+            웹툰
+          </div>
+        </div>
+        <div className="MainCategoryBlock">
+          <div
+            className={
+              number === 5 ? "Category05 BoxScale" : "MainCategoryHeader Cat05"
+            }
+          >
+            경제
+          </div>
+        </div>
+        <div className="MainCategoryBlock">
+          <div
+            className={
+              number === 6 ? "Category06 BoxScale" : "MainCategoryHeader Cat06"
+            }
+          >
+            추천구독
+          </div>
+        </div>
+        <div className="MainCategoryBlock">
+          <div
+            className={
+              number === 7 ? "Category07 BoxScale" : "MainCategoryHeader Cat07"
+            }
+          >
+            레시피
+          </div>
+        </div>
+        <div className="MainCategoryBlock">
+          <div
+            className={
+              number === 8 ? "Category08 BoxScale" : "MainCategoryHeader Cat08"
+            }
+          >
+            리빙
+          </div>
+        </div>
+        <div className="MainCategoryBlock">
+          <div
+            className={
+              number === 9 ? "Category09 BoxScale" : "MainCategoryHeader Cat09"
+            }
+          >
+            책방
+          </div>
+        </div>
+        <div className="MainCategoryBlock">
+          <div
+            className={
+              number === 10 ? "Category10 BoxScale" : "MainCategoryHeader Cat10"
             }
           >
             패션뷰티
           </div>
-          <div className={number === 10 ? undefined : "NoneContents"}>
-            하단 내용
-          </div>
         </div>
       </Slider>
+      <div className="CategoryScale">
+        <div className={number === 1 ? undefined : "NoneContents"}>
+          <Enter />
+        </div>
+        <div className={number === 2 ? undefined : "NoneContents"}>
+          {/* <Enter /> */}
+        </div>
+        <div className={number === 3 ? undefined : "NoneContents"}>
+          하단 내용
+        </div>
+        <div className={number === 4 ? undefined : "NoneContents"}>
+          하단 내용
+        </div>
+        <div className={number === 5 ? undefined : "NoneContents"}>
+          하단 내용
+        </div>
+        <div className={number === 6 ? undefined : "NoneContents"}>
+          하단 내용
+        </div>
+        <div className={number === 7 ? undefined : "NoneContents"}>
+          하단 내용
+        </div>
+        <div className={number === 8 ? undefined : "NoneContents"}>
+          하단 내용
+        </div>
+        <div className={number === 9 ? undefined : "NoneContents"}>
+          하단 내용
+        </div>
+        <div className={number === 10 ? undefined : "NoneContents"}>
+          하단 내용
+        </div>
+      </div>
     </div>
   );
 };

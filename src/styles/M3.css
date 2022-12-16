@@ -1,9 +1,12 @@
 .M3Section {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 1150px;
+  margin: auto;
 }
 .M3SubNews1 {
-  width: 750px;
+  position: relative;
+  width: 770px;
   height: 47px;
   cursor: pointer;
   display: flex;
@@ -32,14 +35,12 @@
   width: 70px;
   text-align: center;
 }
-.M3Space {
-  width: 30px;
-}
 .M3SubNews2 {
   width: 350px;
   height: 47px;
   background-color: rgb(252, 252, 252);
   position: relative;
+  display: block;
   border: 1.5px solid rgb(236, 236, 236);
 }
 .M3SubNews1Point {
@@ -54,6 +55,7 @@
   font-weight: bold;
   display: flex;
   margin-right: 5px;
+  width: 5 0px;
   color: rgb(54, 104, 212);
 }
 .M3SubNewsText2 {

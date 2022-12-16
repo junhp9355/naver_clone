@@ -8,8 +8,10 @@ const M5 = () => {
     <section className="M5Section">
       <div className="M5ReadCategory">
         <div className="M5ReadCategoryHead">
-          <div className="M5T1">오늘 읽을만한 글</div>
-          <div className="M5T2">주제별로 분류된 다양한 글 모음</div>
+          <div className="M5Text">
+            <div className="M5T1">오늘 읽을만한 글</div>
+            <div className="M5T2">주제별로 분류된 다양한 글 모음</div>
+          </div>
           <div className="M5ReadCategorySubHead">
             <div className="M5ReadCategorySubText">
               668 <div className="M5T2">개의 글</div>
@@ -23,7 +25,6 @@ const M5 = () => {
           <CategoryHeader />
         </div>
       </div>
-      <div className="M5Space"></div>
       <div className="M5Shopping">
         <div className="M5ShoppingHeadText">
           <span className="M5ShoppingNaverIcon"></span>

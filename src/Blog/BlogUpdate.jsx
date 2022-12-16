@@ -15,14 +15,14 @@ const BlogUpdate = () => {
   const [imageIdList, setImageIdList] = useState([]);
   const [editContentDB, setEditContentDB] = useState(() => "");
   const [selectCategory, setSelectCategory] = useState(
-    () => editContentDB.maincategory
+    editContentDB.maincategory
   );
   const { id } = useParams();
   const location = useLocation();
   const categoryDB = location.state.catDB;
   const userid = location.state.userid;
   const contentRef = useRef();
-  const formData = new FormData();
+  const formDatas = new FormData();
 
   const onClickMyBlog = () => {
     navigate(`/myblog/${userid}`);
@@ -39,27 +39,28 @@ const BlogUpdate = () => {
   };
 
   const onSubmitUpdateData = (e) => {
-    if (selectCategory === "null" || selectCategory === "") {
+    if (selectCategory === "null" || selectCategory === undefined) {
       alert("게시판을 선택해주세요.");
       e.preventDefault();
     } else if (title === "") {
       alert("제목을 입력해주세요");
       return;
     }
-    formData.append("title", title);
-    formData.append(
+    formDatas.append("title", title);
+    formDatas.append(
       "contents",
       contentRef.current?.getInstance().getMarkdown()
     );
-    formData.append("maincategory", selectCategory);
-
+    formDatas.append("maincategory", selectCategory);
+    formDatas.append("imageIdList", imageIdList);
     const updateContent = async () => {
       try {
         await axios({
           method: "PATCH",
           url: `${BACKEND_URL}/v3/content/${id}`,
-          data: formData,
+          data: formDatas,
         });
+        navigate(`/myblog/${userid}`);
       } catch (e) {
         alert("PATCH FAIL");
       }
@@ -77,7 +78,6 @@ const BlogUpdate = () => {
         setEditContentDB(data.data);
         setTitle(data.data.title);
         contentRef.current?.getInstance().setMarkdown(data.data.contents);
-        console.log(data.data.contents);
       } catch (e) {}
     };
     getData();
@@ -102,7 +102,6 @@ const BlogUpdate = () => {
               id=""
               className="WriteCatSelet"
               onClick={onClickCategory}
-              defaultValue={editContentDB.maincategory}
             >
               <option value="null" className="ChoiceCat">
                 게시판 선택

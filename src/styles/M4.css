@@ -1,26 +1,26 @@
 .M4Section {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: auto;
+  width: 1150px;
 }
-.M4Space {
-  width: 30px;
+.M4NewsCategory {
+  position: relative;
+  width: 770px;
+  height: 317px;
 }
 .M4SubNewsCategory {
-  width: 750px;
+  width: 770px;
   height: 47px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  /* border: 1.5px solid rgb(212, 212, 212);
-  background-color: rgb(252, 252, 252); */
   font-size: 14px;
 }
 .M4SubAdvertisement {
-  width: 350px;
+  width: 352px;
   height: 200px;
-  /* background-color: rgb(252, 252, 252); */
   position: relative;
-  left: -5px;
 }
 .AdvertisementText {
   width: 1000px;
@@ -122,7 +122,7 @@
 .M4SubNewsIconList {
   display: flex;
   position: relative;
-  right: -370px;
+  right: -400px;
   justify-content: space-between;
   align-items: center;
   width: 76px;
@@ -161,6 +161,8 @@
   margin: -1px 0 1px;
 }
 .NewMainSection {
-  width: 764px;
+  position: relative;
+  width: 770px;
   height: 270px;
+  margin: auto;
 }

@@ -17,7 +17,6 @@ const M2 = ({ user, setUser }) => {
       <div className="M2BannerNav">
         <MainBanner />
       </div>
-      <div className="M2Space"></div>
       <div className="M2LoginPosition">
         {user ? (
           <div className="M2LoginUserSection">

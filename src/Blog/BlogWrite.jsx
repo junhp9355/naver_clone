@@ -41,9 +41,6 @@ const BlogWrite = () => {
           method: "POST",
           url: `${BACKEND_URL}/v3/content`,
           data: formData,
-          // headers: {
-          //   "Content-Type": "multipart/form-data",
-          // },
         });
         console.log(data);
         navigate(`/myblog/${userid}`);

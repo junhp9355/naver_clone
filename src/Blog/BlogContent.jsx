@@ -23,7 +23,7 @@ const BlogContent = ({ getAllDB, userid, page, limit, catDB }) => {
   const deleteContents = async (id, e) => {
     try {
       await axios.delete(`${BACKEND_URL}/v3/content/delete/${id}`);
-      navigate(`/myblog/${userid}`);
+      window.location.reload();
     } catch (e) {}
   };
   return (

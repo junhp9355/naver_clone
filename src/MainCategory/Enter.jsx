@@ -3,7 +3,7 @@ import "../styles/Enter.css";
 
 const Enter = () => {
   return (
-    <section>
+    <section className="EnterSection">
       <div className="EnterHead">
         <div className="EnterHeadContent01">
           <div className="EnterHeadContentsImgBox">

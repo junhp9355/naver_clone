@@ -92,7 +92,7 @@ const MyBlog = () => {
     const getContentData = async () => {
       try {
         const contentdata = await axios({
-          url: `${BACKEND_URL}/v3/content`,
+          url: `${BACKEND_URL}/v3/content/${userid}`,
           method: "GET",
         });
         setGetAllDB(contentdata.data.reverse());

@@ -21,12 +21,12 @@ const M3SubNews1 = () => {
       prevEl: navigationPrevRef.current,
       nextEl: navigationNextRef.current,
     },
-    onbeforeprint: (swiper) => {
-      swiper.params.navigation.prevEl = navigationPrevRef.current;
-      swiper.params.navigation.nextEl = navigationNextRef.current;
-      swiper.activeIndex = mainImageIndex;
-      swiper.navigation.update();
-    },
+    // onbeforeprint: (swiper) => {
+    //   swiper.params.navigation.prevEl = navigationPrevRef.current;
+    //   swiper.params.navigation.nextEl = navigationNextRef.current;
+    //   swiper.activeIndex = mainImageIndex;
+    //   swiper.navigation.update();
+    // },
     onSwiper: setSwiper,
     onSlideChange: (e) => setMainImageIndex(e.activeIndex),
   };

@@ -1,7 +1,8 @@
 .EnterHead {
-  width: 765px;
+  width: 770px;
   height: 360px;
   display: flex;
+  margin: auto;
 }
 .EnterHeadContent01 {
   margin-top: 20px;

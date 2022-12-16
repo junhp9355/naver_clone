@@ -1,22 +1,16 @@
 .M2Section {
   display: flex;
-  justify-content: center;
-  width: 100vw;
+  justify-content: space-between;
+  width: 1150px;
+  height: 135px;
+  margin: auto;
 }
 .M2BannerNav {
-  width: 750px;
+  width: 770px;
   height: 135px;
-  max-width: 750px;
-  max-height: 135px;
   position: relative;
   display: block;
   border: 1.5px solid rgb(212, 212, 212);
-}
-.M2Space {
-  width: 30px;
-  position: relative;
-  display: block;
-  height: 100%;
 }
 .M2LoginPosition {
   width: 350px;

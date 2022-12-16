@@ -18,7 +18,6 @@ const M3 = () => {
         <div className="M3SubNewsText2">스포츠</div>
         <div className="M3SubNewsText2">경제</div>
       </div>
-      <div className="M3Space"></div>
       <div className="M3SubNews2">
         <M3SubNews2 />
       </div>

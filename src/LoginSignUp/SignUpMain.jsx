@@ -136,7 +136,7 @@ const SignUpMain = () => {
   };
 
   return (
-    <body className="SignUpMainBody">
+    <div className="SignUpMainBody">
       <nav>
         <span className="SignUpMainLogo" onClick={onClickLogo}></span>
       </nav>
@@ -533,7 +533,7 @@ const SignUpMain = () => {
           가입하기
         </button>
       </form>
-    </body>
+    </div>
   );
 };
 

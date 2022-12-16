@@ -91,37 +91,31 @@
   color: red;
 }
 .SwiperMainBanner1 {
-  width: 750px;
+  width: 770px;
   height: 135px;
-  max-width: 750px;
   background-image: url(/public/banner01.jpg);
-  background-size: 750px 135px;
+  background-size: 770px 135px;
   cursor: pointer;
   position: relative;
-  /* border: 1.5px solid rgb(212, 212, 212); */
   display: block;
 }
 .SwiperMainBanner2 {
   display: block;
-  width: 750px;
+  width: 770px;
   height: 135px;
-  max-width: 750px;
   background-image: url(/public/banner02.jpg);
-  background-size: 750px 135px;
+  background-size: 770px 135px;
   cursor: pointer;
   position: relative;
-  /* border: 1.5px solid rgb(212, 212, 212); */
 }
 .SwiperMainBanner3 {
   display: block;
-  width: 750px;
+  width: 770px;
   height: 135px;
-  max-width: 750px;
   background-image: url(/public/banner03.jpg);
-  background-size: 750px 135px;
+  background-size: 770px 135px;
   cursor: pointer;
   position: relative;
-  /* border: 1.5px solid rgb(212, 212, 212); */
 }
 .swiper2SubNewsHead2 {
   border: 1.5px solid black;
