@@ -130,6 +130,8 @@
   width: 16px;
   height: 16px;
   position: relative;
+  display: block;
+  top: -3px;
 }
 .IDLoginText {
   font-size: 18px;

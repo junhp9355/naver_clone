@@ -59,11 +59,10 @@
 }
 .BlogProfileImg {
   position: relative;
-  width: 200px;
+  width: 150px;
   height: 150px;
-  background-image: url(/public/EnterThumbnail02.jpeg);
-  background-repeat: no-repeat;
-  background-size: 200px 200px;
+  border: 1px solid rgb(236, 236, 236);
+  margin-bottom: 20px;
 }
 .BlogProfileInfo {
   display: flex;

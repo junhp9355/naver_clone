@@ -23,6 +23,7 @@
   border-radius: 50%;
   margin-top: 10px;
   border: 1px solid rgb(236, 236, 236);
+  cursor: pointer;
 }
 .M2UserMainInfo {
   margin-left: 20px;

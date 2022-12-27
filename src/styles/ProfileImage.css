@@ -113,8 +113,6 @@
 }
 .ProfileImage {
   display: block;
-  background-image: url(/public/myInfo.gif);
-  background-size: 100px 100px;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -130,6 +128,7 @@
   top: 20px;
   justify-content: space-between;
   left: 20px;
+  cursor: pointer;
 }
 .ProfileBt {
   position: relative;
@@ -139,6 +138,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.inputimg {
+  display: none;
 }
 .EidtNickname {
   width: 665px;

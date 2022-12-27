@@ -20,7 +20,7 @@
   font-weight: 200;
   color: grey;
   position: relative;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 .SignUpInputBlock {
   width: 460px;
@@ -80,7 +80,7 @@
 .SignUpPWIcon {
   display: inline-block;
   position: absolute;
-  top: 40px;
+  top: 45px;
   right: 13px;
   width: 24px;
   height: 24px;
@@ -132,9 +132,14 @@
   position: relative;
   margin: auto;
 }
+.SignUpSubTitle {
+  display: inline-block;
+  width: 200px;
+  height: 25px;
+}
 .SignUpPhoneNumberBlock {
   position: relative;
-  width: 335px;
+  width: 460px;
   height: 51px;
   background-color: white;
   border: 1px solid rgb(196, 196, 196);
@@ -185,7 +190,7 @@
   font-weight: 600;
   background-color: #03c75a;
   font-size: 20px;
-  top: 1250px;
+  top: 1200px;
   cursor: pointer;
   border: none;
   outline: none;

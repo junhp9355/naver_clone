@@ -19,7 +19,7 @@ const MyBlog = () => {
   const [myMenueVisible, setMyMenuVisible] = useState(false);
   const [myMenueVisible2, setMyMenuVisible2] = useState(false);
   const [getAllDB, setGetAllDB] = useState([]);
-  const [mydata, setMydate] = useState(() => "");
+  const [mydata, setMydata] = useState(() => "");
   const [listvisible, setListvisible] = useState(true);
   const [chooseCat, setChooseCat] = useState(() => "");
   const [catDB, setCatDB] = useState(() => []);
@@ -85,7 +85,7 @@ const MyBlog = () => {
             userid,
           },
         });
-        setMydate(data.data);
+        setMydata(data.data);
       } catch (e) {}
     };
     getData();
@@ -170,7 +170,7 @@ const MyBlog = () => {
       <section className="MyBlogMainBody">
         <div className="MyBlogSideBody">
           <span className="BlogSideHeadBlank" />
-          <span className="BlogProfileImg" />
+          <img src={user.imgUrl} alt="00" className="BlogProfileImg" />
           <div className="BlogProfileInfo">
             <span className="BlogProfileNickName">{mydata.nickname}</span>
             <span className="BlogProfileID">{user.userid}</span>

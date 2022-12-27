@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 const M2 = ({ user, setUser }) => {
   const navigate = useNavigate();
-
   const onClickLogout = () => {
     setUser("");
     localStorage.clear();
   };
+  console.log(user);
   return (
     <section className="M2Section">
       <div className="M2BannerNav">

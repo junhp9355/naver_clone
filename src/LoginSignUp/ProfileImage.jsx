@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/ProfileImage.css";
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
+import { BACKEND_URL } from "../Util/Util";
 
 const ProfileImage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [profileImage, setProfileImage] = useState("");
   const user = location.state.user;
+  const formData = new FormData();
+  console.log("프로필 이미지", profileImage);
+  const postProfileImage = async () => {
+    try {
+      const data = await axios({
+        method: "PATCH",
+        url: `${BACKEND_URL}/v1/profile/image/${user.userid}`,
+        data: formData,
+      });
+      setProfileImage(data.data);
+    } catch (e) {
+      alert("PATCH FAIL");
+    }
+  };
 
+  console.log(user.imgUrl);
   return (
     <div className="ProfileEditBody">
       <nav className="ProfileTopMenu">
@@ -21,7 +39,7 @@ const ProfileImage = () => {
             <span className="ProfileLogo2" />
           </div>
           <div className="ProfileInfo">
-            <span className="ProfileSImage" />
+            <img src={user.imgUrl} alt="00" className="ProfileSImage" />
             <span>{user.nickname}</span>
           </div>
         </div>
@@ -37,9 +55,21 @@ const ProfileImage = () => {
               <span>프로필 사진</span>
             </div>
             <div className="EidtImage">
-              <span className="ProfileImage" />
+              <img src={user.imgUrl} alt="00" className="ProfileImage" />
               <div className="ProfileBtArea">
-                <div className="ProfileBt">사진변경</div>
+                <label className="ProfileBt" htmlFor="inputimg">
+                  사진변경
+                </label>
+                <input
+                  type="file"
+                  id="inputimg"
+                  className="inputimg"
+                  onChange={(e) => {
+                    for (let i = 0; i < e.target.files.length; i++) {
+                      formData.append("files", e.target.files[i]);
+                    }
+                  }}
+                />
                 <div className="ProfileBt">삭제</div>
               </div>
             </div>
@@ -58,7 +88,9 @@ const ProfileImage = () => {
           </div>
         </div>
         <div className="ProfileBtArea2">
-          <div className="ProfileBt">적용</div>
+          <div className="ProfileBt" onClick={postProfileImage}>
+            적용
+          </div>
           <div
             className="ProfileBt"
             onClick={() => {

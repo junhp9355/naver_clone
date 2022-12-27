@@ -142,7 +142,7 @@ const SignUpMain = () => {
       </nav>
       <form className="SignUpMainSection" onSubmit={onSubmitUserData}>
         <div className="SignUpValueBlock">
-          <span>아이디</span>
+          <span className="SignUpSubTitle">아이디</span>
           <div className="SignUpInputBlock">
             <input
               type="text"
@@ -155,7 +155,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <span>닉네임</span>
+          <span className="SignUpSubTitle">닉네임</span>
           <div className="SignUpInputBlock">
             <input
               type="text"
@@ -167,7 +167,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <span>비밀번호</span>
+          <span className="SignUpSubTitle">비밀번호</span>
           <div className="SignUpInputBlock">
             <input
               type="password"
@@ -180,7 +180,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <span>비밀번호 재확인</span>
+          <span className="SignUpSubTitle">비밀번호 재확인</span>
           <div className="SignUpInputBlock">
             <input
               type="password"
@@ -193,7 +193,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <span>이름</span>
+          <span className="SignUpSubTitle">이름</span>
           <div className="SignUpInputBlock">
             <input
               type="text"
@@ -205,7 +205,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <span>생년월일</span>
+          <span className="SignUpSubTitle">생년월일</span>
           <div className="SignUPBirthdayBlock">
             <div className="SignUpInputBirthday">
               <input
@@ -251,7 +251,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <span>성별</span>
+          <span className="SignUpSubTitle">성별</span>
           <div className="SignUpInputBlock">
             <select
               name="gender"
@@ -267,7 +267,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <span>
+          <span className="SignUpSubTitle">
             본인 확인 이메일<span>(선택)</span>
           </span>
           <div className="SignUpInputBlock">
@@ -281,7 +281,7 @@ const SignUpMain = () => {
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
         <div className="SignUpValueBlock">
-          <span>휴대전화</span>
+          <span className="SignUpSubTitle">휴대전화</span>
           <div className="SignUpInputBlock">
             <select
               name="Globalnumber"
@@ -517,15 +517,6 @@ const SignUpMain = () => {
                 onChange={onChangeUserNumber}
               />
             </div>
-            <div className="CertificationNumber">인증번호 받기</div>
-          </div>
-          <div className="SignUpMainSpace" />
-          <div className="SignUpInputBlock2">
-            <input
-              type="text"
-              className="SignUpInputValue2"
-              placeholder="인증번호를 입력하세요"
-            />
           </div>
           <p className="SignUpInputWarning">필수 정보입니다.</p>
         </div>
