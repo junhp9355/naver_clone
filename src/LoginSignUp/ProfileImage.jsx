@@ -1,30 +1,85 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../styles/ProfileImage.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
+import { useRecoilState } from "recoil";
+import { recoilUser } from "../recoil/RecoilUser";
 
 const ProfileImage = () => {
+  const [user, setUser] = useRecoilState(recoilUser);
   const navigate = useNavigate();
   const location = useLocation();
-  const [profileImage, setProfileImage] = useState("");
-  const user = location.state.user;
+  const [profileImg, setProfileImg] = useState("");
+  const [updateUser, setUpdateUser] = useState(() => "");
+  const [nickname, setNickname] = useState("");
+  //
+  const [imgFile, setImgFile] = useState("");
+  const imgRef = useRef();
   const formData = new FormData();
-  console.log("프로필 이미지", profileImage);
-  const postProfileImage = async () => {
-    try {
-      const data = await axios({
-        method: "PATCH",
-        url: `${BACKEND_URL}/v1/profile/image/${user.userid}`,
-        data: formData,
-      });
-      setProfileImage(data.data);
-    } catch (e) {
-      alert("PATCH FAIL");
-    }
+  const saveImgFile = (e) => {
+    const file = imgRef.current.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImgFile(reader.result);
+    };
+    setProfileImg(e.target.files[0]);
+  };
+  const userid = user.userid;
+  const onChangeNickname = (e) => {
+    setNickname(e.target.value);
+  };
+  // const postImage = async () => {
+  //   try {
+  //     const data = await axios({
+  //       method: "POST",
+  //       url: `${BACKEND_URL}/v5/profile/image/${user.userid}`,
+  //       data: formData,
+  //     });
+  //     setProfileImageList((prev) => prev.concat(parseInt(data.data.id)));
+  //   } catch (e) {
+  //     alert("POST FAIL");
+  //   }
+  // };
+
+  const updateProfile = () => {
+    formData.append("nickname", nickname);
+    formData.append("file", profileImg);
+
+    const patchProfileData = async () => {
+      try {
+        const data = await axios({
+          method: "PATCH",
+          url: `${BACKEND_URL}/v1/profile/${user.userid}`,
+          data: formData,
+        });
+      } catch (e) {
+        alert("PATCH FAIL");
+      }
+    };
+    patchProfileData();
+
+    const updateUserdata = async () => {
+      try {
+        const data = await axios({
+          method: "GET",
+          url: `${BACKEND_URL}/v1/myblog`,
+          params: {
+            userid,
+          },
+        });
+        setUser(data.data);
+        // window.location.reload();
+      } catch (e) {}
+    };
+    updateUserdata();
   };
 
-  console.log(user.imgUrl);
+  console.log("userid", userid);
+  // console.log("???", updateUser);
+  console.log("user", user);
+
   return (
     <div className="ProfileEditBody">
       <nav className="ProfileTopMenu">
@@ -39,7 +94,11 @@ const ProfileImage = () => {
             <span className="ProfileLogo2" />
           </div>
           <div className="ProfileInfo">
-            <img src={user.imgUrl} alt="00" className="ProfileSImage" />
+            <img
+              src={imgFile ? imgFile : user.basicProfile}
+              alt="00"
+              className="ProfileSImage"
+            />
             <span>{user.nickname}</span>
           </div>
         </div>
@@ -55,7 +114,11 @@ const ProfileImage = () => {
               <span>프로필 사진</span>
             </div>
             <div className="EidtImage">
-              <img src={user.imgUrl} alt="00" className="ProfileImage" />
+              <img
+                src={imgFile ? imgFile : user.basicProfile}
+                alt="test"
+                className="ProfileImage"
+              />
               <div className="ProfileBtArea">
                 <label className="ProfileBt" htmlFor="inputimg">
                   사진변경
@@ -64,11 +127,8 @@ const ProfileImage = () => {
                   type="file"
                   id="inputimg"
                   className="inputimg"
-                  onChange={(e) => {
-                    for (let i = 0; i < e.target.files.length; i++) {
-                      formData.append("files", e.target.files[i]);
-                    }
-                  }}
+                  onChange={saveImgFile}
+                  ref={imgRef}
                 />
                 <div className="ProfileBt">삭제</div>
               </div>
@@ -83,12 +143,19 @@ const ProfileImage = () => {
                 type="text"
                 className="inputNickname"
                 placeholder={user.nickname}
+                value={nickname}
+                onChange={onChangeNickname}
               />
             </div>
           </div>
         </div>
         <div className="ProfileBtArea2">
-          <div className="ProfileBt" onClick={postProfileImage}>
+          <div
+            className="ProfileBt"
+            onClick={() => {
+              updateProfile();
+            }}
+          >
             적용
           </div>
           <div
