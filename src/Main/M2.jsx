@@ -22,16 +22,19 @@ const M2 = ({ user, setUser }) => {
           <div className="M2LoginUserSection">
             <div>
               <div className="M2LoginUserManinSection">
-                <span
-                  className="M2UserProfileImg"
-                  onClick={() => {
-                    navigate(`/profile/${user.userid}`, {
-                      state: { user: user },
-                    });
-                  }}
-                >
+                <div className="M2UserImgArea">
+                  <img
+                    src={user.basicProfile}
+                    alt={user.userid}
+                    className="M2UserProfileImg"
+                    onClick={() => {
+                      navigate(`/profile/${user.userid}`, {
+                        state: { user: user },
+                      });
+                    }}
+                  ></img>
                   <span className="M2UserProfileSetting"></span>
-                </span>
+                </div>
                 <div className="M2UserMainInfo">
                   <div className="M2UserInfo">
                     <span className="M2UserID">{user.nickname}</span>

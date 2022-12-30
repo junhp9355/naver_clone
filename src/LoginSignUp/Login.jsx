@@ -14,18 +14,6 @@ const Login = () => {
   const [user, setUser] = useRecoilState(recoilUser);
   const [fail, setFail] = useState(true);
 
-  const onClickSignUpBt = () => {
-    navigate("/signup");
-  };
-  const onClickSignUpLogo = () => {
-    navigate("/");
-  };
-  const onChangeUserid = (e) => {
-    setUserid(e.target.value);
-  };
-  const onChangePassword = (e) => {
-    setPassword(e.target.value);
-  };
   const sendLoginUserdata = async (userid, password) => {
     try {
       const data = await axios.post(`${BACKEND_URL}/v1/login`, {
@@ -47,7 +35,12 @@ const Login = () => {
   };
   return (
     <section className="LoginSection">
-      <span className="LoginLogo" onClick={onClickSignUpLogo}></span>
+      <span
+        className="LoginLogo"
+        onClick={() => {
+          navigate("/");
+        }}
+      ></span>
       <form className="LoginMain" onSubmit={onSubmitLoginUser}>
         <div className="LoginTopHeader">
           <span className="IDLoginIcon"></span>
@@ -61,7 +54,9 @@ const Login = () => {
               className="LoginID"
               placeholder="아이디"
               value={userid}
-              onChange={onChangeUserid}
+              onChange={(e) => {
+                setUserid(e.target.value);
+              }}
             />
           </div>
           <div className="LoginInputPWPos">
@@ -71,7 +66,9 @@ const Login = () => {
               className="LoginPW"
               placeholder="비밀번호"
               value={password}
-              onChange={onChangePassword}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </div>
         </div>
@@ -103,7 +100,12 @@ const Login = () => {
         <div className="LoginSpace">|</div>
         <div>아이디 찾기</div>
         <div className="LoginSpace">|</div>
-        <div onClick={onClickSignUpBt} className="LoginSignupBt">
+        <div
+          onClick={() => {
+            navigate("/signup");
+          }}
+          className="LoginSignupBt"
+        >
           회원가입
         </div>
       </div>

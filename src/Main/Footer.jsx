@@ -126,7 +126,7 @@ const Footer = () => {
         <span className="FooterPublicText">고객센터</span>
         <span className="FooterPublicTitle">ⓒ NAVER Corp.</span>
       </div>
-      <div className="FooterSpace"></div>
+      {/* <div className="FooterSpace"></div> */}
     </footer>
   );
 };

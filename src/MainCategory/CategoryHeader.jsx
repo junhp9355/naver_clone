@@ -4,15 +4,10 @@ import "../MySlick/slick.css";
 import "../MySlick/slick-theme.css";
 import Slider from "react-slick";
 import Enter from "../MainCategory/Enter";
+import Sports from "./Sports";
 
 const CategoryHeader = () => {
   const [number, setNumber] = useState(1);
-  const onClickNextBt = () => {
-    setNumber(number + 1);
-  };
-  const onClickPrevBt = () => {
-    setNumber(number - 1);
-  };
   const SampleNextArrow = (props) => {
     const { onClick } = props;
     return (
@@ -20,7 +15,11 @@ const CategoryHeader = () => {
         className="CategoryNextArrowBt"
         onClick={number >= 8 ? onClick : undefined}
       >
-        <div onClick={onClickNextBt}>
+        <div
+          onClick={() => {
+            setNumber(number + 1);
+          }}
+        >
           <div className={number === 10 ? "NoneArrow" : "CategoryNextArrow"} />
         </div>
       </div>
@@ -30,7 +29,11 @@ const CategoryHeader = () => {
     const { onClick } = props;
     return (
       <div className="CategoryPrevArrowBt" onClick={onClick}>
-        <div onClick={onClickPrevBt}>
+        <div
+          onClick={() => {
+            setNumber(number - 1);
+          }}
+        >
           <div className={number === 1 ? "NoneArrow" : "CategorysPrevArrow"} />
         </div>
       </div>
@@ -56,6 +59,9 @@ const CategoryHeader = () => {
             className={
               number === 1 ? "Category01 BoxScale" : "MainCategoryHeader Cat01"
             }
+            onClick={() => {
+              setNumber(1);
+            }}
           >
             엔터
           </div>
@@ -65,6 +71,9 @@ const CategoryHeader = () => {
             className={
               number === 2 ? "Category02 BoxScale" : "MainCategoryHeader Cat02"
             }
+            onClick={() => {
+              setNumber(2);
+            }}
           >
             스포츠
           </div>
@@ -74,6 +83,9 @@ const CategoryHeader = () => {
             className={
               number === 3 ? "Category03 BoxScale" : "MainCategoryHeader Cat03"
             }
+            onClick={() => {
+              setNumber(3);
+            }}
           >
             자동차
           </div>
@@ -83,6 +95,9 @@ const CategoryHeader = () => {
             className={
               number === 4 ? "Category04 BoxScale" : "MainCategoryHeader Cat04"
             }
+            onClick={() => {
+              setNumber(4);
+            }}
           >
             웹툰
           </div>
@@ -92,6 +107,9 @@ const CategoryHeader = () => {
             className={
               number === 5 ? "Category05 BoxScale" : "MainCategoryHeader Cat05"
             }
+            onClick={() => {
+              setNumber(5);
+            }}
           >
             경제
           </div>
@@ -101,6 +119,9 @@ const CategoryHeader = () => {
             className={
               number === 6 ? "Category06 BoxScale" : "MainCategoryHeader Cat06"
             }
+            onClick={() => {
+              setNumber(6);
+            }}
           >
             추천구독
           </div>
@@ -110,6 +131,9 @@ const CategoryHeader = () => {
             className={
               number === 7 ? "Category07 BoxScale" : "MainCategoryHeader Cat07"
             }
+            onClick={() => {
+              setNumber(7);
+            }}
           >
             레시피
           </div>
@@ -119,6 +143,9 @@ const CategoryHeader = () => {
             className={
               number === 8 ? "Category08 BoxScale" : "MainCategoryHeader Cat08"
             }
+            onClick={() => {
+              setNumber(8);
+            }}
           >
             리빙
           </div>
@@ -128,6 +155,9 @@ const CategoryHeader = () => {
             className={
               number === 9 ? "Category09 BoxScale" : "MainCategoryHeader Cat09"
             }
+            onClick={() => {
+              setNumber(9);
+            }}
           >
             책방
           </div>
@@ -137,6 +167,9 @@ const CategoryHeader = () => {
             className={
               number === 10 ? "Category10 BoxScale" : "MainCategoryHeader Cat10"
             }
+            onClick={() => {
+              setNumber(10);
+            }}
           >
             패션뷰티
           </div>
@@ -147,7 +180,7 @@ const CategoryHeader = () => {
           <Enter />
         </div>
         <div className={number === 2 ? undefined : "NoneContents"}>
-          {/* <Enter /> */}
+          <Sports />
         </div>
         <div className={number === 3 ? undefined : "NoneContents"}>
           하단 내용

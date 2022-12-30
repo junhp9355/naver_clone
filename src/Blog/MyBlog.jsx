@@ -32,15 +32,7 @@ const MyBlog = () => {
   const selectDetailDB = getAllDB.filter(
     (value) => value.maincategory === chooseCat
   );
-  const onClickAllContentList = () => {
-    setChooseCat("");
-  };
-  const onClickChooseCat = (e) => {
-    setChooseCat(e);
-  };
-  const onClinckListBt = () => {
-    setListvisible((listvisible) => !listvisible);
-  };
+
   const onClickTopArrow = () => {
     if (topArrowVisible2 === true) {
       setTopArrowVisible2(false);
@@ -57,24 +49,7 @@ const MyBlog = () => {
     setTopArrowVisible2((topArrowVisible2) => !topArrowVisible2);
     setMyMenuVisible2((myMenueVisible2) => !myMenueVisible2);
   };
-  const onClickHome = () => {
-    navigate("/");
-  };
-  const onClickEdit = () => {
-    navigate(`/myblog/${user.userid}/edit`, {
-      state: { mydata: mydata },
-    });
-  };
-  const onClickWrite = () => {
-    navigate(`/myblog/${user.userid}/write`, {
-      state: { catDB: catDB, userid: userid },
-    });
-  };
-  const onClickLogout = () => {
-    setUser("");
-    navigate("/");
-    localStorage.clear();
-  };
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -118,7 +93,12 @@ const MyBlog = () => {
     <div className="MyBlogBody">
       <nav className="MyBlogTopNav">
         <div className="MyBlogTopMenu">
-          <span className="MyBlogTopMenuText" onClick={onClickHome}>
+          <span
+            className="MyBlogTopMenuText"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             네이버 홈
           </span>
           <span className="MyBlogTopMenuText" onClick={onClickTopArrow}>
@@ -131,7 +111,24 @@ const MyBlog = () => {
             <div className={myMenueVisible ? "BlogMyMenu" : "MenuNone"}>
               <span className="BackAngle"></span>
               <div className="BlogMyMenuList">
-                <span className="BlogMyMenueText" onClick={onClickEdit}>
+                <span
+                  className="BlogMyMenueText"
+                  onClick={() =>
+                    navigate(`/myblog/${user.userid}/write`, {
+                      state: { catDB: catDB, userid: userid },
+                    })
+                  }
+                >
+                  글쓰기
+                </span>
+                <span
+                  className="BlogMyMenueText"
+                  onClick={() => {
+                    navigate(`/myblog/${user.userid}/edit`, {
+                      state: { mydata: mydata },
+                    });
+                  }}
+                >
                   관 리
                 </span>
               </div>
@@ -147,7 +144,14 @@ const MyBlog = () => {
             <div className={myMenueVisible2 ? "BlogMyMenu2" : "MenuNone"}>
               <span className="BackAngle2"></span>
               <div className="BlogMyMenuList2">
-                <span className="BlogMyMenueText" onClick={onClickLogout}>
+                <span
+                  className="BlogMyMenueText"
+                  onClick={() => {
+                    setUser("");
+                    navigate("/");
+                    localStorage.clear();
+                  }}
+                >
                   로그아웃
                 </span>
               </div>
@@ -170,7 +174,11 @@ const MyBlog = () => {
       <section className="MyBlogMainBody">
         <div className="MyBlogSideBody">
           <span className="BlogSideHeadBlank" />
-          <img src={user.imgUrl} alt="00" className="BlogProfileImg" />
+          <img
+            src={user.basicProfile}
+            alt={user.userid}
+            className="BlogProfileImg"
+          />
           <div className="BlogProfileInfo">
             <span className="BlogProfileNickName">{mydata.nickname}</span>
             <span className="BlogProfileID">{user.userid}</span>
@@ -180,11 +188,25 @@ const MyBlog = () => {
           </div>
           <div className="BlogManagement">
             <span className="BlogWrittingIcon" />
-            <span className="BlogWrittingText" onClick={onClickWrite}>
+            <span
+              className="BlogWrittingText"
+              onClick={() => {
+                navigate(`/myblog/${user.userid}/write`, {
+                  state: { catDB: catDB, userid: userid },
+                });
+              }}
+            >
               글쓰기
             </span>
             <span className="BlogSettingIcon" />
-            <span className="BlogSettingText" onClick={onClickEdit}>
+            <span
+              className="BlogSettingText"
+              onClick={() => {
+                navigate(`/myblog/${user.userid}/edit`, {
+                  state: { mydata: mydata },
+                });
+              }}
+            >
               관리
             </span>
             <span>·</span>
@@ -196,7 +218,13 @@ const MyBlog = () => {
                 <div className="BlogContCatMain">
                   <div className="AllContent">
                     <span className="BlogContCatIcon"></span>
-                    <span onClick={onClickAllContentList}>전체보기</span>
+                    <span
+                      onClick={() => {
+                        setChooseCat("");
+                      }}
+                    >
+                      전체보기
+                    </span>
                     <span>({getAllDB.length})</span>
                     <span
                       className="ContentEditBt"
@@ -212,7 +240,7 @@ const MyBlog = () => {
                         <span className="BlogContCatIcon"></span>
                         <span
                           className="BlogContCatTitle"
-                          onClick={() => onClickChooseCat(item.maincategory)}
+                          onClick={() => setChooseCat(item.maincategory)}
                         >
                           {item.maincategory}
                         </span>
@@ -234,7 +262,9 @@ const MyBlog = () => {
             <div className="BlogMainTopContent">
               <span
                 className="BlogTopContentAll"
-                onClick={onClickAllContentList}
+                onClick={() => {
+                  setChooseCat("");
+                }}
               >
                 전체보기
               </span>
@@ -246,7 +276,9 @@ const MyBlog = () => {
                   className={
                     listvisible ? "BlogTopContentListText" : "ListTextNone"
                   }
-                  onClick={onClinckListBt}
+                  onClick={() => {
+                    setListvisible((listvisible) => !listvisible);
+                  }}
                 >
                   목록열기
                 </span>
@@ -254,7 +286,9 @@ const MyBlog = () => {
                   className={
                     !listvisible ? "BlogTopContentListText" : "ListTextNone"
                   }
-                  onClick={onClinckListBt}
+                  onClick={() => {
+                    setListvisible((listvisible) => !listvisible);
+                  }}
                 >
                   목록닫기
                 </span>

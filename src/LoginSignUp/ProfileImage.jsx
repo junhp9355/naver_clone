@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "../styles/ProfileImage.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../Util/Util";
 import { useRecoilState } from "recoil";
@@ -9,14 +9,13 @@ import { recoilUser } from "../recoil/RecoilUser";
 const ProfileImage = () => {
   const [user, setUser] = useRecoilState(recoilUser);
   const navigate = useNavigate();
-  const location = useLocation();
   const [profileImg, setProfileImg] = useState("");
-  const [updateUser, setUpdateUser] = useState(() => "");
   const [nickname, setNickname] = useState("");
-  //
   const [imgFile, setImgFile] = useState("");
   const imgRef = useRef();
+  const userid = user.userid;
   const formData = new FormData();
+
   const saveImgFile = (e) => {
     const file = imgRef.current.files[0];
     const reader = new FileReader();
@@ -26,60 +25,43 @@ const ProfileImage = () => {
     };
     setProfileImg(e.target.files[0]);
   };
-  const userid = user.userid;
-  const onChangeNickname = (e) => {
-    setNickname(e.target.value);
-  };
-  // const postImage = async () => {
-  //   try {
-  //     const data = await axios({
-  //       method: "POST",
-  //       url: `${BACKEND_URL}/v5/profile/image/${user.userid}`,
-  //       data: formData,
-  //     });
-  //     setProfileImageList((prev) => prev.concat(parseInt(data.data.id)));
-  //   } catch (e) {
-  //     alert("POST FAIL");
-  //   }
-  // };
 
   const updateProfile = () => {
+    alert("변경 내용을 적용하시겠습니까?");
     formData.append("nickname", nickname);
     formData.append("file", profileImg);
-
-    const patchProfileData = async () => {
-      try {
-        const data = await axios({
-          method: "PATCH",
-          url: `${BACKEND_URL}/v1/profile/${user.userid}`,
-          data: formData,
-        });
-      } catch (e) {
-        alert("PATCH FAIL");
-      }
-    };
     patchProfileData();
-
-    const updateUserdata = async () => {
-      try {
-        const data = await axios({
-          method: "GET",
-          url: `${BACKEND_URL}/v1/myblog`,
-          params: {
-            userid,
-          },
-        });
-        setUser(data.data);
-        // window.location.reload();
-      } catch (e) {}
-    };
-    updateUserdata();
   };
 
-  console.log("userid", userid);
-  // console.log("???", updateUser);
-  console.log("user", user);
+  const patchProfileData = async () => {
+    try {
+      await axios({
+        method: "PATCH",
+        url: `${BACKEND_URL}/v1/profile/${user.userid}`,
+        data: formData,
+      });
+      const data = await axios({
+        method: "GET",
+        url: `${BACKEND_URL}/v1/myblog`,
+        params: {
+          userid,
+        },
+      });
+      setUser(data.data);
+      navigate("/");
+    } catch (e) {
+      alert("PATCH FAIL");
+    }
+  };
+  // const updateUserdata = async () => {
+  //   try {
 
+  //     window.location.reload();
+  //   } catch (e) {
+  //     alert("GET FAIL");
+  //   }
+  // };
+  console.log("new user", user);
   return (
     <div className="ProfileEditBody">
       <nav className="ProfileTopMenu">
@@ -96,7 +78,7 @@ const ProfileImage = () => {
           <div className="ProfileInfo">
             <img
               src={imgFile ? imgFile : user.basicProfile}
-              alt="00"
+              alt={user.userid}
               className="ProfileSImage"
             />
             <span>{user.nickname}</span>
@@ -116,7 +98,7 @@ const ProfileImage = () => {
             <div className="EidtImage">
               <img
                 src={imgFile ? imgFile : user.basicProfile}
-                alt="test"
+                alt={user.userid}
                 className="ProfileImage"
               />
               <div className="ProfileBtArea">
@@ -144,18 +126,15 @@ const ProfileImage = () => {
                 className="inputNickname"
                 placeholder={user.nickname}
                 value={nickname}
-                onChange={onChangeNickname}
+                onChange={(e) => {
+                  setNickname(e.target.value);
+                }}
               />
             </div>
           </div>
         </div>
         <div className="ProfileBtArea2">
-          <div
-            className="ProfileBt"
-            onClick={() => {
-              updateProfile();
-            }}
-          >
+          <div className="ProfileBt" onClick={updateProfile}>
             적용
           </div>
           <div

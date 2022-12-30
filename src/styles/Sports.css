@@ -1,0 +1,240 @@
+@keyframes ImgZoom {
+  100% {
+    transform: scale(1.05);
+  }
+  0% {
+    transform: scale(1);
+  }
+}
+.SportsContentsBox {
+  overflow: hidden;
+}
+.SportsContents:hover {
+  animation: ImgZoom 0.5s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.SportsHead {
+  width: 750px;
+  height: 320px;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+}
+.SportsHeadContent01 {
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 25px;
+}
+.SportsThumbnail01 {
+  background-image: url(/public/SportsThumbnail02.jpg);
+  background-repeat: no-repeat;
+  background-size: 364px 180px;
+  width: 364px;
+  height: 180px;
+  position: relative;
+}
+.SportsThumbnail02 {
+  background-image: url(/public/SportsThumbnail01.png);
+  background-repeat: no-repeat;
+  background-size: 364px 180px;
+  width: 364px;
+  height: 180px;
+  position: relative;
+}
+.SportsHeadText01 {
+  font-weight: bold;
+  color: #0147b5;
+}
+.SportsHeadText02 {
+  font-weight: bold;
+  width: 350px;
+}
+.SportsSubText01 {
+  font-weight: bold;
+  color: #0147b5;
+}
+.SportsSubText02 {
+  font-weight: bold;
+  width: 180px;
+}
+.SportsHeadContentText {
+  width: 300px;
+  line-height: 23px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+}
+.SportsHeadContentText > span:last-child {
+  font-size: 12px;
+}
+.MiddleContentLine {
+  position: relative;
+  width: 750px;
+  height: 250px;
+  top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.MiddleHead {
+  width: 750px;
+  height: 49px;
+  background-color: #f7f9fa;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid #dae1e6;
+}
+.MiddleBar {
+  width: 1px;
+  height: 25px;
+  background-color: gray;
+  opacity: 0.3;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.MiddleSubHead {
+  display: flex;
+  width: 460px;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+.SportsMiddleMainHead {
+  position: relative;
+  margin-left: 25px;
+  color: #0147b5;
+}
+.SportsMiddleContents01 {
+  background-image: url(/public/SportsMiddlethumbnail01.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.SportsMiddleContents02 {
+  background-image: url(/public/SportsMiddlethumbnail02.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.SportsMiddleContents03 {
+  background-image: url(/public/SportsMiddlethumbnail03.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.SportsMiddleContents04 {
+  background-image: url(/public/SportsMiddlethumbnail04.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.SportsMiddleContents05 {
+  background-image: url(/public/SportsMiddlethumbnail05.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.SportsMiddleContents06 {
+  background-image: url(/public/SportsMiddlethumbnail06.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.SportsMiddleContents07 {
+  background-image: url(/public/SportsMiddlethumbnail07.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.SportsMiddleContents08 {
+  background-image: url(/public/SportsMiddlethumbnail08.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.SportsMiddleContents09 {
+  background-image: url(/public/SportsMiddlethumbnail09.jpg);
+  background-size: 232px 130px;
+  background-repeat: no-repeat;
+  width: 232px;
+  height: 130px;
+  display: block;
+}
+.MiddleContentsPlayIcon {
+  background-image: url(/public/navericon.png);
+  background-size: 442px 428px;
+  display: inline-block;
+  width: 24px;
+  height: 28px;
+  background-position: 0px -382px;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 95px;
+  left: 10px;
+}
+.MiddleContentsText {
+  font-weight: bold;
+  width: 232px;
+  position: relative;
+  top: 10px;
+}
+.MiddleContentsGenre {
+  color: #0147b5;
+}
+.MiddleContentsAD {
+  color: #8f8f8f;
+}
+.MiddleContentsSubText {
+  font-weight: 200;
+}
+.MiddlePoint {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: grey;
+  opacity: 0.5;
+  position: relative;
+  margin-bottom: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.MiddleContentsTitle {
+  position: relative;
+  margin-top: 5px;
+  width: 232px;
+  height: 40px;
+}
+.MiddleADBt {
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.MiddleContents:hover {
+  animation: ImgZoom 0.5s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.MdiddleContentsImgBox {
+  width: 232px;
+  height: 130px;
+  overflow: hidden;
+}
