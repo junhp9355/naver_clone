@@ -2,8 +2,8 @@
 
 // module.exports = function (app) {
 //   app.use(
-//     createProxyMiddleware("/api/v1/", {
-//       target: "http://localhost:8185/",
+//     createProxyMiddleware("/v1/", {
+//       target: "http://localhost:8181/",
 //       changeOrigin: true,
 //     })
 //   );
