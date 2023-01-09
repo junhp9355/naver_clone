@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('connect test') {
-            step{
+            steps{
                 sh """
                 echo connnect test
                 """
