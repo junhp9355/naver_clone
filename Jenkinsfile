@@ -5,7 +5,7 @@ pipeline {
         stage('connect test') {
             steps{
                 sh """
-                echo connnect test
+                echo connnect test!!!!
                 """
             }
         }
