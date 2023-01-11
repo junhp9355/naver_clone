@@ -75,9 +75,23 @@ const M2 = ({ user, setUser }) => {
             </div>
             <div className="M2LoginSubMenu">
               <span className="M2LoginLockImg"></span>
-              <div className="M2LoginID">아이디</div>
+              <div
+                className="M2LoginID"
+                onClick={() => {
+                  navigate("/help");
+                }}
+              >
+                아이디
+              </div>
               <span>/</span>
-              <div className="M2LoginPW">비밀번호찾기</div>
+              <div
+                className="M2LoginPW"
+                onClick={() => {
+                  navigate("/help");
+                }}
+              >
+                비밀번호찾기
+              </div>
               <div className="M2LoginSignUP">
                 <span className="M2LoginSignUpImg"></span>
                 <a href="/signup">회원가입</a>

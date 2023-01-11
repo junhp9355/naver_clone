@@ -78,13 +78,16 @@
 .M2LoginPW {
   width: 90px;
   text-align: center;
+  cursor: pointer;
 }
 .M2LoginID {
   width: 50px;
   text-align: center;
+  cursor: pointer;
 }
 .M2LoginSignUP {
   position: relative;
   display: flex;
   margin-left: 75px;
+  cursor: pointer;
 }

@@ -11,6 +11,7 @@ import BlogWrite from "./Blog/BlogWrite";
 import BlogEditorContent from "./Blog/BlogEditorContent";
 import BlogUpdate from "./Blog/BlogUpdate";
 import ProfileImage from "./LoginSignUp/ProfileImage";
+import FindIdPW from "./LoginSignUp/FindIdPw";
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
               path="/myblog/:userid/edit/content"
               element={<BlogEditorContent />}
             />
-            <Route path="profile/:userid" element={<ProfileImage />} />
+            <Route path="/profile/:userid" element={<ProfileImage />} />
+            <Route path="/help" element={<FindIdPW />} />
           </Routes>
         </BrowserRouter>
       </RecoilRoot>
