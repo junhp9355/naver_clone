@@ -1,17 +1,24 @@
-FROM nginx
+# FROM nginx
 
-RUN mkdir /app
+# RUN mkdir /app
 
-WORKDIR /app
+# WORKDIR /app
 
-RUN mkdir ./build
+# RUN mkdir ./build
 
-ADD ./build ./build
+# ADD ./build ./build
 
-RUN rm /etc/nginx/conf.d/default.conf
+# RUN rm /etc/nginx/conf.d/default.conf
 
-COPY ./nginx.conf /etc/nginx/conf.d
+# COPY ./nginx.conf /etc/nginx/conf.d
 
-EXPOSE 80
+# EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+
+FROM node
+WORKDIR usr/src/app
+COPY package.json ./
+RUN npm install
+COPY ./ ./
+CMD ["npm", "run", "start"]
