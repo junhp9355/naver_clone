@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Naver Clone : Front-End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+>🔥 **INTRODUCE**<br /><br />
+이 프로젝트는 리액트와 스프링부트를 이용하여 네이버 메인페이지 클론을 위해 만들어졌습니다.<br />
+메인페이지 기본적인 구성을 구현하였으며, 회원가입, 로그인, 블로그 작성 기능을 구현하였습니다. <br />
 
-## Available Scripts
+<br />
 
-In the project directory, you can run:
+## 🛠 기술 스택
+- JavaScript
+- **Framework** : React
+- **AWS EC2 배포** : AWS EC2를 사용하여 '넌 어때?' 에 리액트 프로젝트와 스프링부트 프로젝트를 배포하였습니다.
+<br />
 
-### `npm start`
+## 📌 주요 기능
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**1. 회원 기능**
+- 회원가입
+- 로그인<br />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![회원가입 & 로그인](https://user-images.githubusercontent.com/109199214/212074977-c4e6411a-e5ab-45a0-8a33-b92455c22b09.gif)
 
-### `npm test`
+- 로그인 상태에서 비밀번호 검증을 한번 거친 후 회원 정보(닉네임, 이메일, 패스워드)를 변경할 수 있습니다.<br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![회원정보 수정](https://user-images.githubusercontent.com/109199214/212076814-14da75ce-0967-4534-93f0-436a0fe31d7c.gif)
 
-### `npm run build`
+**2. 장소 검색**
+- 카카오맵 api를 활용하여 카카오에서 제공하는 데이터로 장소 검색과 상세정보를 확인할 수 있습니다.<br />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![검색기능](https://user-images.githubusercontent.com/109199214/212091892-61b48477-fdfb-4a18-b1b9-856a27ebbb35.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**3. 댓글 업로드**
+- AWS S3 버킷을 활용하여 사진을 포함한 댓글을 작성할 수 있습니다.
+- 작성된 댓글의 사진은 페이지 상단에 후기 사진으로 보여집니다.<br />
 
-### `npm run eject`
+![댓글 기능](https://user-images.githubusercontent.com/109199214/212094581-77b4a1b7-9be4-4a33-a52b-86c83749143c.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**4. 좋아요 / 북마크 기능**
+- 검색한 장소의 페이지에서 좋아요 또는 북마크 표시를 할 수 있고, 북마크 한 장소는 `MY PLACE` 페이지에서 확인하고, 공유할 수 있습니다.<br />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![북마크](https://user-images.githubusercontent.com/109199214/212094644-af6808ae-8891-4259-bce8-1e1c5edbc0ff.gif)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**5. 후기 및 개선 방향**
